@@ -1242,7 +1242,7 @@ Private Function setLoginData() As Boolean
    cnn.Open ConnectionStrings_MySQL.OledbConnectionString
    
    Set cmd = New ADODB.Command
-   Set cmd.activeConnection = cnn
+   Set cmd.ActiveConnection = cnn
    cmd.CommandText = "GetLoginData"
    cmd.CommandType = adCmdStoredProc
    cmd.Parameters.Append cmd.CreateParameter("windowsuser", adVarChar, adParamInput, 255)

@@ -69,7 +69,7 @@ Public Sub UpdateCodeModules()
    With CreateObject("ADODB.Recordset")
       .CursorLocation = 3 'adUseClient
       .Open SelectSql, CodeProject.Connection, 1, 1 ' 1 = adOpenKeyset, 1 = adLockReadOnly
-      Set .activeConnection = Nothing
+      Set .ActiveConnection = Nothing
    
       IsFirstRecord = True
       Do While Not .EOF
