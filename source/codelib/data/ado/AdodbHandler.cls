@@ -63,7 +63,7 @@ Public Event ErrorEmptyConnectionString(ByVal Msg As String, ByRef NewConnection
 
 
 Public Event HookInsertIdentityReturn(ByRef InsertSql As String, ByRef IdentityTable As String, _
-                                      ByRef activeConnection As ADODB.Connection, ByRef IdentitySelectString As String, _
+                                      ByRef ActiveConnection As ADODB.Connection, ByRef IdentitySelectString As String, _
                                       ByRef HookResumeMode As Long, ByRef HookResumeMessage As Variant)
 
 Private m_HooksEnabled As Boolean
@@ -265,7 +265,7 @@ Public Function ExecuteCommand(ByVal CmdText As String, _
    Set cmd = New ADODB.Command
    With cmd
    
-      Set .activeConnection = Me.CurrentConnection
+      Set .ActiveConnection = Me.CurrentConnection
       .CommandText = CmdText
       .CommandType = CmdType
    
@@ -331,7 +331,7 @@ Public Function OpenRecordset(ByVal Source As String, _
       .Open Source, Me.CurrentConnection, CursorType, LockType
       
       If DisconnectedRecordset Then
-         Set .activeConnection = Nothing
+         Set .ActiveConnection = Nothing
       End If
       
    End With
@@ -368,7 +368,7 @@ Public Function OpenRecordsetCommandParam(ByVal CmdText As String, _
 
    With cmd
 
-      Set .activeConnection = Me.CurrentConnection
+      Set .ActiveConnection = Me.CurrentConnection
       .CommandText = CmdText
       .CommandType = CmdType
 

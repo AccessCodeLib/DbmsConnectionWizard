@@ -25,7 +25,7 @@ Public Const DCW_LinkTablesFormName As String = "frmConfig_LinkTables"
 Public Const DCW_TestSqlFormName As String = "frmTest_SQL"
 
 'Datenfelder
-Public Const DCW_usys_DbmsConnection_Fields As String = "CID, activeConnection, DBMS, dbmsConnectionMode, dbmsOleDbProvider, dbmsOdbcDriver, dbmsServer, dbmsPort, dbmsDatabase, dbmsUseTrustedConnection, dbmsUseLoginForm, dbmsUser, dbmsPwd, dbmsOptionsODBC, dbmsOptionsOLEDB, dbmsDSN, dbmsConStrODBC, dbmsConStrOLEDB, Remarks"
+Public Const DCW_usys_DbmsConnection_Fields As String = "CID, ActiveConnection, DBMS, dbmsConnectionMode, dbmsOleDbProvider, dbmsOdbcDriver, dbmsServer, dbmsPort, dbmsDatabase, dbmsUseTrustedConnection, dbmsUseLoginForm, dbmsUser, dbmsPwd, dbmsOptionsODBC, dbmsOptionsOLEDB, dbmsDSN, dbmsConStrODBC, dbmsConStrOLEDB, Remarks"
 
 
 Public Enum DCW_RecordsetModes

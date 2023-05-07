@@ -10,7 +10,7 @@ Public Function CreateConnectionTable(ByRef cnn As ADODB.Connection) As Boolean
 
    strSQL = "CREATE TABLE usys_DbmsConnection " & _
             "([CID] varchar(20) WITH COMPRESSION NOT NULL," & _
-            " [activeConnection] bit NOT NULL DEFAULT 0," & _
+            " [ActiveConnection] bit NOT NULL DEFAULT 0," & _
             " [DBMS] varchar(20) WITH COMPRESSION NOT NULL," & _
             " [dbmsConnectionMode] byte DEFAULT 1," & _
             " [dbmsOleDbProvider] varchar(255) WITH COMPRESSION," & _
