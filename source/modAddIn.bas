@@ -3,7 +3,7 @@ Option Compare Text
 Option Explicit
 Option Private Module
 
-'Tabelle usys_DbmsConnection erstellen
+'Create tabelle usys_DbmsConnection
 Public Function CreateConnectionTable(ByRef cnn As ADODB.Connection) As Boolean
 
    Dim strSQL As String
@@ -52,7 +52,7 @@ On Error Resume Next
 
 End Sub
 
-'Prüfen ob Login-Formular vorhanden ist
+'Check if login form is available
 Public Sub CheckLoginForm()
    
    Dim rst As DAO.Recordset
@@ -64,13 +64,12 @@ Public Sub CheckLoginForm()
    Set rst = Nothing
       
    If bolMissingForm Then
-      'DoCmd.CopyObject CurrentDb.Name, DCW_LoginFormName, acForm, DCW_LoginFormName
       TransferCodeModul CurrentProject, acForm, DCW_LoginFormName
    End If
 
 End Sub
 
-'Module u. Klassen übertragen
+'Transfer modules + classes
 Public Sub TransferCodeModules(ParamArray sModulName() As Variant)
    
    Dim i As Long
@@ -83,27 +82,25 @@ Public Sub TransferCodeModules(ParamArray sModulName() As Variant)
 
 End Sub
 
-'Module u. Klassen erneuern
+'Renew modules + classes
 Public Function ReplaceCodeModules(ParamArray sModulName() As Variant) As Boolean
    
    Dim i As Long
    Dim ArrSize As Long
    Dim vbp As Object 'VBProject
  
-   'VBProject der Anwendung:
    Set vbp = CurrentVbProject
 
-   'Module erneuern:
    If Not (vbp Is Nothing) Then
       ArrSize = UBound(sModulName)
       For i = 0 To ArrSize
       
+         ' 1. delete
          If CheckCodeModule(sModulName(i)) Then
-            'Modul löschen
             vbp.VBComponents.Remove vbp.VBComponents(sModulName(i))
          End If
          
-         'Module kopieren:
+         ' 2. check => insert
          CheckCodeModule sModulName(i), True
          
       Next
@@ -115,7 +112,7 @@ Public Function ReplaceCodeModules(ParamArray sModulName() As Variant) As Boolea
 End Function
 
 
-'Module u. Klassen auf Existenz prüfen. Es erfolgt keine inhaltliche Prüfung!
+'Check modules and classes for existence. There is no content check!
 Public Function CheckCodeModules(ParamArray sModulName() As Variant) As Boolean
    
    Dim i As Long
@@ -132,7 +129,7 @@ Public Function CheckCodeModules(ParamArray sModulName() As Variant) As Boolean
 
 End Function
 
-'Modul oder Klasse auf Existenz prüfen. Es erfolgt keine inhaltliche Prüfung!
+'Check module or class for existence. There is no content check!
 Public Function CheckCodeModule(ByVal sModulName As String, _
                        Optional ByVal TransferMissingModule As Boolean = False) As Boolean
    
@@ -145,19 +142,13 @@ Public Function CheckCodeModule(ByVal sModulName As String, _
    Set rst = Nothing
    
    If bolMissingModule And TransferMissingModule Then
-'      If Left(sModulName, 3) = "def" Or Left(sModulName, 3) = "mod" Then
-'         DoCmd.CopyObject CurrentDb.Name, "DCW_" & sModulName, acModule, sModulName
-'      Else
-         'DoCmd.CopyObject CurrentDb.Name, sModulName, acModule, sModulName
-         TransferCodeModul CurrentProject, acModule, sModulName
-'      End If
+      TransferCodeModul CurrentProject, acModule, sModulName
       bolMissingModule = False
    End If
    
    CheckCodeModule = Not bolMissingModule
 
 End Function
-
 
 Private Sub TransferCodeModul(ByRef TargetProject As Access.CurrentProject, ByVal ObjType As AcObjectType, ByVal sModulName As String)
 

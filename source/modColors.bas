@@ -7,9 +7,6 @@ Private Const m_Ac07_BackgroundForm As Long = -2147483613
 Private Const m_Ac07_BackgroundLightHeader As Long = -2147483612
 Private Const m_Ac07_BackgroundDarkHeader As Long = -2147483611
 Private Const m_Ac07_BordersGridlines As Long = -2147483609
-'
-
-' Farben
 
 Public Property Get dcwBackgroundForm() As Long
    
