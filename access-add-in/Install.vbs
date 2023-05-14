@@ -52,6 +52,8 @@ Function FileCopy(SourceFilePath, DestFilePath)
 
    set fso = CreateObject("Scripting.FileSystemObject") 
    fso.CopyFile SourceFilePath, DestFilePath
+   
+   MsgBox "Add-In file was copied"
 
 End Function
 
@@ -59,5 +61,7 @@ Function CreateMde(SourceFilePath, DestFilePath)
 
    Set AccessApp = CreateObject("Access.Application")
    AccessApp.SysCmd 603, (SourceFilePath), (DestFilePath)
+   
+   MsgBox "Compiled add-in created"
 
 End Function

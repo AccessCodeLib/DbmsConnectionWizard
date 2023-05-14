@@ -22,7 +22,7 @@ Private Sub dateienEinstellen()
    SaveModulesInTable
 End Sub
 
-'Allgemeines Verzeichnis für Benutzereinstellung und veränderbare Daten:
+'General directory for user settings and changeable data:
 Public Property Get DbmsConnectionWizardAppDataDirectory() As String
    
    Dim strPath As String
@@ -35,7 +35,6 @@ Public Property Get DbmsConnectionWizardAppDataDirectory() As String
 
 End Property
 
-'Hilfe-Datei
 Public Property Get AddInHelpFile() As String
 
    Dim strHelpFile As String
@@ -51,8 +50,7 @@ Public Property Get AddInHelpFile() As String
    rst.Close
    Set rst = Nothing
    
-   'Prüfen ob vorhanden, sonst aus Tabelle erstellen
-   checkLibFile "ChmFile", strHelpFile, strVersion
+   CheckLibFile "ChmFile", strHelpFile, strVersion
    
    AddInHelpFile = strHelpFile
    
@@ -69,7 +67,6 @@ Public Sub OpenHelpFile(Optional ByVal ContextID As Long = 0)
    
 End Sub
 
-'Datei-Export aus usys_AppFiles
 Public Function CreateAppFile(ByVal sFileID As String, ByVal sFileName As String, _
                      Optional ByVal decode As Boolean = False) As Boolean
 
@@ -132,8 +129,7 @@ Public Function CreateAppFile(ByVal sFileID As String, ByVal sFileName As String
 
 End Function
 
-
-Private Function checkLibFile(ByVal sFileID As String, ByVal sFileName As String, _
+Private Function CheckLibFile(ByVal sFileID As String, ByVal sFileName As String, _
                      Optional ByVal sSavedFileVersion As String = vbNullString) As Boolean
 
    Dim installedVersionString As String
@@ -171,16 +167,16 @@ Private Function checkLibFile(ByVal sFileID As String, ByVal sFileName As String
                
                If RetVal = vbYes Then
                          
-                  'Datei nur umbenennen (erst bei erfolgreicher Neuerstellung löschen)
+                  'Rename file only (delete only after successful recreation)
                   saveFileName = sFileName & ".saved"
                   If Len(Dir$(saveFileName)) > 0 Then Kill saveFileName
                   Name sFileName As saveFileName
                   
-                  'Datei neu erstellen
+                  'Create new file
                   check = CreateAppFile(sFileID, sFileName)
-                  If check Then 'gesicherte Datei löschen
+                  If check Then
                      Kill sFileName & ".saved"
-                  Else 'gesicherte Datei wieder herstellen
+                  Else
                      Name sFileName & ".saved" As sFileName
                   End If
 
@@ -193,7 +189,7 @@ Private Function checkLibFile(ByVal sFileID As String, ByVal sFileName As String
       check = CreateAppFile(sFileID, sFileName)
    End If
 
-   checkLibFile = check
+   CheckLibFile = check
 
 End Function
 
@@ -205,10 +201,9 @@ On Error Resume Next
 
 End Function
 
-
-'################################
+'###########################################
 '
-' Hilfsfunktion zum Anfügen der App-Dateien
+' Help function for attaching the app files
 '
 Private Function SaveAppFile(ByVal sFileID As String, ByVal sFileName As String, _
                     Optional ByVal SaveVersion As Boolean = False, _
@@ -304,7 +299,6 @@ Private Sub SaveCodeModulInTable(ByVal ObjType As AcObjectType, ByVal sModulName
    
 End Sub
 
-
 Public Function GetTempFileName(Optional ByVal TempPath As String = "", _
                          Optional ByVal FilePrefix As String = "", _
                          Optional ByVal FileExtension As String = "") As String
@@ -327,18 +321,16 @@ Public Function GetTempFileName(Optional ByVal TempPath As String = "", _
    
    strTempFileName = Left$(strTempFileName, InStr(strTempFileName, Chr$(0)) - 1)
    
-   'Datei wieder löschen, da nur Name benötigt wird
+   'Delete file again, as only name is needed
    Call Kill(strTempFileName)
    
-   If Len(FileExtension) > 0 Then 'Fileextension umschreiben
+   If Len(FileExtension) > 0 Then
      strTempFileName = Left$(strTempFileName, Len(strTempFileName) - 3) & FileExtension
    End If
-   'eigentlich müsste man hier prüfen, ob Datei vorhanden ist.
    
    GetTempFileName = strTempFileName
   
 End Function
-
 
 Private Sub CodeDecodeByteArray(ByRef TextByteArray() As Byte, ByVal Password As String)
 
