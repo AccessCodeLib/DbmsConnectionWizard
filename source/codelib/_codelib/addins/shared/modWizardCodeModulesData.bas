@@ -1,18 +1,18 @@
 Attribute VB_Name = "modWizardCodeModulesData"
 '---------------------------------------------------------------------------------------
-' Modul: defGlobal_FilterFormWizard
+' Modul: modWizardCodeModulesData
 '---------------------------------------------------------------------------------------
 '/**
 ' <summary>
-' Hilfsfunktionen für FilterFormWizard
+' SCC file data in usys_AppFiles
 ' </summary>
 ' <remarks>
 ' </remarks>
-' \ingroup ACLibAddInFilterFormWizard
+' \ingroup addins_shared
 '**/
 '---------------------------------------------------------------------------------------
 '<codelib>
-'  <file>_codelib/addins/FilterFormWizard/modWizardCodeModulesData.bas</file>
+'  <file>_codelib/addins/shared/modWizardCodeModulesData.bas</file>
 '  <license>_codelib/license.bas</license>
 '</codelib>
 '---------------------------------------------------------------------------------------
@@ -21,22 +21,22 @@ Option Compare Database
 Option Explicit
 Option Private Module
 
-Public Property Get SvnRev() As String
+Public Property Get SccRev() As String
    
-   With CodeDb.OpenRecordset("select max(SvnRev) from usys_AppFiles")
+   With CodeDb.OpenRecordset("select max(SccRev) from usys_AppFiles")
       If Not .EOF Then
-         SvnRev = Nz(.Fields(0).Value, 0)
+         SccRev = Nz(.Fields(0).Value, 0)
       End If
       .Close
    End With
    
 End Property
 
-Public Property Get SvnRevMin() As String
+Public Property Get SccRevMin() As String
    
-   With CodeDb.OpenRecordset("select Min(SvnRev) from usys_AppFiles")
+   With CodeDb.OpenRecordset("select Min(SccRev) from usys_AppFiles")
       If Not .EOF Then
-         SvnRevMin = Nz(.Fields(0).Value, "0")
+         SccRevMin = Nz(.Fields(0).Value, "0")
       End If
       .Close
    End With

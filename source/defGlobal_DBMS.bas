@@ -1,6 +1,6 @@
 Attribute VB_Name = "defGlobal_DBMS"
 '---------------------------------------------------------------------------------------
-' Modul: defGlobal_DBMS (2009-08-16)
+' Modul: defGlobal_DBMS
 '---------------------------------------------------------------------------------------
 '/**
 ' <summary>
@@ -39,7 +39,7 @@ Private m_DbmsConfigFormName As String
 
 
 '---------------------------------------------------------------------------------------
-' Property: DbmsConfigFormName (2009-07-08)
+' Property: DbmsConfigFormName
 '---------------------------------------------------------------------------------------
 '/**
 ' <summary>
@@ -57,9 +57,9 @@ On Error Resume Next
    If Len(m_DbmsConfigFormName) = 0 Then 'Wert von Konstante
       m_DbmsConfigFormName = m_conDbmsConfigFormName
    End If
-   
+
    DbmsConfigFormName = m_DbmsConfigFormName
-   
+
 End Property
 
 Public Property Let DbmsConfigFormName(ByVal AppName As String)
