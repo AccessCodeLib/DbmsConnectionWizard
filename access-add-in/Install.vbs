@@ -9,8 +9,10 @@ Select Case MsgBox("Should the add-in be used as ACCDE?" + chr(13) & _
                    "(The compiled Add-In is copied into the Add-In directory.)", 3, MsgBoxTitle)
    case 6 ' vbYes
       CreateMde GetSourceFileFullName, GetDestFileFullName
+	MsgBox "Compiled add-in created"
    case 7 ' vbNo
       FileCopy GetSourceFileFullName, GetDestFileFullName
+	MsgBox "Add-In file was copied"
    case else
       
 End Select
@@ -52,8 +54,6 @@ Function FileCopy(SourceFilePath, DestFilePath)
 
    set fso = CreateObject("Scripting.FileSystemObject") 
    fso.CopyFile SourceFilePath, DestFilePath
-   
-   MsgBox "Add-In file was copied"
 
 End Function
 
@@ -62,6 +62,4 @@ Function CreateMde(SourceFilePath, DestFilePath)
    Set AccessApp = CreateObject("Access.Application")
    AccessApp.SysCmd 603, (SourceFilePath), (DestFilePath)
    
-   MsgBox "Compiled add-in created"
-
 End Function
