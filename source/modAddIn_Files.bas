@@ -197,7 +197,7 @@ Public Function CreateModuleFile(ByVal sFileID As String, ByVal sFileName As Str
 
 On Error Resume Next
 
-   CreateModuleFile = CreateAppFile(sFileID, sFileName, True)
+   CreateModuleFile = CreateAppFile(sFileID, sFileName, False)
 
 End Function
 
@@ -275,25 +275,26 @@ Private Sub SaveModulesInTable()
    Dim X As Variant
    Dim i As Long
    
-   X = Array("defGlobal_DBMS", "SqlTools", "DbConnectionInfo", "AdodbHandler", "DaoHandler", "OdbcHandler", "DbConnectionHandler", "DbConnectionManager", "modDbConnection")
+   X = Array("SqlTools", "defDbConnection", "DbConnectionInfo", "AdodbHandler", "DaoHandler", "OdbcHandler", "DbConnectionHandler", "DbConnectionManager", "modDbConnection")
    For i = 0 To UBound(X)
       SaveCodeModulInTable acModule, X(i)
    Next
    
-   X = Array("frmLogin")
+   X = Array("LoginForm")
    For i = 0 To UBound(X)
       SaveCodeModulInTable acForm, X(i)
    Next
    
 End Sub
 
-Private Sub SaveCodeModulInTable(ByVal ObjType As AcObjectType, ByVal sModulName As String)
+Private Sub SaveCodeModulInTable(ByVal ObjType As AcObjectType, ByVal sModulName As String, _
+                        Optional ByVal encode As Boolean = False)
    
    Dim strFileName As String
 
    strFileName = GetTempFileName
    Application.SaveAsText ObjType, sModulName, strFileName
-   SaveAppFile sModulName, strFileName, True, True
+   SaveAppFile sModulName, strFileName, True, encode
    
    Kill strFileName
    
