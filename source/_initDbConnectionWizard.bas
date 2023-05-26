@@ -1,6 +1,6 @@
 Attribute VB_Name = "_initDbConnectionWizard"
 '---------------------------------------------------------------------------------------
-' Modul: _initApplication (2009-07-08)
+' Modul: _initApplication
 '---------------------------------------------------------------------------------------
 '/* *
 ' <summary>
@@ -16,33 +16,33 @@ Option Explicit
 '---------------------------
 ' Initialisierungsfunktion
 '---------------------------
-Private Function initDbmsConnectionWizard() As Boolean
+Private Function InitDbmsConnectionWizard() As Boolean
    If Application.CurrentDb Is Nothing Then
       MsgBox "Bitte öffnen Sie zuerst eine Access-Anwendung.", vbCritical
-      initDbmsConnectionWizard = False
+      InitDbmsConnectionWizard = False
       Exit Function
    End If
-   initDbmsConnectionWizard = StartApplication
+   InitDbmsConnectionWizard = StartApplication
 End Function
 
 Public Function StartDbmsConnectionWizard() As Variant
-   If Not initDbmsConnectionWizard Then Exit Function
-   checkTemplatesDb
+   If Not InitDbmsConnectionWizard Then Exit Function
+   CheckTemplatesDb
    DoCmd.OpenForm DCW_DbmsConfigFormName, acNormal, , , , acWindowNormal
 End Function
 
 Public Function StartDbmsConnectionLinkTableWizard() As Variant
-   If Not initDbmsConnectionWizard Then Exit Function
+   If Not InitDbmsConnectionWizard Then Exit Function
    DoCmd.OpenForm DCW_LinkTablesFormName, acNormal, , , , acWindowNormal
 End Function
 
 Public Function CreatePassThroughQuery() As Variant
-   If Not initDbmsConnectionWizard Then Exit Function
+   If Not InitDbmsConnectionWizard Then Exit Function
    DoCmd.OpenForm DCW_TestSqlFormName, acNormal, , , , acWindowNormal, DCW_RecordsetModes.DCW_DAOPT
 End Function
 
 Public Function InsertOdbcConnectionString(ByRef strObjektName As String, ByRef strTextFeldname As String, ByRef strAktuellerWert As String) As Variant
-   If Not initDbmsConnectionWizard Then Exit Function
+   If Not InitDbmsConnectionWizard Then Exit Function
    Select Case strTextFeldname
       Case "Query"
          strAktuellerWert = CurrentConnectionInfo.OdbcConnectionString
@@ -61,7 +61,7 @@ End Sub
 '
 ' Hilfsprozeduren
 
-Private Sub checkTemplatesDb()
+Private Sub CheckTemplatesDb()
 
    Dim db As DAO.Database
    Dim tdf As DAO.TableDef

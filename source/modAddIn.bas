@@ -3,6 +3,16 @@ Option Compare Text
 Option Explicit
 Option Private Module
 
+Private m_CodeModulImporter As AppFileCodeModulTransfer
+
+Private Property Get CodeModulImporter() As AppFileCodeModulTransfer
+   If m_CodeModulImporter Is Nothing Then
+      Set m_CodeModulImporter = New AppFileCodeModulTransfer
+      m_CodeModulImporter.UseVbComponentsImport = APPLICATION_FILTERCODEMODULE_USEVBCOMPONENTSIMPORT
+   End If
+   Set CodeModulImporter = m_CodeModulImporter
+End Property
+
 'Create tabelle usys_DbmsConnection
 Public Function CreateConnectionTable(ByRef cnn As ADODB.Connection) As Boolean
 
@@ -64,21 +74,8 @@ Public Sub CheckLoginForm()
    Set rst = Nothing
       
    If bolMissingForm Then
-      TransferCodeModul CurrentProject, acForm, DCW_LoginFormName
+      CodeModulImporter.TransferCodeModul CurrentProject, acForm, DCW_LoginFormName
    End If
-
-End Sub
-
-'Transfer modules + classes
-Public Sub TransferCodeModules(ParamArray sModulName() As Variant)
-   
-   Dim i As Long
-   Dim ArrSize As Long
-
-   ArrSize = UBound(sModulName)
-   For i = 0 To ArrSize
-      CheckCodeModule sModulName(i), True
-   Next
 
 End Sub
 
@@ -142,21 +139,10 @@ Public Function CheckCodeModule(ByVal sModulName As String, _
    Set rst = Nothing
    
    If bolMissingModule And TransferMissingModule Then
-      TransferCodeModul CurrentProject, acModule, sModulName
+      CodeModulImporter.TransferCodeModul CurrentProject, acModule, sModulName
       bolMissingModule = False
    End If
    
    CheckCodeModule = Not bolMissingModule
 
 End Function
-
-Private Sub TransferCodeModul(ByRef TargetProject As Access.CurrentProject, ByVal ObjType As AcObjectType, ByVal sModulName As String)
-
-   Dim strFileName As String
-   
-   strFileName = GetTempFileName
-   CreateModuleFile sModulName, strFileName
-   TargetProject.Application.LoadFromText ObjType, sModulName, strFileName
-   Kill strFileName
-   
-End Sub
