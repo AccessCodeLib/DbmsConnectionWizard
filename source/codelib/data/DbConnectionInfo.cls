@@ -582,7 +582,7 @@ End Function
 ' </remarks>
 '**/
 '---------------------------------------------------------------------------------------
-Public Property Get OledbConnectionString() As String
+Friend Property Get OledbConnectionString() As String
 
    If Len(m_OledbConnectionString) = 0 Then
       SetConnectionStrings
@@ -604,7 +604,7 @@ End Property
 ' </remarks>
 '**/
 '---------------------------------------------------------------------------------------
-Public Property Get OdbcConnectionString(Optional ByVal bWithoutUserInfo As Boolean = False) As String
+Friend Property Get OdbcConnectionString(Optional ByVal bWithoutUserInfo As Boolean = False) As String
 
    If Len(m_OdbcConnectionString) = 0 Then
       SetConnectionStrings
@@ -620,7 +620,7 @@ End Property
 '---------------------------------------------------------------------------------------
 ' Property: DatabaseFile
 '---------------------------------------------------------------------------------------
-'/** 'nicht exportieren (2. * für Export fehlt)
+'/**
 ' <summary>
 ' Dateiname inkl. Pfad eines dateibasierten Backend
 ' </summary>
@@ -911,7 +911,7 @@ End Function
 ' </remarks>
 '**/
 '---------------------------------------------------------------------------------------
-Public Property Get ConnectionStrings() As DbmsConnectionStrings
+Friend Property Get ConnectionStrings() As DbmsConnectionStrings
 
    If m_DbmsInfoReaded = False Then
       ReadDBMSprop
