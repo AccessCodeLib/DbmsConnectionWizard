@@ -1,6 +1,8 @@
 # DBMS Connection Wizard
 Configure DBMS connection + import DBMS connection framework
 
+![](https://access-codelib.net/images/doc/DbmsConnectionWizard_WizardForm.png)
+
 Video: https://access-codelib.net/videos/ACLib-DbmsConnection-Wizard/DbmsConnectionWizard-Use-Login-Form.mp4
 
 ## Install
