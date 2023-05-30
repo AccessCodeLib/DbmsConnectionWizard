@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("new",["Function"],[["NewInstance",,[["data.SqlTools",,,,0,"File:SqlTools.cls:data.SqlTools.NewInstance","VisualBasicClass:data.SqlTools:NewInstance"]]],["NewRecord",,[["data.dao.DaoHandler",,,,0,"File:dao/DaoHandler.cls:data.dao.DaoHandler.NewRecord","VisualBasicClass:data.dao.DaoHandler:NewRecord"]]]]);

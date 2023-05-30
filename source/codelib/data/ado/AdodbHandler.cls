@@ -8,16 +8,16 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 '---------------------------------------------------------------------------------------
-' Class: AdodbHandler
+' Class: data.adodb.AdodbHandler
 '---------------------------------------------------------------------------------------
-'/**
-' \author       Josef Poetzl
-' <summary>
-' ADODB-Zugriffsmethoden
-' </summary>
-' <remarks></remarks>
-'\ingroup data_adodb
-'**/
+'
+' ADODB data connection methods
+'
+' Author:
+'     Josef Poetzl
+'
+'---------------------------------------------------------------------------------------
+
 '---------------------------------------------------------------------------------------
 '<codelib>
 '  <file>data/ado/AdodbHandler.cls</file>
@@ -110,7 +110,7 @@ End Property
 
 
 '---------------------------------------------------------------------------------------
-' Property: CurrentConnection (2009-08-06)
+' Property: CurrentConnection
 '---------------------------------------------------------------------------------------
 '/**
 ' <summary>

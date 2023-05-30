@@ -1,14 +1,15 @@
 Attribute VB_Name = "modDbConnection"
 '---------------------------------------------------------------------------------------
-' Modul: modDbConnection
+' Package: data.modDbConnection
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
-' Sammlung von Prozeduren für die DbConnectionManager-Klasse
-' </summary>
-' <remarks>Dient zum Instanzieren von DbConnectionManager und für den Zugriff auf die Hauptelemente von DbConnectionManager</remarks>
-'\ingroup data
-'**/
+'
+' Collection of procedures for the DbConnectionManager class
+'
+' Remarks:
+'     Used to instantiate DbConnectionManager and access the main elements of DbConnectionManager.</remarks>
+'
+'---------------------------------------------------------------------------------------
+
 '---------------------------------------------------------------------------------------
 '<codelib>
 '  <file>data/modDbConnection.bas</file>
@@ -23,20 +24,19 @@ Option Private Module
 
 Private m_DbConnectionManager As DbConnectionManager ' Hauptsteuerung
 
-'
 '---------------------------------------------------------------------------------------
 ' Property: DbCon
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
-' Zugriff auf DbConnection der Haupt-DbConnectionManager-Instanz
-' </summary>
-' <returns>DbConnectionHandler</returns>
-' <remarks>
-' Erleichtert den Aufruf, da das Schreiben der DbConnectionManager-Instanz-Variablen entfällt.
-' Beim ersten Zugriff wird die Instanz der DbConnectionManager-Klasse erstellt, falls diese noch nicht vorhanden ist.
-' </remarks>
-'**/
+'
+' Access to DbConnection of the main DbConnectionManager instance
+'
+' Returns:
+'     DbConnectionHandler
+'
+' Remarks:
+'  | Simplifies the call, as the writing of the DbConnectionManager instance variables is omitted.
+'  | The first access creates the instance of the DbConnectionManager class if it does not already exist.
+'
 '---------------------------------------------------------------------------------------
 Public Property Get DbCon() As DbConnectionHandler
 
@@ -52,12 +52,12 @@ End Property
 '---------------------------------------------------------------------------------------
 '/**
 ' <summary>
-' Zugriff auf DbConnectionInfo der Haupt-DbConnectionManager-Instanz
+' Access to DbConnectionInfo of the main DbConnectionManager instance
 ' </summary>
 ' <returns>DbConnectionInfo</returns>
 ' <remarks>
-' Erleichtert den Aufruf, da das Schreiben der DbConnectionManager-Instanz-Variablen entfällt.
-' Beim ersten Zugriff wird die Instanz der DbConnectionManager-Klasse erstellt, falls diese noch nicht vorhanden ist.
+' Simplifies the call, as the writing of the DbConnectionManager instance variables is omitted.
+' The first access creates the instance of the DbConnectionManager class if it does not already exist.
 ' </remarks>
 '**/
 '---------------------------------------------------------------------------------------
@@ -77,7 +77,7 @@ End Property
 ' <summary>
 ' Verbindung prüfen <see cref=DbConnectionManager#CheckConnectionStatus>DbConnectionManager.CheckConnectionStatus</see>
 ' </summary>
-' <returns>Boolean: True = Verbindungsaufbau war erfolgreich</returns>
+' <returns>Boolean: True if success</returns>
 ' <remarks>
 ' </remarks>
 '**/
@@ -91,6 +91,15 @@ Public Function CheckConnectionStatus() As Boolean
 
 End Function
 
+'---------------------------------------------------------------------------------------
+' Sub: DisposeDbConnection
+'---------------------------------------------------------------------------------------
+'/**
+' <summary>
+' Dispose DbConnection objects (incl. DbConnectionManager)
+' </summary>
+'**/
+'---------------------------------------------------------------------------------------
 Public Sub DisposeDbConnection()
 
 On Error Resume Next

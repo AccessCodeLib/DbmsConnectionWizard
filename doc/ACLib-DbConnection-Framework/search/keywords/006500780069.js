@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("exi",["Function"],[["Exists",,[["data.dao.DaoHandler",,,,0,"File:dao/DaoHandler.cls:data.dao.DaoHandler.Exists","VisualBasicClass:data.dao.DaoHandler:Exists"]]]]);

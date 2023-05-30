@@ -1,14 +1,12 @@
 Attribute VB_Name = "defDbConnection"
 '---------------------------------------------------------------------------------------
-' Modul: defDbConnection
+' Package: data.defDbConnection
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
-' Sammlung von globalen Typen, Enums usw. für die DbConnection-Klassen
-' </summary>
-' <remarks></remarks>
-'\ingroup data
-'**/
+'
+' Set of global types, enums etc. for the DbConnection classes
+'
+'---------------------------------------------------------------------------------------
+
 '---------------------------------------------------------------------------------------
 '<codelib>
 '  <file>data/defDbConnection.bas</file>
@@ -27,14 +25,13 @@ Option Explicit
 '---------------------------------------------------------------------------------------
 ' Type: DbmsConnectionStrings
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
-' Type für die gleichzeitige Übergabe der Connectionsstrings
-' </summary>
+'
+' Type for the simultaneous transfer of the connection strings
+'
 ' <list type="table">
-'   <item><term>OledbConnectionString</term><description>OLEDB-Connectionstring für ADODB-Verbindung</description></item>
-'   <item><term>OdbcConnectionString</term><description>ODBC-Connectionstring für DAO-Verbindung</description></item>
-'   <item><term>DatabaseFile</term><description>Datenbankdateiname inkl. Pfad falls ein File-Backend eingesetzt wird</description></item>
+'   <item><term>OledbConnectionString</term><description>OLEDB connectionstring for ADODB connection</description></item>
+'   <item><term>OdbcConnectionString</term><description>ODBC connectionstring for DAO connection</description></item>
+'   <item><term>DatabaseFile</term><description>Database file name incl. path if a file backend is used.</description></item>
 ' </list>
 ' <remarks>
 ' </remarks>
@@ -55,9 +52,9 @@ End Type
 ' DbmsConnectionModes
 ' </summary>
 ' <list type="table">
-'   <item><term>DMBS_DSNless (1)</term><description>ohne DSN</description></item>
-'   <item><term>DMBS_DSN (2)</term><description>mit DSN</description></item>
-'   <item><term>aDBMS_USERDEF (128)</term><description>benutzerdefinierte Connectionstrings</description></item>
+'   <item><term>DMBS_DSNless (1)</term><description>without DSN</description></item>
+'   <item><term>DMBS_DSN (2)</term><description>with DSN</description></item>
+'   <item><term>DBMS_USERDEF (128)</term><description>User-defined connection strings</description></item>
 ' </list>
 ' <remarks>
 ' </remarks>

@@ -8,13 +8,14 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 '---------------------------------------------------------------------------------------
-' Klassenmodul: DbConnectionSettings
+' Class: data.DbConnectionSettings
 '---------------------------------------------------------------------------------------
 '/**
 ' <summary>
-' Hilfsklasse zum Zwischenspeichern der Verbindungsparameter
+' Auxiliary class for caching the connection parameters
 ' </summary>
 ' <remarks></remarks>
+' \ingroup data
 '**/
 '---------------------------------------------------------------------------------------
 '<codelib>
@@ -27,7 +28,7 @@ Attribute VB_Exposed = False
 Option Compare Database
 Option Explicit
 
-'SqlTools-Parameter
+'SqlTools parameter
 Public SqlDateFormat As String
 Public SqlWildCardString As String
 Public SqlBooleanTrueString As String

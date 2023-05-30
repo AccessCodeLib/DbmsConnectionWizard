@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("tab",["Property"],[["TableListSqlText",,[["data.DbConnectionInfo",,,,0,"File:DbConnectionInfo.cls:data.DbConnectionInfo.TableListSqlText","VisualBasicClass:data.DbConnectionInfo:TableListSqlText"]]]]);

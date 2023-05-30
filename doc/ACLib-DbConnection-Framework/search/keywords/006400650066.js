@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("def",["Property","Class"],[["DefaultSettings",,[["data.DbConnectionManager",,,,0,"File:DbConnectionManager.cls:data.DbConnectionManager.DefaultSettings","VisualBasicClass:data.DbConnectionManager:DefaultSettings"]]],["defDbConnection",,[["data",,,,1,"File:defDbConnection.bas:data.defDbConnection","VisualBasicClass:data.defDbConnection"]]]]);
