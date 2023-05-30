@@ -8,13 +8,14 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 '---------------------------------------------------------------------------------------
-' Klassenmodul: DbConnectionInfo
+' Class: data.DbConnectionInfo
 '---------------------------------------------------------------------------------------
 '/**
 ' <summary>
-' Hilfsklasse zur Einstellung der Verbindungsparameter
+' Auxiliary class for setting the connection parameters
 ' </summary>
 ' <remarks></remarks>
+' \ingroup data
 '**/
 '---------------------------------------------------------------------------------------
 '<codelib>

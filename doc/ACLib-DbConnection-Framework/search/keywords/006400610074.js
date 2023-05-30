@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("dat",["Property","Function"],[["DatabaseFile",,[["data.DbConnectionInfo",,,,0,"File:DbConnectionInfo.cls:data.DbConnectionInfo.DatabaseFile","VisualBasicClass:data.DbConnectionInfo:DatabaseFile"]]],["DateToSqlText",,[["data.SqlTools",,,,1,"File:SqlTools.cls:data.SqlTools.DateToSqlText","VisualBasicClass:data.SqlTools:DateToSqlText"]]]]);

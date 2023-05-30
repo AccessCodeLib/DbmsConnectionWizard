@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("tex",["Function"],[["TextToSqlText",,[["data.SqlTools",,,,0,"File:SqlTools.cls:data.SqlTools.TextToSqlText","VisualBasicClass:data.SqlTools:TextToSqlText"]]]]);
