@@ -8,39 +8,51 @@
 
 <body onload="NDLoader.OnLoad('Content');" class="NDPage NDContentPage">
 
-<a name="data.modDbConnection"></a><a name="Topic67"></a><div class="CTopic TClass LVisualBasic first">
+<a name="data.modDbConnection"></a><a name="Topic95"></a><div class="CTopic TClass LVisualBasic first">
  <div class="CTitle"><span class="Qualifier">data.</span>&#8203;modDbConnection</div>
  <div class="CBody"><p>Collection of procedures for the DbConnectionManager class</p><div class="CHeading">Remarks</div><p>Used to instantiate DbConnectionManager and access the main elements of DbConnectionManager.&lt;/remarks&gt;</p></div>
 </div>
 
-<a name="data.modDbConnection.Properties"></a><a name="Topic68"></a><div class="CTopic TGroup LVisualBasic">
- <div class="CTitle">Properties</div>
+<a name="data.modDbConnection.Factories"></a><a name="Topic61"></a><div class="CTopic TGroup LVisualBasic">
+ <div class="CTitle">Factories</div>
 </div>
 
-<a name="data.modDbConnection.DbCon"></a><a name="Topic5"></a><div class="CTopic TProperty LVisualBasic">
+<a name="data.modDbConnection.DbCon"></a><a name="Topic63"></a><div class="CTopic TProperty LVisualBasic">
  <div class="CTitle">DbCon</div>
- <div class="CBody"><p>Access to DbConnection of the main DbConnectionManager instance</p><div class="CHeading">Returns</div><p>DbConnectionHandler</p><div class="CHeading">Remarks</div><pre class="CText">Simplifies the call, as the writing of the DbConnectionManager instance variables is omitted.<br />The first access creates the instance of the DbConnectionManager class if it does not already exist.</pre></div>
+ <div class="CBody"><p>Access to DbConnection of the main DbConnectionManager instance</p><div class="CHeading">Returns</div><p>DbConnectionHandler</p><div class="CHeading">Remarks</div><p>Simplifies the call, as the writing of the DbConnectionManager instance variables is omitted.&nbsp; The first access creates the instance of the DbConnectionManager class if it does not already exist.</p></div>
 </div>
 
-<a name="data.modDbConnection.CurrentConnectionInfo"></a><a name="Topic70"></a><div class="CTopic TProperty LVisualBasic">
+<a name="data.modDbConnection.CurrentConnectionInfo"></a><a name="Topic65"></a><div class="CTopic TProperty LVisualBasic">
  <div class="CTitle">CurrentConnectionInfo</div>
- <div class="CBody"><p>/** &lt;summary&gt; Access to DbConnectionInfo of the main DbConnectionManager instance &lt;/summary&gt; &lt;returns&gt;DbConnectionInfo&lt;/returns&gt; &lt;remarks&gt; Simplifies the call, as the writing of the DbConnectionManager instance variables is omitted.&nbsp; The first access creates the instance of the DbConnectionManager class if it does not already exist.&nbsp; &lt;/remarks&gt; **/</p></div>
+ <div class="CBody"><p>Access to DbConnectionInfo of the main DbConnectionManager instance</p><div class="CHeading">Returns</div><p><a href="../index.html#File:DbConnectionInfo.cls:data.DbConnectionInfo" target="_top" onmouseover="NDContentPage.OnLinkMouseOver(event,137);" onmouseout="NDContentPage.OnLinkMouseOut(event);" >data.DbConnectionInfo</a></p><div class="CHeading">Remarks</div><p>Simplifies the call, as the writing of the DbConnectionManager instance variables is omitted.&nbsp; The first access creates the instance of the DbConnectionManager class if it does not already exist.</p></div>
 </div>
 
-<a name="data.modDbConnection.Functions"></a><a name="Topic71"></a><div class="CTopic TGroup LVisualBasic">
- <div class="CTitle">Functions</div>
+<a name="data.modDbConnection.Global_Procedures"></a><a name="Topic96"></a><div class="CTopic TGroup LVisualBasic">
+ <div class="CTitle">Global Procedures</div>
 </div>
 
-<a name="data.modDbConnection.CheckConnectionStatus"></a><a name="Topic72"></a><div class="CTopic TFunction LVisualBasic">
+<a name="data.modDbConnection.CheckConnectionStatus"></a><a name="Topic97"></a><div class="CTopic TFunction LVisualBasic">
  <div class="CTitle">CheckConnectionStatus</div>
- <div id="NDPrototype72" class="NDPrototype"><div class="PSection PPlainSection">Public Function CheckConnectionStatus() As Boolean</div></div>
- <div class="CBody"><p>/** &lt;summary&gt; Verbindung prüfen &lt;see cref=DbConnectionManager#CheckConnectionStatus&gt;DbConnectionManager.CheckConnectionStatus&lt;/see&gt; &lt;/summary&gt; &lt;returns&gt;Boolean: True if success&lt;/returns&gt; &lt;remarks&gt; &lt;/remarks&gt; **/</p></div>
+ <div id="NDPrototype97" class="NDPrototype"><div class="PSection PPlainSection">Public Function CheckConnectionStatus() As Boolean</div></div>
+ <div class="CBody"><p>Verbindung prüfen (call <a href="../index.html#File:DbConnectionManager.cls:data.DbConnectionManager.CheckConnectionStatus" target="_top" onmouseover="NDContentPage.OnLinkMouseOver(event,113);" onmouseout="NDContentPage.OnLinkMouseOut(event);" >data.DbConnectionManager.CheckConnectionStatus</a>)</p><div class="CHeading">Return</div><table class="CDefinitionList"><tr><td class="CDLEntry">Boolean</td><td class="CDLDefinition"><p>True if success</p></td></tr></table></div>
 </div>
 
-<a name="data.modDbConnection.DisposeDbConnection"></a><a name="Topic73"></a><div class="CTopic TFunction LVisualBasic last">
+<a name="data.modDbConnection.DisposeDbConnection"></a><a name="Topic69"></a><div class="CTopic TFunction LVisualBasic">
  <div class="CTitle">DisposeDbConnection</div>
- <div id="NDPrototype73" class="NDPrototype"><div class="PSection PPlainSection">Public Sub DisposeDbConnection()</div></div>
- <div class="CBody"><p>/** &lt;summary&gt; Dispose DbConnection objects (incl. DbConnectionManager) &lt;/summary&gt; **/</p></div>
+ <div id="NDPrototype69" class="NDPrototype"><div class="PSection PPlainSection">Public Sub DisposeDbConnection()</div></div>
+ <div class="CBody"><p>Dispose DbConnection objects (incl. DbConnectionManager)</p></div>
+</div>
+
+<a name="data.modDbConnection.TableDefExists"></a><a name="Topic66"></a><div class="CTopic TFunction LVisualBasic">
+ <div class="CTitle">TableDefExists</div>
+ <div id="NDPrototype66" class="NDPrototype WideForm"><div class="PSection PParameterSection CStyle"><table><tr><td class="PBeforeParameters">Public Function TableDefExists(</td><td class="PParametersParentCell"><table class="PParameters"><tr><td class="PModifierQualifier first">ByVal TableDefName&nbsp;</td><td class="PType">As&nbsp;</td><td class="PName">String,</td><td></td><td class="last"></td></tr><tr><td class="PModifierQualifier first">Optional ByVal db&nbsp;</td><td class="PType">As&nbsp;</td><td class="PName">DAO.Database</td><td class="PDefaultValueSeparator">&nbsp;=&nbsp;</td><td class="PDefaultValue last">Nothing</td></tr></table></td><td class="PAfterParameters">) As Boolean</td></tr></table></div></div>
+ <div class="CBody"><p>Check if TableDef exists</p><div class="CHeading">Parameters</div><table class="CDefinitionList"><tr><td class="CDLEntry">TableDefName</td><td class="CDLDefinition"><p>(String) TableDef name</p></td></tr><tr><td class="CDLEntry">db</td><td class="CDLDefinition"><p>(DAO.Database) Database to use (optional: if nothing CurrentDb will be used)</p></td></tr></table></div>
+</div>
+
+<a name="data.modDbConnection.QueryDefExists"></a><a name="Topic71"></a><div class="CTopic TFunction LVisualBasic last">
+ <div class="CTitle">QueryDefExists</div>
+ <div id="NDPrototype71" class="NDPrototype WideForm"><div class="PSection PParameterSection CStyle"><table><tr><td class="PBeforeParameters">Public Function QueryDefExists(</td><td class="PParametersParentCell"><table class="PParameters"><tr><td class="PModifierQualifier first">ByVal QueryDefName&nbsp;</td><td class="PType">As&nbsp;</td><td class="PName">String,</td><td></td><td class="last"></td></tr><tr><td class="PModifierQualifier first">Optional ByVal db&nbsp;</td><td class="PType">As&nbsp;</td><td class="PName">DAO.Database</td><td class="PDefaultValueSeparator">&nbsp;=&nbsp;</td><td class="PDefaultValue last">Nothing</td></tr></table></td><td class="PAfterParameters">) As Boolean</td></tr></table></div></div>
+ <div class="CBody"><p>Check if QueryDef exists</p><div class="CHeading">Parameters</div><table class="CDefinitionList"><tr><td class="CDLEntry">QueryDefName</td><td class="CDLDefinition"><p>(String) QueryDef name</p></td></tr><tr><td class="CDLEntry">db</td><td class="CDLDefinition"><p>(DAO.Database) Database to use (optional: if nothing CurrentDb will be used)</p></td></tr></table></div>
 </div>
 
 </body></html>

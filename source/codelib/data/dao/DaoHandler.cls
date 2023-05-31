@@ -10,14 +10,14 @@ Attribute VB_Exposed = False
 '---------------------------------------------------------------------------------------
 ' Class: data.dao.DaoHandler
 '---------------------------------------------------------------------------------------
-'/**
-' \author       Josef Poetzl
-' <summary>
-' DAO-Zugriffsmethoden
-' </summary>
-' <remarks></remarks>
-'\ingroup data_dao
-'**/
+'
+' DAO data connection methods
+'
+' Author:
+'     Josef Poetzl
+'
+'---------------------------------------------------------------------------------------
+
 '---------------------------------------------------------------------------------------
 '<codelib>
 '  <file>data/dao/DaoHandler.cls</file>
@@ -45,15 +45,22 @@ Private m_RecordsetTypeEnumDefault As DAO.RecordsetTypeEnum
 Private m_RecordsetOptionEnumDefault As DAO.RecordsetOptionEnum
 Private m_LockTypeEnumDefault As DAO.LockTypeEnum
 
-'Error-Events für mögliche Fehlerbehandlung über die FE-Anwendung
-'/**
-' <summary>
-' Ereignis für fehlende CurrentDb-Referenz
-' </summary>
-' <param name="Msg">Meldung über Ursache der Ereignisauslösung. (Wird noch nicht genutzt)</param>
-' <param name="NewCurrentDbRef">DAO.Database-Referenz, die für CurrentDb verwendet werden soll</param>
-' <remarks>über den ByRef-Parameter NewCurrentDbRef kann die passende DAO.Database-Referenz weitergegeben werden.</remarks>
-'**/
+
+' Error events for possible error handling via the frontend application
+'
+'---------------------------------------------------------------------------------------
+' Event: ErrorMissingCurrentDb
+'---------------------------------------------------------------------------------------
+' Event for missing CurrentDb reference
+'
+' Parameters:
+'     Msg   -  Message about the cause of the event triggering. (Not yet used)
+'     NewCurrentDbRef - DAO.Database reference to be used for CurrentDb
+'
+' Remarks:
+'     The required DAO.Database reference can be passed on via the ByRef parameter NewCurrentDbRef.
+'
+'---------------------------------------------------------------------------------------
 Public Event ErrorMissingCurrentDb(ByVal Msg As String, ByRef NewCurrentDbRef As DAO.Database)
 
 '
@@ -68,6 +75,13 @@ Private Sub Class_Terminate()
    Dispose
 End Sub
 
+'---------------------------------------------------------------------------------------
+' Sub: Dispose
+'---------------------------------------------------------------------------------------
+'
+' Remove object references
+'
+'---------------------------------------------------------------------------------------
 Public Sub Dispose()
    Set m_DaoDb = Nothing
    m_RecordsetTypeEnumDefault = 0
@@ -78,15 +92,17 @@ End Sub
 '---------------------------------------------------------------------------------------
 ' Sub: InitRecordsetEnumDefaultValues
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
-' Standardwerte für Recordset-Enums einstellen, welche verwendet werden, wenn Parameter nicht gesetzt werden können (z. B. in OpenRecordsetParamSQL2)
-' </summary>
-' <param name="RecordsetType">Standardwert aus DAO.RecordsetTypeEnum</param>
-' <param name="Options">Standardwert aus DAO.RecordsetOptionEnum</param>
-' <param name="LockEdit">Standardwert aus DAO.LockTypeEnum</param>
-' <remarks>Wenn 0 eingestellt wird, kommt Standard von DAO zum Einsatz (0-Parameter werden als "IsMissing"-Variant-Wert an DAO weitergeben)</remarks>
-'**/
+'
+' Set default values for recordset enums, which are used when parameters cannot be set.
+'
+' Parameters:
+'     RecordsetType  -  DAO.RecordsetTypeEnum
+'     Options        -  DAO.RecordsetOptionEnum
+'     LockEdit       -  DAO.LockTypeEnum
+'
+' Remarks:
+'     If 0 is set, standard of DAO is used (0 parameters are passed on to DAO as "IsMissing" variant value).
+'
 '---------------------------------------------------------------------------------------
 Public Sub InitRecordsetEnumDefaultValues( _
                         Optional ByRef RecordsetType As DAO.RecordsetTypeEnum, _
@@ -102,18 +118,19 @@ End Sub
 '---------------------------------------------------------------------------------------
 ' Property: CurrentDb
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
+'
 ' CurrentDbC-Variante
-' </summary>
-' <returns>DAO.Database</returns>
-' <remarks>
-' CurrentDbC-Variante, die zum Unterschied zur Original-Version von Michael Kaplan
-' die DAO-Database-Referenz nicht automatisch auf Access.Application.CurrentDb setzt,
-' sondern über ein Ereignis anfordert, falls noch keine Referenz vorhanden ist.
-' Dadurch kann über die Hauptanwendung eine belibige Database-Referenz übergeben werden.
-' (z. B. falls eine Temp-Datenbank als CurrentDb dienen soll)</remarks>
-'**/
+'
+' Returns:
+'     DAO.Database
+'
+' Remarks:
+'     CurrentDbC variant which, unlike the original version by Michael Kaplan,
+'     does not automatically set the DAO database reference to Access.Application.CurrentDb,
+'     but requests it via an event if no reference exists yet.
+'     This allows any database reference to be passed via the main application.
+'     (e.g. if a temp database is to serve as CurrentDb).
+'
 '---------------------------------------------------------------------------------------
 Public Property Get CurrentDb() As DAO.Database
     If (m_DaoDb Is Nothing) Then
@@ -133,37 +150,27 @@ Public Property Get CurrentDb() As DAO.Database
     Set CurrentDb = m_DaoDb
 End Property
 
+Public Property Set CurrentDb(ByRef NewCurrentDb As DAO.Database)
+    Set m_DaoDb = NewCurrentDb
+End Property
+
 Friend Property Get CurrentDbReferenceOnly() As DAO.Database
     Set CurrentDbReferenceOnly = m_DaoDb
 End Property
 
 '---------------------------------------------------------------------------------------
-' Property: CurrentDb
-'---------------------------------------------------------------------------------------
-'/**
-' <summary>
-' Übergabe der DAO-Database-Referenz
-' </summary>
-' <param name="NewCurrentDb">Database-Referenz, die als "CurrentDb" verwendet werden soll</param>
-' <returns>DAO.Database</returns>
-' <remarks></remarks>
-'**/
-'---------------------------------------------------------------------------------------
-Public Property Set CurrentDb(ByRef NewCurrentDb As DAO.Database)
-    Set m_DaoDb = NewCurrentDb
-End Property
-
-'---------------------------------------------------------------------------------------
 ' Function: Execute
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
-' SQL-Anweisung ausführen
-' </summary>
-' <param name="CommandText">SQL-Anweisung</param>
-' <param name="Options"></param>
-' <returns>Long (Anzahl der betroffenen Datensätze)</returns>
-'**/
+'
+' Execute SQL statement
+'
+' Paramters:
+'     CommandText - SQL statement (String)
+'     Options  - DAO.RecordsetOptionEnum
+'
+' Returns:
+'     RecordsAffected (Long)
+'
 '---------------------------------------------------------------------------------------
 Public Function Execute(ByVal Query As String, _
                Optional ByVal Options As DAO.RecordsetOptionEnum) As Long
@@ -179,21 +186,19 @@ End Function
 '---------------------------------------------------------------------------------------
 ' Function: ExecuteParamSQL
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
-' Sql-Anweisung mit Parametern ausführen
-' </summary>
-' <param name="SqlText">SQL-Anweisung</param>
-' <param name="ParamValues">Parmeterwerte in passender Reihenfolge</param>
-' <param name="QueryParams">
-'  Werte in passender Reihenfolge als ParamArray oder als Array <br/>
-'  oder<br/>
-'  2-dimensionales Parameter-Array (Array(n,1) ... x(n,0) = Parametername, x(n,1) = Parameterwert) ... erzeugbar mit GetParamDefArray oder GetNamedParamDefArray
-' </param>
-' <returns>Long (Anzahl der betroffenen Datensätze)</returns>
-' <remarks>
-' </remarks>
-'**/
+'
+' Execute SQL statement with parameters
+'
+' Parameters:
+'     SqlText  - SQL-Anweisung
+'     ParamValues -  Parmeterwerte in passender Reihenfolge</param>
+'     QueryParams -  Werte in passender Reihenfolge als ParamArray oder als Array <br/>
+'                    oder<br/>
+'                    2-dimensionales Parameter-Array (Array(n,1) ... x(n,0) = Parametername, x(n,1) = Parameterwert) ... erzeugbar mit GetParamDefArray oder GetNamedParamDefArray
+'
+' Returns:
+'     RecordsAffected (Long)
+'
 '---------------------------------------------------------------------------------------
 Public Function ExecuteParamSql(ByVal SqlText As String, _
                            ParamArray QueryParams() As Variant) As Long
@@ -230,20 +235,18 @@ End Function
 '---------------------------------------------------------------------------------------
 ' Function: ExecuteQueryDefByName
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
-' Gespeicherte Abfrage (optional mit Parametern) ausführen
-' </summary>
-' <param name="QueryName">Name der gespeicherten Abfrage (QueryDef)</param>
-' <param name="QueryParams">
-'  Werte in passender Reihenfolge als ParamArray oder als Array <br/>
-'  oder<br/>
-'  2-dimensionales Parameter-Array (Array(n,1) ... x(n,0) = Parametername, x(n,1) = Parameterwert) ... erzeugbar mit GetParamDefArray oder GetNamedParamDefArray
-' </param>
-' <returns>Long (Anzahl der betroffenen Datensätze)</returns>
-' <remarks>
-' </remarks>
-'**/
+'
+' Execute saved query (optionally with parameters)
+'
+' Parameters:
+'     QueryName   - QueryDef name
+'     QueryParams -  Werte in passender Reihenfolge als ParamArray oder als Array <br/>
+'                    oder<br/>
+'                    2-dimensionales Parameter-Array (Array(n,1) ... x(n,0) = Parametername, x(n,1) = Parameterwert) ... erzeugbar mit GetParamDefArray oder GetNamedParamDefArray
+'
+' Returns:
+'     RecordsAffected (Long)
+'
 '---------------------------------------------------------------------------------------
 Public Function ExecuteQueryDefByName(ByVal QueryName As String, _
                                  ParamArray QueryParams() As Variant) As Long
@@ -280,20 +283,18 @@ End Function
 '---------------------------------------------------------------------------------------
 ' Function: ExecuteQueryDef
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
+'
 ' QueryDef-Objekt mit Parameterwerten befüllen und anschließend ausführen
-' </summary>
-' <param name="Qdf">QueryDef-Referenz</param>
-' <param name="QueryParams">
-'  Werte in passender Reihenfolge als ParamArray oder als Array <br/>
-'  oder<br/>
-'  2-dimensionales Parameter-Array (Array(n,1) ... x(n,0) = Parametername, x(n,1) = Parameterwert) ... erzeugbar mit GetParamDefArray oder GetNamedParamDefArray
-' </param>
-' <returns>Long (Anzahl der betroffenen Datensätze)</returns>
-' <remarks>
-' </remarks>
-'**/
+'
+' Parameters:
+'     QdfRef      - QueryDef reference
+'     QueryParams - Werte in passender Reihenfolge als ParamArray oder als Array <br/>
+'                   oder<br/>
+'                   2-dimensionales Parameter-Array (Array(n,1) ... x(n,0) = Parametername, x(n,1) = Parameterwert) ... erzeugbar mit GetParamDefArray oder GetNamedParamDefArray
+'
+' Returns:
+'     RecordsAffected (Long)
+'
 '---------------------------------------------------------------------------------------
 Public Function ExecuteQueryDef(ByVal QdfRef As DAO.QueryDef, _
                        ParamArray QueryParams() As Variant) As Long
