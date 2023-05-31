@@ -18,8 +18,7 @@ Option Compare Database
 Option Explicit
 
 '---------------------------------------------------------------------------------------
-'
-' Type + Enums
+' Group: Types
 '
 
 '---------------------------------------------------------------------------------------
@@ -28,14 +27,10 @@ Option Explicit
 '
 ' Type for the simultaneous transfer of the connection strings
 '
-' <list type="table">
-'   <item><term>OledbConnectionString</term><description>OLEDB connectionstring for ADODB connection</description></item>
-'   <item><term>OdbcConnectionString</term><description>ODBC connectionstring for DAO connection</description></item>
-'   <item><term>DatabaseFile</term><description>Database file name incl. path if a file backend is used.</description></item>
-' </list>
-' <remarks>
-' </remarks>
-'**/
+'     OledbConnectionString   - OLEDB connectionstring for ADODB connection
+'     OdbcConnectionString    - ODBC connectionstring for DAO connection
+'     DatabaseFile            - Database file name incl. path if a file backend is used
+'
 '---------------------------------------------------------------------------------------
 Public Type DbmsConnectionStrings
    OledbConnectionString As String
@@ -45,20 +40,17 @@ End Type
 
 
 '---------------------------------------------------------------------------------------
+' Group: Enums
+'
+
+'---------------------------------------------------------------------------------------
 ' Enum: DbmsConnectionModes
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
-' DbmsConnectionModes
-' </summary>
-' <list type="table">
-'   <item><term>DMBS_DSNless (1)</term><description>without DSN</description></item>
-'   <item><term>DMBS_DSN (2)</term><description>with DSN</description></item>
-'   <item><term>DBMS_USERDEF (128)</term><description>User-defined connection strings</description></item>
-' </list>
-' <remarks>
-' </remarks>
-'**/
+'
+'     DMBS_DSNless   - (1)    without DSN
+'     DMBS_DSN       - (2)    with DSN
+'     DBMS_USERDEF   - (128)  User-defined connection strings
+'
 '---------------------------------------------------------------------------------------
 Public Enum DbmsConnectionModes
    DMBS_DSNless = 1   'ohne DSN

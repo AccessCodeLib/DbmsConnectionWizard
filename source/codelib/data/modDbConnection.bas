@@ -24,6 +24,9 @@ Option Private Module
 
 Private m_DbConnectionManager As DbConnectionManager ' Hauptsteuerung
 
+'#######################################################################################
+' Group: Factories
+
 '---------------------------------------------------------------------------------------
 ' Property: DbCon
 '---------------------------------------------------------------------------------------
@@ -34,8 +37,8 @@ Private m_DbConnectionManager As DbConnectionManager ' Hauptsteuerung
 '     DbConnectionHandler
 '
 ' Remarks:
-'  | Simplifies the call, as the writing of the DbConnectionManager instance variables is omitted.
-'  | The first access creates the instance of the DbConnectionManager class if it does not already exist.
+'     Simplifies the call, as the writing of the DbConnectionManager instance variables is omitted.
+'     The first access creates the instance of the DbConnectionManager class if it does not already exist.
 '
 '---------------------------------------------------------------------------------------
 Public Property Get DbCon() As DbConnectionHandler
@@ -50,16 +53,16 @@ End Property
 '---------------------------------------------------------------------------------------
 ' Property: CurrentConnectionInfo
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
+'
 ' Access to DbConnectionInfo of the main DbConnectionManager instance
-' </summary>
-' <returns>DbConnectionInfo</returns>
-' <remarks>
-' Simplifies the call, as the writing of the DbConnectionManager instance variables is omitted.
-' The first access creates the instance of the DbConnectionManager class if it does not already exist.
-' </remarks>
-'**/
+'
+' Returns:
+'     <data.DbConnectionInfo>
+'
+' Remarks:
+'     Simplifies the call, as the writing of the DbConnectionManager instance variables is omitted.
+'     The first access creates the instance of the DbConnectionManager class if it does not already exist.
+'
 '---------------------------------------------------------------------------------------
 Public Property Get CurrentConnectionInfo() As DbConnectionInfo
 
@@ -70,17 +73,18 @@ Public Property Get CurrentConnectionInfo() As DbConnectionInfo
 
 End Property
 
+'#######################################################################################
+' Group: Global Procedures
+
 '---------------------------------------------------------------------------------------
 ' Function: CheckConnectionStatus
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
-' Verbindung prüfen <see cref=DbConnectionManager#CheckConnectionStatus>DbConnectionManager.CheckConnectionStatus</see>
-' </summary>
-' <returns>Boolean: True if success</returns>
-' <remarks>
-' </remarks>
-'**/
+'
+' Verbindung prüfen (call <data.DbConnectionManager.CheckConnectionStatus>)
+'
+' Return:
+'     Boolean - True if success
+'
 '---------------------------------------------------------------------------------------
 Public Function CheckConnectionStatus() As Boolean
 
@@ -94,11 +98,9 @@ End Function
 '---------------------------------------------------------------------------------------
 ' Sub: DisposeDbConnection
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
+'
 ' Dispose DbConnection objects (incl. DbConnectionManager)
-' </summary>
-'**/
+'
 '---------------------------------------------------------------------------------------
 Public Sub DisposeDbConnection()
 
@@ -111,24 +113,35 @@ On Error Resume Next
    
 End Sub
 
-
 '############################
 '
 ' Hilfsfunktionen
 
-Public Function TableDefExists(ByVal sTableDefName As String, Optional ByRef dbs As DAO.Database = Nothing) As Boolean
+'---------------------------------------------------------------------------------------
+' Function: TableDefExists
+'---------------------------------------------------------------------------------------
+'
+' Check if TableDef exists
+'
+' Parameters:
+'     TableDefName   - (String) TableDef name
+'     db             - (DAO.Database) Database to use (optional: if nothing CurrentDb will be used)
+'
+'---------------------------------------------------------------------------------------
+Public Function TableDefExists(ByVal TableDefName As String, _
+                      Optional ByVal db As DAO.Database = Nothing) As Boolean
 'Schneller wäre der Zugriff auf MSysObject (select .. from MSysObject where Name = 'Tabellenname' AND Type IN (1, 4, 6)
 'Eine weitere Alternative wäre das Auswerten über cnn.OpenSchema(adSchemaTables, ...) ... dann werden allerdings keine verknüpften Tabellen geprüft
    
    Dim tdf As DAO.TableDef
 
-   If dbs Is Nothing Then
-      Set dbs = CurrentDb
+   If db Is Nothing Then
+      Set db = CurrentDb
    End If
    
-   dbs.TableDefs.Refresh
-   For Each tdf In dbs.TableDefs
-      If tdf.Name = sTableDefName Then
+   db.TableDefs.Refresh
+   For Each tdf In db.TableDefs
+      If tdf.Name = TableDefName Then
          TableDefExists = True
          Exit For
       End If
@@ -136,17 +149,29 @@ Public Function TableDefExists(ByVal sTableDefName As String, Optional ByRef dbs
 
 End Function
 
-Public Function QueryDefExists(ByVal sQueryDefName As String, Optional ByVal dbs As DAO.Database = Nothing) As Boolean
+'---------------------------------------------------------------------------------------
+' Function: QueryDefExists
+'---------------------------------------------------------------------------------------
+'
+' Check if QueryDef exists
+'
+' Parameters:
+'     QueryDefName   - (String) QueryDef name
+'     db             - (DAO.Database) Database to use (optional: if nothing CurrentDb will be used)
+'
+'---------------------------------------------------------------------------------------
+Public Function QueryDefExists(ByVal QueryDefName As String, _
+                      Optional ByVal db As DAO.Database = Nothing) As Boolean
    
    Dim qdf As DAO.QueryDef
 
-   If dbs Is Nothing Then
-      Set dbs = CurrentDb
+   If db Is Nothing Then
+      Set db = CurrentDb
    End If
    
-   dbs.QueryDefs.Refresh
-   For Each qdf In dbs.QueryDefs
-      If qdf.Name = sQueryDefName Then
+   db.QueryDefs.Refresh
+   For Each qdf In db.QueryDefs
+      If qdf.Name = QueryDefName Then
          QueryDefExists = True
          Exit For
       End If

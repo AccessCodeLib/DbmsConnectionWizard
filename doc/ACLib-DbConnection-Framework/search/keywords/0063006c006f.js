@@ -1,1 +1,1 @@
-﻿NDSearch.OnPrefixDataLoaded("clo",["Function"],[["Clone",,[["data.SqlTools",,,,0,"File:SqlTools.cls:data.SqlTools.Clone","VisualBasicClass:data.SqlTools:Clone"]]]]);
+﻿NDSearch.OnPrefixDataLoaded("clo",["Function"],[["Clone",,[["data.sql.SqlTools",,,,0,"File:SqlTools.cls:data.sql.SqlTools.Clone","VisualBasicClass:data.sql.SqlTools:Clone"]]]]);

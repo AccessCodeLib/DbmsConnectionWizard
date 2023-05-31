@@ -1,1 +1,1 @@
-﻿NDSearch.OnPrefixDataLoaded("num",["Function"],[["NumberToSqlText",,[["data.SqlTools",,,,0,"File:SqlTools.cls:data.SqlTools.NumberToSqlText","VisualBasicClass:data.SqlTools:NumberToSqlText"]]]]);
+﻿NDSearch.OnPrefixDataLoaded("num",["Function"],[["NumberToSqlText",,[["data.sql.SqlTools",,,,0,"File:SqlTools.cls:data.sql.SqlTools.NumberToSqlText","VisualBasicClass:data.sql.SqlTools:NumberToSqlText"]]]]);
