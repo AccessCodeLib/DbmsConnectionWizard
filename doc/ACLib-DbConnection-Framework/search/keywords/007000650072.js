@@ -1,1 +1,0 @@
-﻿NDSearch.OnPrefixDataLoaded("per",["Property"],[["PermanentBackendRstSqlText",,[["data.DbConnectionInfo",,,,0,"File:DbConnectionInfo.cls:data.DbConnectionInfo.PermanentBackendRstSqlText","VisualBasicClass:data.DbConnectionInfo:PermanentBackendRstSqlText"]]]]);

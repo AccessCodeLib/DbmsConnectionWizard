@@ -1,1 +1,0 @@
-﻿NDSearch.OnPrefixDataLoaded("log",["Property"],[["LoginFormName",,[["data.DbConnectionInfo",,,,0,"File:DbConnectionInfo.cls:data.DbConnectionInfo.LoginFormName","VisualBasicClass:data.DbConnectionInfo:LoginFormName"]]]]);

@@ -66,7 +66,7 @@ Public Event ErrorMissingCurrentDb(ByVal Msg As String, ByRef NewCurrentDbRef As
 '---------------------------------------------------------------------------------------
 '
 ' Event for missing ADODB connection reference
-' (Passing the AdodbHandler event: <see cref=AdodbHandler#ErrorMissingCurrentConnection>ErrorMissingCurrentConnection</see>)
+' (Passing the AdodbHandler event: <data.adodb.AdodbHandler::ErrorMissingCurrentConnection>)
 '
 ' Parameters:
 '     Msg   -  Message about the cause of the event triggering. (Not yet used)
@@ -85,11 +85,15 @@ Public Event ErrorMissingCurrentConnection(ByVal Msg As String, ByRef NewCurrent
 '---------------------------------------------------------------------------------------
 '
 ' Event for missing OLEDB connection string
-' (Passing the AdodbHandler event: <see cref=AdodbHandler#ErrorEmptyOledbConnectionString>ErrorEmptyOledbConnectionString</see>)
+' (Passing the AdodbHandler event: <data.adodb.AdodbHandler::ErrorEmptyOledbConnectionString> )
 '
-' <param name="Msg">Message about the cause of the event triggering. (Not yet used)</param>
-' <param name="NewConnectionString">OLEDB-Connectionstring</param>
-' <remarks>The appropriate OLEDB connection string can be passed on via the ByRef parameter NewConnectionString.</remarks>
+' Parameters:
+'     Msg                  - Message about the cause of the event triggering. (Not yet used)
+'     NewConnectionString  - OLEDB Connectionstring
+'
+' Remarks:
+'     The appropriate OLEDB connection string can be passed on via the ByRef parameter NewConnectionString.
+'
 '---------------------------------------------------------------------------------------
 Public Event ErrorEmptyOledbConnectionString(ByVal Msg As String, ByRef NewConnectionString As String)
 
@@ -98,11 +102,15 @@ Public Event ErrorEmptyOledbConnectionString(ByVal Msg As String, ByRef NewConne
 '---------------------------------------------------------------------------------------
 '
 ' Event for missing ODBC connection string
-' (Passing the OdbcHandler event: <see cref=OdbcHandler#ErrorEmptyConnectionString>ErrorEmptyConnectionString</see>)
+' (Passing the OdbcHandler event: <data.odbc.OdbcHandler::ErrorEmptyConnectionString>)
 '
-' <param name="Msg">Message about the cause of the event triggering. (Not yet used)</param>
-' <param name="NewConnectionString">ODBC-Connectionstring</param>
-' <remarks>The appropriate ODBC connection string can be passed on via the ByRef parameter NewConnectionString.</remarks>
+' Parameters:
+'     Msg                  - Message about the cause of the event triggering. (Not yet used)
+'     NewConnectionString  - ODBC-Connectionstring
+'
+' Remarks:
+'     The appropriate ODBC connection string can be passed on via the ByRef parameter NewConnectionString.
+'
 '---------------------------------------------------------------------------------------
 Public Event ErrorEmptyOdbcConnectionString(ByVal Msg As String, ByRef NewConnectionString As String)
 

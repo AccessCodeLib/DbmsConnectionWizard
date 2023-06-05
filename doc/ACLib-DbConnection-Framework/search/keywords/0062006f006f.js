@@ -1,1 +1,0 @@
-﻿NDSearch.OnPrefixDataLoaded("boo",["Function"],[["BooleanToSqlText",,[["data.sql.SqlTools",,,,0,"File:SqlTools.cls:data.sql.SqlTools.BooleanToSqlText","VisualBasicClass:data.sql.SqlTools:BooleanToSqlText"]]]]);

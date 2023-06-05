@@ -1,1 +1,0 @@
-﻿NDSearch.OnPrefixDataLoaded("dao",["Property","Class"],[["DAO",,[["data.DbConnectionHandler",,,,0,"File:DbConnectionHandler.cls:data.DbConnectionHandler.DAO","VisualBasicClass:data.DbConnectionHandler:DAO"]]],["DaoHandler",,[["data.dao",,,,1,"File:dao/DaoHandler.cls:data.dao.DaoHandler","VisualBasicClass:data.dao.DaoHandler"]]]]);

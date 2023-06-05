@@ -1,1 +1,0 @@
-﻿NDSearch.OnPrefixDataLoaded("bui",["Function"],[["BuildCriteria",,[["data.sql.SqlTools",,,,0,"File:SqlTools.cls:data.sql.SqlTools.BuildCriteria","VisualBasicClass:data.sql.SqlTools:BuildCriteria"]]]]);

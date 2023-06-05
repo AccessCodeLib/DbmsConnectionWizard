@@ -90,13 +90,90 @@ Public Enum SqlLogicalOperator
    SQL_CommaSeparator = 3
 End Enum
 
-' SQL dialect presets
+'##################################
+' Group: Class support
+
+'---------------------------------------------------------------------------------------
+' Function: Clone
+'---------------------------------------------------------------------------------------
+'
+' Create a new instance with basic settings of the current instance.
+'
+' Parameters:
+'
+'     NewSqlDateFormat - use this date format instead of base instance
+'     NewSqlBooleanTrueString - use this text for true instead of base instance
+'     NewSqlWildCardString - use this wildcard string instead of base instance
+'
+' Returns:
+'
+'     SqlTools instance with config form base
+'
+' See Also:
+'     NewInstance
+'
+'---------------------------------------------------------------------------------------
+Public Function Clone(Optional ByVal NewSqlDateFormat As String = SQL_DEFAULT_DATEFORMAT, _
+                      Optional ByVal NewSqlBooleanTrueString As String = SQL_DEFAULT_BOOLTRUESTRING, _
+                      Optional ByVal NewSqlWildCardString As String = SQL_DEFAULT_WILDCARD) As SqlTools
+
+
+   If Len(NewSqlDateFormat) = 0 Then NewSqlDateFormat = Me.SqlDateFormat
+   If Len(NewSqlBooleanTrueString) = 0 Then NewSqlBooleanTrueString = Me.SqlBooleanTrueString
+   If Len(NewSqlWildCardString) = 0 Then NewSqlWildCardString = Me.SqlWildCardString
+
+   Set Clone = NewInstance(NewSqlDateFormat, NewSqlBooleanTrueString, NewSqlWildCardString)
+
+End Function
+
+'---------------------------------------------------------------------------------------
+' Function: NewInstance
+'---------------------------------------------------------------------------------------
+'
+' Create a new instance
+'
+'---------------------------------------------------------------------------------------
+Public Function NewInstance(ByVal NewSqlDateFormat As String, _
+                            ByVal NewSqlBooleanTrueString As String, _
+                            ByVal NewSqlWildCardString As String) As SqlTools
+   
+   Dim NewInst As SqlTools
+
+   Set NewInst = New SqlTools
+   With NewInst
+      .SqlDateFormat = NewSqlDateFormat
+      .SqlBooleanTrueString = NewSqlBooleanTrueString
+      .SqlWildCardString = NewSqlWildCardString
+   End With
+
+   Set NewInstance = NewInst
+
+End Function
+
+
+'##################################
+' Group: SQL dialect preferences
+
+'---------------------------------------------------------------------------------------
+' Property: DAO
+'---------------------------------------------------------------------------------------
+'
+' SqlTools instance configured for DAO-SQL (Jet/ACE)
+'
+'---------------------------------------------------------------------------------------
 Public Property Get DAO() As SqlTools
-   Set DAO = Me.Clone("\#yyyy-mm-dd hh:nn:ss\#", "True", "*")
+   Set DAO = Me.NewInstance("\#yyyy-mm-dd hh:nn:ss\#", "True", "*")
 End Property
 
+'---------------------------------------------------------------------------------------
+' Property: TSql
+'---------------------------------------------------------------------------------------
+'
+' SqlTools instance configured for T-SQL
+'
+'---------------------------------------------------------------------------------------
 Public Property Get TSql() As SqlTools
-   Set TSql = Me.Clone("'yyyymmdd hh:nn:ss'", "1", "%")
+   Set TSql = Me.NewInstance("'yyyymmdd hh:nn:ss'", "1", "%")
 End Property
 
 ' Configuration for SQL dialect
@@ -158,62 +235,8 @@ Public Property Let SqlBooleanTrueString(ByVal NewValue As String)
    m_SqlBooleanTrueString = NewValue
 End Property
 
-'---------------------------------------------------------------------------------------
-' Function: Clone
-'---------------------------------------------------------------------------------------
-'
-' Create a new instance with basic settings of the current instance.
-'
-' Parameters:
-'
-'     NewSqlDateFormat - use this date format instead of base instance
-'     NewSqlBooleanTrueString - use this text for true instead of base instance
-'     NewSqlWildCardString - use this wildcard string instead of base instance
-'
-' Returns:
-'
-'     SqlTools instance with config form base
-'
-' See Also:
-'     NewInstance
-'
-'---------------------------------------------------------------------------------------
-Public Function Clone(Optional ByVal NewSqlDateFormat As String = SQL_DEFAULT_DATEFORMAT, _
-                      Optional ByVal NewSqlBooleanTrueString As String = SQL_DEFAULT_BOOLTRUESTRING, _
-                      Optional ByVal NewSqlWildCardString As String = SQL_DEFAULT_WILDCARD) As SqlTools
-
-
-   If Len(NewSqlDateFormat) = 0 Then NewSqlDateFormat = Me.SqlDateFormat
-   If Len(NewSqlBooleanTrueString) = 0 Then NewSqlBooleanTrueString = Me.SqlBooleanTrueString
-   If Len(NewSqlWildCardString) = 0 Then NewSqlWildCardString = Me.SqlWildCardString
-
-   Set Clone = NewInstance(NewSqlDateFormat, NewSqlBooleanTrueString, NewSqlWildCardString)
-
-End Function
-
-'---------------------------------------------------------------------------------------
-' Function: NewInstance
-'---------------------------------------------------------------------------------------
-'
-' Create a new instance
-'
-'---------------------------------------------------------------------------------------
-Public Function NewInstance(ByVal NewSqlDateFormat As String, _
-                            ByVal NewSqlBooleanTrueString As String, _
-                            ByVal NewSqlWildCardString As String) As SqlTools
-   
-   Dim NewInst As SqlTools
-
-   Set NewInst = New SqlTools
-   With NewInst
-      .SqlDateFormat = NewSqlDateFormat
-      .SqlBooleanTrueString = NewSqlBooleanTrueString
-      .SqlWildCardString = NewSqlWildCardString
-   End With
-
-   Set NewInstance = NewInst
-
-End Function
+'##################################
+' Group: BuildCriteria
 
 '---------------------------------------------------------------------------------------
 ' Function: BuildCriteria
@@ -377,17 +400,22 @@ Public Function BuildCriteria(ByVal FieldName As String, ByVal FieldDataType As 
 
 End Function
 
+'##################################
+' Group: Convert to SQL
+
 '---------------------------------------------------------------------------------------
 ' Function: ConvertToSqlText
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
+'
 ' Convert values to string for SQL statement assembled by VBA.
-' </summary>
-' <param name="Value">Value to convert</param>
-' <param name="FieldDataType">Data type of the value to be converted</param>
-' <returns>String</returns>
-'**/
+'
+' Parameters:
+'     Value          - Value to convert
+'     FieldDataType  - Data type of the value to be converted
+'
+' Returns:
+'     String   - SQL conform string
+'
 '---------------------------------------------------------------------------------------
 Public Function ConvertToSqlText(ByVal Value As Variant, _
                                  ByVal FieldDataType As SqlFieldDataType) As String
@@ -410,19 +438,21 @@ End Function
 '---------------------------------------------------------------------------------------
 ' Function: TextToSqlText
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
+'
 ' Prepare text for SQL statement
-' </summary>
-' <param name="Value">Value to convert</param>
-' <param name="Delimiter">Delimiter for text values. (In most DBMS ' is used as a delimiter).</param>
-' <param name="WithoutLeftRightDelim">Only double the boundary drawing within the values, but do not set the boundary.</param>
-' <returns>String</returns>
-' <remarks>
-' Example:  strSQL = "select ... from tabelle where Feld = " & TextToSqlText("ab'cd")
-'        => strSQL = "select ... from tabelle where Feld = 'ab''cd'"
-' </remarks>
-'**/
+'
+' Parameters:
+'     Value                   - Value to convert
+'     Delimiter               - Delimiter for text values. (In most DBMS ' is used as a delimiter).
+'     WithoutLeftRightDelim   - Only double the boundary drawing within the values, but do not set the boundary.
+'
+' Returns:
+'     String
+'
+' Example:
+'        strSQL = "select ... from tabelle where Feld = " & TextToSqlText("ab'cd")
+'     => strSQL = "select ... from tabelle where Feld = 'ab''cd'"
+'
 '---------------------------------------------------------------------------------------
 Public Function TextToSqlText(ByVal Value As Variant, _
                      Optional ByVal Delimiter As String = SQL_DEFAULT_TEXTDELIMITER, _
@@ -447,14 +477,16 @@ End Function
 '---------------------------------------------------------------------------------------
 ' Function: DateToSqlText
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
+'
 ' Convert date value to string for SQL statement assembled by VBA.
-' </summary>
-' <param name="Value">Value to convert</param>
-' <param name="FormatString">Date format (depends on DBMS!)</param>
-' <returns>String</returns>
-'**/
+'
+' Parameters:
+'     Value          - Value to convert
+'     FormatString   - Date format (depends on DBMS!)
+'
+' Returns:
+'     String
+'
 '---------------------------------------------------------------------------------------
 Public Function DateToSqlText(ByVal Value As Variant, _
                      Optional ByVal FormatString As String = SQL_DEFAULT_DATEFORMAT) As String
@@ -482,16 +514,19 @@ End Function
 '---------------------------------------------------------------------------------------
 ' Function: NumberToSqlText
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
-' Zahl für SQL-Text aufbereiten
-' </summary>
-' <param name="Value">Value to convert</param>
-' <returns>String</returns>
-' <remarks>
-' Str function ensures ".".
-' </remarks>
-'**/
+'
+' Convert numeric value to string for SQL statement assembled by VBA.
+'
+' Parameters:
+'     Value          - Value to convert
+'     FormatString   - Date format (depends on DBMS!)
+'
+' Returns:
+'     String
+'
+' Remarks:
+'     Str function ensures ".".
+'
 '---------------------------------------------------------------------------------------
 Public Function NumberToSqlText(ByVal Value As Variant) As String
 
@@ -551,16 +586,16 @@ End Function
 '---------------------------------------------------------------------------------------
 ' Function: BooleanToSqlText
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
+'
 ' Prepare Boolean for SQL text
-' </summary>
-' <param name="Value">Value to convert</param>
-' <param name="TrueString">String for true value (optional)</param>
-' <returns>String</returns>
-' <remarks>
-' </remarks>
-'**/
+'
+' Parameters:
+'     Value          - Value to convert
+'     TrueString   -   String for true value (optional)
+'
+' Returns:
+'     String
+'
 '---------------------------------------------------------------------------------------
 Public Function BooleanToSqlText(ByVal Value As Variant, _
                         Optional ByVal TrueString As String = SQL_DEFAULT_BOOLTRUESTRING) As String
