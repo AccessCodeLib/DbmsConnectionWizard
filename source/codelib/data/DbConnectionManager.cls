@@ -10,13 +10,17 @@ Attribute VB_Exposed = False
 '---------------------------------------------------------------------------------------
 ' Class: data.DbConnectionManager
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
+'
 ' Class for instantiation, termination and basic control of data access classes
-' </summary>
-' <remarks>This class reacts to the events of the <see cref="DbConnectionInfo">DbConnectionInfo</see> and <see cref="DbConnectionHandler">DbConnectionHandler</see> instance.</remarks>
-' \ingroup data
-'**/
+'
+' Author:
+'     Josef Poetzl
+'
+' Remarks:
+'     This class reacts to the events of the <data.DbConnectionInfo> and <data.DbConnectionHandler> instance.
+'
+'---------------------------------------------------------------------------------------
+
 '---------------------------------------------------------------------------------------
 '<codelib>
 '  <file>data/DbConnectionManager.cls</file>
@@ -25,7 +29,7 @@ Attribute VB_Exposed = False
 '  <use>data/DbConnectionHandler.cls</use>
 '  <use>data/DbConnectionSettings.cls</use>
 '  <use>data/SqlTools.cls</use>
-'  <ref><name>DAO</name><major>5</major><minor>0</minor><guid>{00025E01-0000-0000-C000-000000000046}</guid></ref>
+'  <ref><name>DAO</name><major>12</major><minor>0</minor><guid>{4AC9E1DA-5BAD-4AC7-86E3-24F4CDCECA28}</guid></ref>
 '</codelib>
 '---------------------------------------------------------------------------------------
 '
@@ -55,11 +59,9 @@ End Sub
 '---------------------------------------------------------------------------------------
 ' Sub: Dispose
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
+'
 ' Remove object references
-' </summary>
-'**/
+'
 '---------------------------------------------------------------------------------------
 Public Sub Dispose()
 
@@ -77,16 +79,32 @@ On Error Resume Next
 End Sub
 
 '---------------------------------------------------------------------------------------
+' Function: CheckConnectionStatus
+'---------------------------------------------------------------------------------------
+'
+' Test whether a connection can be established
+'
+' Returns:
+'     Boolean - True if success
+'
+'---------------------------------------------------------------------------------------
+Public Function CheckConnectionStatus() As Boolean
+
+On Error Resume Next
+
+   CheckConnectionStatus = ConnectionInfo.CheckConnection
+
+End Function
+
+'---------------------------------------------------------------------------------------
 ' Property: DefaultSettings
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
+'
 ' Test whether a connection can be established
-' </summary>
-' <returns>DbConnectionSettings</returns>
-' <remarks>
-' </remarks>
-'**/
+'
+' Returns:
+'     <data.DbConnectionSettings>
+'
 '---------------------------------------------------------------------------------------
 Public Property Get DefaultSettings() As DbConnectionSettings
    If m_DefaultDbConnecionSettings Is Nothing Then
@@ -106,38 +124,17 @@ On Error Resume Next
 End Sub
 
 '---------------------------------------------------------------------------------------
-' Function: CheckConnectionStatus
-'---------------------------------------------------------------------------------------
-'/**
-' <summary>
-' Test whether a connection can be established
-' </summary>
-' <returns>Boolean: True if success</returns>
-' <remarks>
-' </remarks>
-'**/
-'---------------------------------------------------------------------------------------
-Public Function CheckConnectionStatus() As Boolean
-
-On Error Resume Next
-
-   CheckConnectionStatus = ConnectionInfo.CheckConnection
-
-End Function
-
-
-'---------------------------------------------------------------------------------------
 ' Property: ConnectionInfo
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
+'
 ' DbConnectionInfo instance
-' </summary>
-' <returns>DbConnectionInfo</returns>
-' <remarks>
-' Used to output information on the database connection
-' </remarks>
-'**/
+'
+' Returns:
+'     <data.DbConnectionInfo>
+'
+' Remarks:
+'     Used to output information on the database connection
+'
 '---------------------------------------------------------------------------------------
 Public Property Get ConnectionInfo() As DbConnectionInfo
 
@@ -152,15 +149,15 @@ End Property
 '---------------------------------------------------------------------------------------
 ' Property: DbConnection
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
+'
 ' DbConnectionHandler instance = Top level of the data access structure
-' </summary>
-' <returns>DbConnectionHandler</returns>
-' <remarks>
-' Encapsulates ADODB and DAO methods as well as ODBC accesses
-' </remarks>
-'**/
+'
+' Returns:
+'     <data.DbConnectionHandler>
+'
+' Remarks:
+'     Encapsulates ADODB and DAO methods as well as ODBC accesses
+'
 '---------------------------------------------------------------------------------------
 Public Property Get DbConnection() As DbConnectionHandler
 

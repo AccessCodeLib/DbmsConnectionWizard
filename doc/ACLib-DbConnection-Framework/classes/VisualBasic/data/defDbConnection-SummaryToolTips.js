@@ -1,1 +1,0 @@
-﻿NDSummary.OnToolTipsLoaded("VisualBasicClass:data.defDbConnection",{102:"<div class=\"NDToolTip TClass LVisualBasic\"><div class=\"TTSummary\">Set of global types, enums etc. for the DbConnection classes</div></div>",9:"<div class=\"NDToolTip TType LVisualBasic\"><div class=\"TTSummary\">Type for the simultaneous transfer of the connection strings</div></div>"});

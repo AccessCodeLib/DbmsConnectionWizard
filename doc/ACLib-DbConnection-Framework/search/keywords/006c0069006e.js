@@ -1,1 +1,0 @@
-﻿NDSearch.OnPrefixDataLoaded("lin",["Function"],[["LinkTable",,[["data.odbc.OdbcHandler",,,,0,"File:odbc/OdbcHandler.cls:data.odbc.OdbcHandler.LinkTable","VisualBasicClass:data.odbc.OdbcHandler:LinkTable"]]]]);

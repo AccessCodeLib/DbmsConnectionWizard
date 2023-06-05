@@ -1,1 +1,0 @@
-﻿NDSearch.OnPrefixDataLoaded("sav",["Property"],[["SavePassword",,[["data.DbConnectionInfo",,,,0,"File:DbConnectionInfo.cls:data.DbConnectionInfo.SavePassword","VisualBasicClass:data.DbConnectionInfo:SavePassword"]]]]);

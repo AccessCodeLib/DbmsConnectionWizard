@@ -1,1 +1,0 @@
-﻿NDSummary.OnToolTipsLoaded("File:DbConnectionSettings.cls",{106:"<div class=\"NDToolTip TClass LVisualBasic\"><div class=\"TTSummary\">/** &lt;summary&gt; Auxiliary class for caching the connection parameters &lt;/summary&gt; &lt;remarks&gt;&lt;/remarks&gt; \\ingroup data **/</div></div>"});

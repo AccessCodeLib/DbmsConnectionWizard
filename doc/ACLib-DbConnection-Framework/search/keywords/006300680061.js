@@ -1,1 +1,0 @@
-﻿NDSearch.OnPrefixDataLoaded("cha",["Function"],[["ChangeDbUserPassword",,[["data.DbConnectionInfo",,,,0,"File:DbConnectionInfo.cls:data.DbConnectionInfo.ChangeDbUserPassword","VisualBasicClass:data.DbConnectionInfo:ChangeDbUserPassword"]]]]);

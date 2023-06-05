@@ -1,1 +1,0 @@
-﻿NDFramePage.OnPageTitleLoaded("VisualBasicClass:data.DbConnectionSettings","DbConnectionSettings");NDSummary.OnSummaryLoaded("VisualBasicClass:data.DbConnectionSettings",[["Visual Basic","VisualBasic"]],[["Classes","Class"]],[[106,0,0,"<span class=\"Qualifier\">data.</span>&#8203;DbConnectionSettings"]]);
