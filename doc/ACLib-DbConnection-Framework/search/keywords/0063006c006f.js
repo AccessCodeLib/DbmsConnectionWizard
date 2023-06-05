@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("clo",["Property","Function"],[["Clone",,[["data.DbConnectionSettings",,,,0,"File:DbConnectionSettings.cls:data.DbConnectionSettings.Clone","VisualBasicClass:data.DbConnectionSettings:Clone"],["data.sql.SqlTools",,,,1,"File:SqlTools.cls:data.sql.SqlTools.Clone","VisualBasicClass:data.sql.SqlTools:Clone"]]]]);
