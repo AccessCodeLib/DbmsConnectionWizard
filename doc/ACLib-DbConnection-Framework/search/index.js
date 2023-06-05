@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixIndexLoaded(["ado","boo","bui","cha","che","cle","clo","con","cop","cou","cur","dao","dat","dbc","dbm","dbn","dbo","dbs","dbu","def","del","dis","dmb","err","exe","exi","get","hoo","ini","ins","isl","isp","lin","log","loo","max","min","mod","new","num","odb","ole","ope","par","pas","per","que","rel","sav","sql","sum","tab","tex","tsq","use","val","wil"]);
