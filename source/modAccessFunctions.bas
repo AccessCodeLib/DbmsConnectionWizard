@@ -1,15 +1,13 @@
 Attribute VB_Name = "modAccessFunctions"
 '---------------------------------------------------------------------------------------
-' Modul: modAccessFunctionReDefine
+' Package: modAccessFunctionReDefine
 '---------------------------------------------------------------------------------------
-'/* *
-' <summary>
+'
 ' Replacements of Access/VBA functions
-' </summary>
-' <remarks>
-' Simplifies programming by specifying procedure parameters, etc.
-' </remarks>
-'* */
+'
+' Remarks:
+'     Simplifies programming by specifying procedure parameters, etc.
+'
 '---------------------------------------------------------------------------------------
 '
 Option Compare Text
