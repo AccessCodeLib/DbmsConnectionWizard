@@ -18,7 +18,6 @@ Private Declare PtrSafe Function GetTempPath Lib "kernel32" Alias "GetTempPathA"
 Private Const m_conMaxPathLen As Long = 255
 
 Private Sub dateienEinstellen()
-   Call SaveAppFile("ChmFile", CodeProject.Path & "\doxygen\html\DbmsConnectionWizard.chm", True)
    SaveModulesInTable
 End Sub
 
@@ -57,7 +56,7 @@ Public Property Get AddInHelpFile() As String
 End Property
 
 Public Sub OpenHelpFile(Optional ByVal ContextID As Long = 0)
-
+' @todo: create new help file
    If ContextID = 0 Then
       ShellExecuteOpenFile AddInHelpFile
    Else

@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("que",["Function"],[["QueryDefExists",,[["data.modDbConnection",,,,0,"File:modDbConnection.bas:data.modDbConnection.QueryDefExists","VisualBasicClass:data.modDbConnection:QueryDefExists"]]]]);
