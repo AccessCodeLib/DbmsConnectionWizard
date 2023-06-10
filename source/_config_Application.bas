@@ -1,23 +1,23 @@
 Attribute VB_Name = "_config_Application"
 '
-'############################################################################
-'##                                                                        ##
-'##  Individuell gestaltete Config-Module nicht in das Repositiory laden!  ##
-'##                                                                        ##
-'############################################################################
+'#############################################################################
+'##                                                                         ##
+'##  Do not load individually designed config modules into the repository!  ##
+'##                                                                         ##
+'#############################################################################
 '
 '---------------------------------------------------------------------------------------
-' Modul: _config_Application (Beispiel)
+' Module: _config_Application
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
-' Beispiel für Anwendungskonfiguration
-' </summary>
-' <remarks>
-' Indiviuell gestaltete Config-Module nicht in das Repositiory laden.
-' </remarks>
-'\ingroup base
-'**/
+'
+' Application configuration
+'
+' Remarks:
+'  Do not load custom config modules into the repository.
+'
+'---------------------------------------------------------------------------------------
+
+'---------------------------------------------------------------------------------------
 '<codelib>
 '  <license>_codelib/license.bas</license>
 '  <use>base/modApplication.bas</use>
@@ -25,20 +25,15 @@ Attribute VB_Name = "_config_Application"
 '</codelib>
 '---------------------------------------------------------------------------------------
 '
-' Das Modul _config_Application wird vom Import-Assistenden nicht überschrieben.
-' Sollte eine neues _config_Application-Modul geladen werden,
-' ist das alte zuvor umzubennen oder zu löschen.
+' The _config_Application module is not overwritten by the import wizard.
+' If a new _config_Application module is loaded, the old one must be renamed or deleted first.
 '
-'
-' Nicht vergessen: USELOCALIZATION = 1 als Complier-Arg. in Projekteigenschaft einstellen
+' Do not forget: Set USELOCALIZATION = 1 as complier argument in project property.
 '
 
 Option Compare Text
 Option Explicit
 Option Private Module
-
-'/** \addtogroup base
-'@{ **/
 
 Private Const APPLICATION_VERSION As String = DCW_Version
 

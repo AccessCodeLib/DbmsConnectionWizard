@@ -2,27 +2,28 @@ VERSION 1.0 CLASS
 BEGIN
   MultiUse = -1  'True
 END
-Attribute VB_Name = "QpcStoppuhr"
+Attribute VB_Name = "QpcStopwatch"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 '---------------------------------------------------------------------------------------
-' Class: QpcStoppuhr
+' Class: misc.QpcStopwatch
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
-' QueryPerformanceCounter-Stoppuhr
-' zur Zeitmessung
-' </summary>
-' <remarks>
-' Nutzt die API-Funktionen QueryPerformanceCounter und QueryPerformanceFrequency
-' aus Kernel32 zum Messen der Zeit.
-' </remarks>
-' \ingroup misc
-'**/
+'
+' QueryPerformanceCounter stopwatch for time measurement
+'
+' Author:
+'     Josef Poetzl
+'
+' Remarks:
+'  Uses the API functions QueryPerformanceCounter and QueryPerformanceFrequency from Kernel32 to measure time.
+'
+'---------------------------------------------------------------------------------------
+
+'---------------------------------------------------------------------------------------
 '<codelib>
-'  <file>misc/QpcStoppuhr.cls</file>
+'  <file>misc/QpcStopwatch.cls</file>
 '  <license>_codelib/license.bas</license>
 '</codelib>
 '---------------------------------------------------------------------------------------
@@ -30,25 +31,20 @@ Attribute VB_Exposed = False
 Option Compare Database
 Option Explicit
 
-' Messung mit API
-' QueryPerformanceCounter
-
-
-'temp. Messergebnis
+'temp. measurement result
 Private p_TempTime As Currency
 Private p_TestFrequ As Currency
 
-'Zwischenspeicher für Laufzeit
+'Cache for runtime
 Private p_Timer As Currency
 
-'Zeit bei Start
+'Time at start
 Private p_Timer_Start As Currency
 
-'Win-API
+'Win API
 Private Declare PtrSafe Function QueryPerformanceCounter Lib "kernel32" (QPC As Currency) As Boolean
 Private Declare PtrSafe Function QueryPerformanceFrequency Lib "kernel32" (QPF As Currency) As Boolean
                         
-'Klasse initialisieren
 Private Sub Class_Initialize()
     p_Timer_Start = 0
     p_Timer = 0
@@ -58,13 +54,9 @@ End Sub
 '---------------------------------------------------------------------------------------
 ' Sub: StartT
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
-' Stoppuhr starten/neustarten, beginnen mit 0
-' </summary>
-' <remarks>
-' </remarks>
-'**/
+'
+' Start/restart stopwatch, start with 0
+'
 '---------------------------------------------------------------------------------------
 Public Sub StartT()
     p_Timer = 0
@@ -74,13 +66,9 @@ End Sub
 '---------------------------------------------------------------------------------------
 ' Sub: StopT
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
-' Stoppuhr anhalten
-' </summary>
-' <remarks>
-' </remarks>
-'**/
+'
+' Stop timer
+'
 '---------------------------------------------------------------------------------------
 Public Sub StopT()
     QueryPerformanceCounter p_TempTime
@@ -90,19 +78,14 @@ Public Sub StopT()
     End If
 End Sub
 
-
 '---------------------------------------------------------------------------------------
-' Sub: RestartT
+' Sub: Restart
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
-' Stoppuhr weiterlaufen lassen
-' </summary>
-' <remarks>
-' </remarks>
-'**/
+'
+' Keep stopwatch running
+'
 '---------------------------------------------------------------------------------------
-Public Sub RestartT()
+Public Sub Restart()
     'Uhr muss stehen!
     QueryPerformanceCounter p_TempTime
     If Me.IsRunning = False Then
@@ -111,17 +94,13 @@ Public Sub RestartT()
 End Sub
 
 '---------------------------------------------------------------------------------------
-' Sub: ResetT
+' Sub: Reset
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
-' Alles auf null
-' </summary>
-' <remarks>
-' </remarks>
-'**/
+'
+' Everything to zero
+'
 '---------------------------------------------------------------------------------------
-Public Sub ResetT()
+Public Sub Reset()
     p_Timer_Start = 0
     p_Timer = 0
 End Sub
@@ -129,70 +108,60 @@ End Sub
 '---------------------------------------------------------------------------------------
 ' Property: IsRunning
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
-' Gibt an, ob die Stoppuhr noch läuft
-' </summary>
-' <remarks>
-' </remarks>
-'**/
+'
+' Indicates whether the stopwatch is still running
+'
 '---------------------------------------------------------------------------------------
 Public Property Get IsRunning() As Boolean
     IsRunning = (p_Timer_Start > 0)
 End Property
 
 '---------------------------------------------------------------------------------------
-' Property: Time
+' Property: TimeMSec
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
-' Zeit in Millisekunden
-' </summary>
-' <returns>Currency</returns>
-' <remarks>
-' </remarks>
-'**/
+'
+' Time in milliseconds
+'
 '---------------------------------------------------------------------------------------
-Public Property Get Time() As Currency
+Public Property Get TimeMSec() As Currency
     QueryPerformanceCounter p_TempTime
     If Me.IsRunning Then
-        Time = (p_Timer + p_TempTime - p_Timer_Start) * 1000 / p_TestFrequ  ' [ms]
+        TimeMSec = (p_Timer + p_TempTime - p_Timer_Start) * 1000 / p_TestFrequ  ' [ms]
    Else
-        Time = p_Timer * 1000 / p_TestFrequ
+        TimeMSec = p_Timer * 1000 / p_TestFrequ
     End If
 End Property
 
 '---------------------------------------------------------------------------------------
-' Property: TimeString (2009-12-09)
+' Function: TimeString
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
-' Zeit als String mit Formatierung
-' </summary>
-' <param name="sSecFormatString">Formatierung der Zeit inkl. Sekunden aber ohne Sekundenbruchteile</param>
-' <param name="iMSecDigits">Anzahl der Stellen für die Millisekunden (nach dem Komma)</param>
-' <returns>String</returns>
-' <remarks>
-' Beispiel: TimeString("hh:nn:ss", 5) ergibt "00:05:34,24532"
-' </remarks>
-'**/
+'
+' Time as string with formatting
+'
+' Parameters:
+'     FormatString   - Formatting of time incl. seconds but without fractions of seconds
+'     SecDigits      - Number of digits for the fractions of a second (after the decimal point)
+'
+' Returns:
+'     String
+'
+' Example:
+'     TimeString("hh:nn:ss", 5) return formatted string like "00:05:34,24532"
+'
 '---------------------------------------------------------------------------------------
-Public Property Get TimeString(Optional sSecFormatString As String = "hh:nn:ss", _
-                                Optional iMSecDigits As Long = 3) As String
-    
-'sSecFormatString:      Format für Uhrzeit ohne Sekundenbruchteile
-'iMSecDigits:           Anzahl Stellen nach dem Komma. z.B.: 2 = 1/100-Sek.-Anzeige
+Public Function TimeString(Optional FormatString As String = "hh:nn:ss", _
+                           Optional SecDigits As Long = 3) As String
 
-    Dim curTimeSec As Currency
-    Dim strTimeString As String
+    Dim TimeSec As Currency
+    Dim FormattedTime As String
 
-    curTimeSec = VBA.Round(Me.Time / 1000, iMSecDigits) 'mathematisches Runden ist ok
+    TimeSec = VBA.Round(Me.TimeMSec / 1000, SecDigits)
    
-    strTimeString = Format(TimeSerial(0, 0, Fix(curTimeSec)), sSecFormatString)
-    If iMSecDigits > 0 Then
-        strTimeString = strTimeString & Format(curTimeSec - Fix(curTimeSec), "." & String(iMSecDigits, "0"))
+    FormattedTime = Format(TimeSerial(0, 0, Fix(TimeSec)), FormatString)
+    If SecDigits > 0 Then
+        FormattedTime = FormattedTime & Format(TimeSec - Fix(TimeSec), "." & String(SecDigits, "0"))
     End If
     
-    TimeString = strTimeString
+    TimeString = FormattedTime
     
-End Property
+End Function
