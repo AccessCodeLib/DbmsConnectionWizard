@@ -23,7 +23,7 @@ Public Function MsgBox(ByVal Prompt As Variant, _
    Dim strTitle As String
 
    If IsMissing(Title) Then
-      Title = CurrentApplicationName
+      Title = CurrentApplication.ApplicationName
    End If
    
    MsgBox = L10n.MsgBox(Prompt, Buttons, Title, HelpFile, Context)
@@ -40,7 +40,7 @@ Public Function InputBox(ByVal Prompt As Variant, _
    Dim strTitle As String
 
    If IsMissing(Title) Then
-      Title = CurrentApplicationName
+      Title = CurrentApplication.ApplicationName
    End If
    
    InputBox = L10n.InputBox(Prompt, Title, Default, XPos, YPos, HelpFile, Context)
