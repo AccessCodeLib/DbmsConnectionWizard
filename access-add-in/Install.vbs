@@ -1,6 +1,6 @@
 const AddInName = "DBMS Connection Wizard"
 const AddInFileName = "DbmsConnectionWizard.accda"
-const MsgBoxTitle = "Install/Update ACLib-Import-Wizard"
+const MsgBoxTitle = "Install/Update ACLib-DBMS-Connection-Wizard"
 
 MsgBox "Before updating the add-in file, the add-in must not be loaded!" & chr(13) & _
        "Close all access instances for safety.", , MsgBoxTitle & ": Information"
