@@ -10,3 +10,7 @@ Download [DbmsConnectionWizard.accda](https://github.com/AccessCodeLib/DbmsConne
 
 Note:
 Use install.vbs to create a compiled version.
+
+
+## ACLib DbConnection Framework
+Interface documentation: https://source.access-codelib.net/doc/ACLib-DbConnection-Framework/
