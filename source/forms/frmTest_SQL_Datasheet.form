@@ -1,0 +1,776 @@
+﻿Version =20
+VersionRequired =20
+Begin Form
+    AutoResize = NotDefault
+    ShortcutMenu = NotDefault
+    AutoCenter = NotDefault
+    DefaultView =2
+    TabularFamily =124
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    GridY =10
+    Width =5442
+    RowHeight =390
+    DatasheetFontHeight =10
+    ItemSuffix =76
+    Left =1000
+    Top =1000
+    Right =50000
+    Bottom =50000
+    FrozenColumns =2
+    OnUnload ="[Event Procedure]"
+    RecSrcDt = Begin
+        0xf02028da35e0e240
+    End
+    Caption ="Test: SQL-Ergebnis"
+    DatasheetFontName ="Arial"
+    FilterOnLoad =0
+    AllowLayoutView =0
+    DatasheetGridlinesColor12 =12632256
+    Begin
+        Begin Label
+            BackStyle =0
+            FontName ="Tahoma"
+        End
+        Begin TextBox
+            FELineBreak = NotDefault
+            SpecialEffect =2
+            OldBorderStyle =0
+            BorderLineStyle =0
+            Width =1701
+            LabelX =-1701
+            FontName ="Tahoma"
+            AsianLineBreak =255
+        End
+        Begin Section
+            Height =3458
+            BackColor =-2147483633
+            Name ="Detailbereich"
+            Begin
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =1016
+                    Top =56
+                    Width =741
+                    ColumnWidth =3345
+                    Name ="Text0"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Top =56
+                            Width =960
+                            Height =240
+                            Name ="lab0"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =1016
+                    Top =396
+                    Width =741
+                    ColumnWidth =2790
+                    TabIndex =3
+                    Name ="Text3"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Top =396
+                            Width =960
+                            Height =240
+                            Name ="lab3"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =1016
+                    Top =737
+                    Width =741
+                    ColumnWidth =1140
+                    TabIndex =6
+                    Name ="Text6"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Top =737
+                            Width =960
+                            Height =240
+                            Name ="lab6"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =1016
+                    Top =1077
+                    Width =741
+                    TabIndex =9
+                    Name ="Text9"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Top =1077
+                            Width =960
+                            Height =240
+                            Name ="lab9"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =1016
+                    Top =1417
+                    Width =741
+                    TabIndex =12
+                    Name ="Text12"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Top =1417
+                            Width =960
+                            Height =240
+                            Name ="lab12"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =1020
+                    Top =1755
+                    Width =741
+                    TabIndex =15
+                    Name ="Text15"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Left =4
+                            Top =1755
+                            Width =960
+                            Height =240
+                            Name ="lab15"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =1020
+                    Top =2095
+                    Width =741
+                    TabIndex =18
+                    Name ="Text18"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Left =4
+                            Top =2095
+                            Width =960
+                            Height =240
+                            Name ="lab18"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =1020
+                    Top =2435
+                    Width =741
+                    TabIndex =21
+                    Name ="Text21"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Left =4
+                            Top =2435
+                            Width =960
+                            Height =240
+                            Name ="lab21"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =1020
+                    Top =2775
+                    Width =741
+                    TabIndex =24
+                    Name ="Text24"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Left =4
+                            Top =2775
+                            Width =960
+                            Height =240
+                            Name ="lab24"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =1020
+                    Top =3135
+                    Width =741
+                    TabIndex =27
+                    Name ="Text27"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Left =4
+                            Top =3135
+                            Width =960
+                            Height =240
+                            Name ="lab27"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =2830
+                    Top =56
+                    Width =741
+                    ColumnWidth =3810
+                    TabIndex =1
+                    Name ="Text1"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Left =1862
+                            Top =56
+                            Width =900
+                            Height =240
+                            Name ="lab1"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =2830
+                    Top =396
+                    Width =741
+                    ColumnWidth =1800
+                    TabIndex =4
+                    Name ="Text4"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Left =1862
+                            Top =396
+                            Width =900
+                            Height =240
+                            Name ="lab4"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =2830
+                    Top =737
+                    Width =741
+                    ColumnWidth =1020
+                    TabIndex =7
+                    Name ="Text7"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Left =1864
+                            Top =737
+                            Width =915
+                            Height =240
+                            Name ="lab7"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =2830
+                    Top =1077
+                    Width =741
+                    TabIndex =10
+                    Name ="Text10"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Left =1864
+                            Top =1077
+                            Width =915
+                            Height =240
+                            Name ="lab10"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =2830
+                    Top =1417
+                    Width =741
+                    TabIndex =13
+                    Name ="Text13"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Left =1864
+                            Top =1417
+                            Width =915
+                            Height =240
+                            Name ="lab13"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =2834
+                    Top =1755
+                    Width =741
+                    TabIndex =16
+                    Name ="Text16"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Left =1868
+                            Top =1755
+                            Width =915
+                            Height =240
+                            Name ="lab16"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =2834
+                    Top =2095
+                    Width =741
+                    TabIndex =19
+                    Name ="Text19"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Left =1868
+                            Top =2095
+                            Width =915
+                            Height =240
+                            Name ="lab19"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =2834
+                    Top =2435
+                    Width =741
+                    TabIndex =22
+                    Name ="Text22"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Left =1868
+                            Top =2435
+                            Width =915
+                            Height =240
+                            Name ="lab22"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =2834
+                    Top =2775
+                    Width =741
+                    TabIndex =25
+                    Name ="Text25"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Left =1868
+                            Top =2775
+                            Width =915
+                            Height =240
+                            Name ="lab25"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =2834
+                    Top =3135
+                    Width =741
+                    TabIndex =28
+                    Name ="Text28"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Left =1868
+                            Top =3135
+                            Width =915
+                            Height =240
+                            Name ="lab28"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =4645
+                    Top =56
+                    Width =741
+                    ColumnWidth =2610
+                    TabIndex =2
+                    Name ="Text2"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Left =3634
+                            Top =56
+                            Width =960
+                            Height =240
+                            Name ="lab2"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =4645
+                    Top =396
+                    Width =741
+                    TabIndex =5
+                    Name ="Text5"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Left =3634
+                            Top =396
+                            Width =960
+                            Height =240
+                            Name ="lab5"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =4645
+                    Top =737
+                    Width =741
+                    TabIndex =8
+                    Name ="Text8"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Left =3634
+                            Top =737
+                            Width =960
+                            Height =240
+                            Name ="lab8"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =4645
+                    Top =1077
+                    Width =741
+                    TabIndex =11
+                    Name ="Text11"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Left =3634
+                            Top =1077
+                            Width =960
+                            Height =240
+                            Name ="lab11"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =4645
+                    Top =1417
+                    Width =741
+                    TabIndex =14
+                    Name ="Text14"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Left =3634
+                            Top =1417
+                            Width =960
+                            Height =240
+                            Name ="lab14"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =4649
+                    Top =1755
+                    Width =741
+                    TabIndex =17
+                    Name ="Text17"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Left =3638
+                            Top =1755
+                            Width =960
+                            Height =240
+                            Name ="lab17"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =4649
+                    Top =2095
+                    Width =741
+                    TabIndex =20
+                    Name ="Text20"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Left =3638
+                            Top =2095
+                            Width =960
+                            Height =240
+                            Name ="lab20"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =4649
+                    Top =2435
+                    Width =741
+                    TabIndex =23
+                    Name ="Text23"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Left =3638
+                            Top =2435
+                            Width =960
+                            Height =240
+                            Name ="lab23"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =4649
+                    Top =2775
+                    Width =741
+                    TabIndex =26
+                    Name ="Text26"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Left =3638
+                            Top =2775
+                            Width =960
+                            Height =240
+                            Name ="lab26"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =4649
+                    Top =3135
+                    Width =741
+                    TabIndex =29
+                    Name ="Text29"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =2
+                            Left =3638
+                            Top =3135
+                            Width =960
+                            Height =240
+                            Name ="lab29"
+                            Caption ="FELDNAME"
+                        End
+                    End
+                End
+            End
+        End
+    End
+End
+CodeBehindForm
+' See "frmTest_SQL_Datasheet.cls"

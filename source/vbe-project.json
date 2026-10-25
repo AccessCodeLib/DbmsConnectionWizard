@@ -1,0 +1,17 @@
+﻿{
+  "Info": {
+    "Class": "clsDbVbeProject",
+    "Description": "VBE Project"
+  },
+  "Items": {
+    "Name": "DbmsConnectionWizard",
+    "Description": "",
+    "FileName": "DbmsConnectionWizard.accdb",
+    "HelpFile": "",
+    "HelpContextId": 0,
+    "ConditionalCompilationArguments": "USELOCALIZATION = 1 : CONFIG_USELOGINFORM = 1",
+    "Mode": 0,
+    "Protection": 0,
+    "Type": 100
+  }
+}

@@ -1,0 +1,15 @@
+﻿{
+  "Info": {
+    "Class": "clsDbTableDef",
+    "Description": "usys_DbmsConnection_X Metadata"
+  },
+  "Items": {
+    "Properties": {
+      "Description": {
+        "Type": 10,
+        "Value": "Einstellungen des Layouts zur Parametereingabe von je DBMS"
+      }
+    },
+    "Hidden": true
+  }
+}

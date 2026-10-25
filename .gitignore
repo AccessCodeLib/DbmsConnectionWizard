@@ -1,1 +1,8 @@
 /*.accdb
+*.laccdb
+*.env
+logs/
+test-results/
+.env.*
+!.env*.example
+*.zip

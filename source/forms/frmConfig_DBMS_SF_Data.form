@@ -1,0 +1,1135 @@
+﻿Version =20
+VersionRequired =20
+Begin Form
+    AllowFilters = NotDefault
+    RecordSelectors = NotDefault
+    ShortcutMenu = NotDefault
+    AutoCenter = NotDefault
+    NavigationButtons = NotDefault
+    AllowDeletions = NotDefault
+    AllowAdditions = NotDefault
+    KeyPreview = NotDefault
+    DefaultView =0
+    ScrollBars =0
+    TabularFamily =119
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    Cycle =1
+    GridY =10
+    Width =11597
+    DatasheetFontHeight =10
+    ItemSuffix =88
+    Top =1000
+    Right =50000
+    Bottom =50000
+    OnUnload ="[Event Procedure]"
+    RecSrcDt = Begin
+        0xe79e74fdce00e640
+    End
+    RecordSource ="SELECT NULL AS CID, NULL AS ActiveConnection, NULL AS DBMS, NULL AS dbmsConnecti"
+        "onMode, NULL AS dbmsOleDbProvider, NULL AS dbmsOdbcDriver, NULL AS dbmsServer, N"
+        "ULL AS dbmsPort, NULL AS dbmsDatabase, NULL AS dbmsEnabled, NULL AS dbmsUseTrust"
+        "edConnection, NULL AS dbmsUseLoginForm, NULL AS dbmsUser, NULL AS dbmsPwd, NULL "
+        "AS dbmsOptionsODBC, NULL AS dbmsOptionsOLEDB, NULL AS dbmsDSN, NULL AS dbmsConSt"
+        "rODBC, NULL AS dbmsConStrOLEDB, NULL AS Remarks, NULL AS XdbmsConnectionModes, N"
+        "ULL AS XdbmsServer, NULL AS XdbmsPort, NULL AS XdbmsDatabase, NULL AS XdbmsUseLo"
+        "ginForm, NULL AS XdbmsUseTrustedConnection, NULL AS XdbmsUser, NULL AS XdbmsPwd,"
+        " NULL AS XdbmsOptionsODBC, NULL AS XdbmsOptionsOLEDB, NULL AS XdbmsDSN, NULL AS "
+        "XdbmsConStrODBC, NULL AS XdbmsConStrOLEDB, NULL AS XdbmsOledbProvider, NULL AS X"
+        "dbmsOdbcDriver, NULL AS DriverODBC, NULL AS DriverOLEDB FROM tab1DS WHERE 1=0; "
+    OnCurrent ="[Event Procedure]"
+    AfterUpdate ="[Event Procedure]"
+    DatasheetFontName ="Arial"
+    OnKeyDown ="[Event Procedure]"
+    OnLoad ="[Event Procedure]"
+    FilterOnLoad =0
+    OrderByOnLoad =0
+    OrderByOnLoad =0
+    ShowPageMargins =0
+    AllowLayoutView =0
+    DatasheetGridlinesColor12 =12632256
+    Begin
+        Begin Label
+            BackStyle =0
+            FontName ="Tahoma"
+        End
+        Begin Rectangle
+            SpecialEffect =3
+            BackStyle =0
+            BorderLineStyle =0
+            Width =850
+            Height =850
+        End
+        Begin Line
+            BorderLineStyle =0
+            Width =1701
+        End
+        Begin CommandButton
+            Width =1701
+            Height =283
+            FontSize =8
+            FontWeight =400
+            ForeColor =-2147483630
+            FontName ="Tahoma"
+            BorderLineStyle =0
+        End
+        Begin CheckBox
+            SpecialEffect =2
+            BorderLineStyle =0
+            LabelX =230
+            LabelY =-30
+        End
+        Begin OptionGroup
+            SpecialEffect =3
+            BorderLineStyle =0
+            Width =1701
+            Height =1701
+        End
+        Begin TextBox
+            FELineBreak = NotDefault
+            SpecialEffect =2
+            OldBorderStyle =0
+            BorderLineStyle =0
+            Width =1701
+            LabelX =-1701
+            FontName ="Tahoma"
+            AsianLineBreak =255
+        End
+        Begin ComboBox
+            SpecialEffect =2
+            BorderLineStyle =0
+            Width =1701
+            LabelX =-1701
+            FontName ="Tahoma"
+        End
+        Begin ToggleButton
+            Width =283
+            Height =283
+            FontSize =8
+            FontWeight =400
+            ForeColor =-2147483630
+            FontName ="Tahoma"
+            BorderLineStyle =0
+        End
+        Begin Section
+            Height =7661
+            BackColor =-2147483633
+            Name ="Detailbereich"
+            Begin
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =93
+                    TextFontCharSet =2
+                    TextAlign =1
+                    TextFontFamily =2
+                    Left =10935
+                    Top =1875
+                    Width =295
+                    Height =295
+                    FontSize =16
+                    ForeColor =5026082
+                    Name ="labCopyModulDbConnectionHandler"
+                    FontName ="Marlett"
+                    OnClick ="[Event Procedure]"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =93
+                    TextFontCharSet =2
+                    TextAlign =1
+                    TextFontFamily =2
+                    Left =10935
+                    Top =1515
+                    Width =295
+                    Height =295
+                    FontSize =16
+                    ForeColor =5026082
+                    Name ="labCopyModulDbConnectionInfo"
+                    FontName ="Marlett"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =93
+                    TextFontCharSet =2
+                    TextAlign =1
+                    TextFontFamily =2
+                    Left =10935
+                    Top =2235
+                    Width =295
+                    Height =295
+                    FontSize =16
+                    ForeColor =5026082
+                    Name ="labCopyModulAccUtil"
+                    FontName ="Marlett"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =93
+                    TextFontCharSet =2
+                    TextAlign =1
+                    TextFontFamily =2
+                    Left =10935
+                    Top =1170
+                    Width =295
+                    Height =295
+                    FontSize =16
+                    ForeColor =5026082
+                    Name ="labCopyModules"
+                    FontName ="Marlett"
+                End
+                Begin Line
+                    OverlapFlags =93
+                    SpecialEffect =2
+                    Left =6251
+                    Top =403
+                    Width =0
+                    Height =7258
+                    Name ="Linie49"
+                End
+                Begin Rectangle
+                    SpecialEffect =1
+                    BackStyle =1
+                    OldBorderStyle =0
+                    OverlapFlags =223
+                    Left =30
+                    Top =30
+                    Width =11567
+                    Height =397
+                    BackColor =-2147483633
+                    Name ="rectHeader"
+                    OnMouseDown ="[Event Procedure]"
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    OverlapFlags =87
+                    AccessKey =83
+                    IMESentenceMode =3
+                    Left =1254
+                    Top =1522
+                    Width =3510
+                    Height =270
+                    FontSize =9
+                    TabIndex =9
+                    ForeColor =8421504
+                    Name ="txtDbmsServer"
+                    ControlSource ="dbmsServer"
+                    StatusBarText ="Name or IP address of the database server (for MSSQL incl. instance identifier)"
+                    Tag ="LANG:"
+                    UnicodeAccessKey =83
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =93
+                            Left =120
+                            Top =1522
+                            Width =1134
+                            Height =255
+                            FontSize =9
+                            Name ="Bezeichnungsfeld22"
+                            Caption ="&Server:"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    OverlapFlags =87
+                    AccessKey =68
+                    IMESentenceMode =3
+                    Left =1254
+                    Top =1125
+                    Width =4151
+                    Height =270
+                    ColumnWidth =1485
+                    FontSize =9
+                    TabIndex =8
+                    LeftMargin =29
+                    Name ="txtDbmsDatabase"
+                    ControlSource ="dbmsDatabase"
+                    StatusBarText ="Database name in the server; for JET: = complete path to the BE"
+                    Tag ="LANG:"
+                    UnicodeAccessKey =68
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =93
+                            Left =120
+                            Top =1132
+                            Width =1134
+                            Height =255
+                            FontSize =9
+                            FontWeight =700
+                            Name ="labDatabase"
+                            Caption ="mdb-&Datei:"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    OverlapFlags =87
+                    AccessKey =85
+                    IMESentenceMode =3
+                    Left =1254
+                    Top =1927
+                    Width =2370
+                    Height =270
+                    FontSize =9
+                    TabIndex =11
+                    ForeColor =8421504
+                    Name ="txtDbmsUser"
+                    ControlSource ="dbmsUser"
+                    StatusBarText ="Name of the database user"
+                    Tag ="LANG:"
+                    UnicodeAccessKey =85
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =93
+                            Left =120
+                            Top =1927
+                            Width =1134
+                            Height =255
+                            FontSize =9
+                            Name ="labDbmsUser"
+                            Caption ="&User:"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    OverlapFlags =87
+                    AccessKey =80
+                    IMESentenceMode =3
+                    Left =1254
+                    Top =2317
+                    Width =2370
+                    Height =270
+                    FontSize =9
+                    TabIndex =13
+                    ForeColor =8421504
+                    Name ="txtDbmsPwd"
+                    ControlSource ="dbmsPwd"
+                    StatusBarText ="Password of the user. As soon as a password is available, the tables incl. passw"
+                        "ord are linked. If this is not desired, the login form should be used."
+                    Tag ="LANG:"
+                    UnicodeAccessKey =80
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =93
+                            Left =120
+                            Top =2317
+                            Width =1134
+                            Height =255
+                            FontSize =9
+                            Name ="Bezeichnungsfeld25"
+                            Caption ="&Password:"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    OverlapFlags =87
+                    AccessKey =79
+                    IMESentenceMode =3
+                    Left =1254
+                    Top =4950
+                    Width =4876
+                    Height =270
+                    ColumnWidth =2430
+                    FontSize =9
+                    TabIndex =19
+                    ForeColor =8421504
+                    Name ="txtDbmsOptionsODBC"
+                    ControlSource ="dbmsOptionsODBC"
+                    StatusBarText ="Appended after the ODBC connection string created by code."
+                    Tag ="LANG:"
+                    UnicodeAccessKey =79
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =93
+                            Left =132
+                            Top =4950
+                            Width =1134
+                            Height =255
+                            FontSize =9
+                            Name ="Bezeichnungsfeld26"
+                            Caption ="&ODBC:"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    OverlapFlags =87
+                    AccessKey =76
+                    IMESentenceMode =3
+                    Left =1254
+                    Top =4605
+                    Width =4876
+                    Height =270
+                    ColumnWidth =2565
+                    FontSize =9
+                    TabIndex =18
+                    ForeColor =8421504
+                    Name ="txtDbmsOptionsOLEDB"
+                    ControlSource ="dbmsOptionsOLEDB"
+                    StatusBarText ="Appended after the OLEDB connection string created by code."
+                    Tag ="LANG:"
+                    UnicodeAccessKey =76
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =93
+                            Left =120
+                            Top =4605
+                            Width =1134
+                            Height =255
+                            FontSize =9
+                            Name ="Bezeichnungsfeld27"
+                            Caption ="O&LEDB:"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    OverlapFlags =87
+                    AccessKey =78
+                    IMESentenceMode =3
+                    Left =1254
+                    Top =2714
+                    Width =4876
+                    Height =270
+                    FontSize =9
+                    TabIndex =15
+                    ForeColor =8421504
+                    Name ="txtDbmsDSN"
+                    ControlSource ="dbmsDSN"
+                    StatusBarText ="Use saved DSN (only works for ODBC connection)"
+                    Tag ="LANG:"
+                    UnicodeAccessKey =78
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =93
+                            Left =120
+                            Top =2714
+                            Width =1134
+                            Height =255
+                            FontSize =9
+                            Name ="Bezeichnungsfeld28"
+                            Caption ="DS&N:"
+                        End
+                    End
+                End
+                Begin Label
+                    OverlapFlags =85
+                    Left =127
+                    Top =3157
+                    Width =6024
+                    Height =255
+                    FontSize =9
+                    FontWeight =700
+                    Name ="labProviderDriver"
+                    Caption ="Provider / Driver:"
+                    ControlTipText ="Möglichkeit einen alternativen Treiber einzustellen"
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Width =0
+                    Height =0
+                    Name ="sysFirst"
+
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    OverlapFlags =85
+                    TextAlign =2
+                    IMESentenceMode =3
+                    Left =5521
+                    Top =1522
+                    Width =615
+                    Height =270
+                    FontSize =9
+                    TabIndex =10
+                    Name ="txtDbmsPort"
+                    ControlSource ="dbmsPort"
+                    StatusBarText ="Port"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =3
+                            Left =4889
+                            Top =1522
+                            Width =549
+                            Height =255
+                            FontSize =9
+                            Name ="Bezeichnungsfeld34"
+                            Caption ="Port:"
+                        End
+                    End
+                End
+                Begin Label
+                    OverlapFlags =85
+                    Left =127
+                    Top =5417
+                    Width =6024
+                    Height =255
+                    FontSize =9
+                    FontWeight =700
+                    Name ="Bezeichnungsfeld35"
+                    Caption ="Custom ConnectionString:"
+                    Tag ="LANG:"
+                    ControlTipText ="Ignore all settings and set the connection string manually."
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    OverlapFlags =87
+                    IMESentenceMode =3
+                    Left =1240
+                    Top =6689
+                    Width =4876
+                    Height =840
+                    TabIndex =21
+                    LeftMargin =29
+                    ForeColor =9868950
+                    Name ="txtDbmsConStrODBC"
+                    ControlSource ="dbmsConStrODBC"
+                    Format ="@;\"Only fill in if ConnectionString is not to be generated by code.\""
+                    StatusBarText ="Custom ODBC connection string (connection string is not created by code)"
+                    Tag ="LANG:"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =93
+                            Left =113
+                            Top =6689
+                            Width =1125
+                            Height =240
+                            Name ="Bezeichnungsfeld37"
+                            Caption ="ODBC:"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    OverlapFlags =87
+                    IMESentenceMode =3
+                    Left =1254
+                    Top =5745
+                    Width =4876
+                    Height =841
+                    TabIndex =20
+                    LeftMargin =29
+                    ForeColor =9868950
+                    Name ="txtDbmsConStrOLEDB"
+                    ControlSource ="dbmsConStrOLEDB"
+                    Format ="@;\"Only fill in if ConnectionString is not to be generated by code.\""
+                    StatusBarText ="Custom OLEDB connection string (connection string is not created by code)"
+                    Tag ="LANG:"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =93
+                            Left =120
+                            Top =5745
+                            Width =1140
+                            Height =240
+                            Name ="Bezeichnungsfeld39"
+                            Caption ="OLEDB:"
+                        End
+                    End
+                End
+                Begin CheckBox
+                    OverlapFlags =85
+                    Left =5862
+                    Top =2378
+                    Height =225
+                    TabIndex =14
+                    Name ="cbUseLoginForm"
+                    ControlSource ="dbmsUseLoginForm"
+                    StatusBarText ="Aktiviert das Login-Formular zur Anmeldung in die Datenbank"
+                    AfterUpdate ="[Event Procedure]"
+                    DefaultValue ="0"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =3
+                            Left =3690
+                            Top =2333
+                            Width =2145
+                            Height =240
+                            Name ="Bezeichnungsfeld44"
+                            Caption ="Use Login Form:"
+                            Tag ="LANG:"
+                        End
+                    End
+                End
+                Begin CheckBox
+                    OverlapFlags =85
+                    Left =5862
+                    Top =1972
+                    Height =225
+                    TabIndex =12
+                    Name ="cbTrustedConnection"
+                    ControlSource ="dbmsUseTrustedConnection"
+                    StatusBarText ="Windows-Authentifizierung verwenden"
+                    AfterUpdate ="[Event Procedure]"
+                    DefaultValue ="0"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            TextAlign =3
+                            Left =3675
+                            Top =1920
+                            Width =2160
+                            Height =240
+                            Name ="Bezeichnungsfeld48"
+                            Caption ="Windows Authentification:"
+                            Tag ="LANG:"
+                        End
+                    End
+                End
+                Begin TextBox
+                    EnterKeyBehavior = NotDefault
+                    AllowAutoCorrect = NotDefault
+                    ScrollBars =2
+                    OverlapFlags =93
+                    AccessKey =77
+                    IMESentenceMode =3
+                    Left =6349
+                    Top =3480
+                    Width =5103
+                    Height =4049
+                    ColumnWidth =3930
+                    FontSize =9
+                    TabIndex =6
+                    Name ="txtRemarks"
+                    ControlSource ="Remarks"
+
+                End
+                Begin TextBox
+                    Locked = NotDefault
+                    TabStop = NotDefault
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =215
+                    IMESentenceMode =3
+                    Left =120
+                    Top =56
+                    Width =3171
+                    Height =315
+                    FontSize =11
+                    FontWeight =700
+                    TabIndex =1
+                    BackColor =-2147483633
+                    BorderColor =8421504
+                    ForeColor =128
+                    Name ="txtCID"
+                    ControlSource ="CID"
+                    Format ="@;\" <Enter identifier here>\""
+                    StatusBarText ="Connection identifier (double click to edit)"
+                    AfterUpdate ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+                    OnMouseDown ="[Event Procedure]"
+                    Tag ="LANG:"
+                    ControlTipText ="Connection identifier (double click to edit)"
+
+                End
+                Begin CheckBox
+                    TabStop = NotDefault
+                    OverlapFlags =215
+                    AccessKey =65
+                    Left =11322
+                    Top =120
+                    TabIndex =4
+                    Name ="cbActiveConnection"
+                    ControlSource ="ActiveConnection"
+                    AfterUpdate ="[Event Procedure]"
+                    UnicodeAccessKey =97
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =215
+                            TextAlign =3
+                            Left =9803
+                            Top =90
+                            Width =1492
+                            Height =240
+                            FontWeight =700
+                            Name ="Bezeichnungsfeld21"
+                            Caption ="en&abled"
+                            Tag ="LANG:"
+                        End
+                    End
+                End
+                Begin Label
+                    OverlapFlags =87
+                    Left =6349
+                    Top =3157
+                    Width =5100
+                    Height =313
+                    FontSize =9
+                    LeftMargin =14
+                    Name ="labCaptionRemarks"
+                    Caption ="Remarks:"
+                    Tag ="LANG:"
+                End
+                Begin Label
+                    OverlapFlags =85
+                    Left =120
+                    Top =4275
+                    Width =6024
+                    Height =255
+                    FontSize =9
+                    FontWeight =700
+                    Name ="Bezeichnungsfeld51"
+                    Caption ="Other options:"
+                    Tag ="LANG:"
+                    ControlTipText ="Additional information for the connection strings generated in the DbConnectionI"
+                        "nfo class. \012The entries are appended to the end of the generated connection s"
+                        "trings."
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    Left =5505
+                    Top =1095
+                    Width =638
+                    Height =381
+                    TabIndex =7
+                    Name ="cmdSelectFile"
+                    Caption ="Befehl52"
+                    OnClick ="[Event Procedure]"
+                    PictureData = Begin
+                        0x2800000010000000100000000100040000000000800000000000000000000000 ,
+                        0x0000000000000000000000000000800000800000008080008000000080008000 ,
+                        0x8080000080808000c0c0c0000000ff00c0c0c00000ffff00ff000000c0c0c000 ,
+                        0xffff0000ffffff00dadadadadadadadaadadadadadadadad00000000000adada ,
+                        0x003333333330adad0b03333333330ada0fb03333333330ad0bfb03333333330a ,
+                        0x0fbfb000000000000bfbfbfbfb0adada0fbfbfbfbf0dadad0bfb0000000adada ,
+                        0xa000adadadad000ddadadadadadad00aadadadad0dad0d0ddadadadad000dada ,
+                        0xadadadadadadadad000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000
+                    End
+                    ObjectPalette = Begin
+                        0x000301000000000000000000
+                    End
+                    ControlTipText ="Datei auswählen"
+
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =215
+                    AccessKey =67
+                    Left =6345
+                    Top =75
+                    Width =2099
+                    TabIndex =3
+                    Name ="cmdCheckConnection"
+                    Caption ="&Check Connection"
+                    OnClick ="[Event Procedure]"
+                    Tag ="LANG:"
+                    UnicodeAccessKey =67
+
+                    Overlaps =1
+                End
+                Begin OptionGroup
+                    OverlapFlags =85
+                    Left =113
+                    Top =510
+                    Width =6036
+                    Height =507
+                    TabIndex =5
+                    Name ="ogDbmsConnectionMode"
+                    ControlSource ="dbmsConnectionMode"
+                    StatusBarText ="Art der Verbindung"
+                    AfterUpdate ="[Event Procedure]"
+                    DefaultValue ="0"
+
+                    Begin
+                        Begin ToggleButton
+                            OverlapFlags =87
+                            Left =225
+                            Top =600
+                            Width =1871
+                            Height =340
+                            OptionValue =1
+                            Name ="optDbmsConnectionMode1"
+                            Caption ="dsn less"
+                            Tag ="LANG:"
+
+                        End
+                        Begin ToggleButton
+                            OverlapFlags =87
+                            Left =2205
+                            Top =600
+                            Width =1871
+                            Height =340
+                            TabIndex =1
+                            OptionValue =2
+                            Name ="optDbmsConnectionMode2"
+                            Caption ="use DSN"
+                            Tag ="LANG:"
+
+                        End
+                        Begin ToggleButton
+                            OverlapFlags =87
+                            Left =4200
+                            Top =600
+                            Width =1871
+                            Height =340
+                            TabIndex =2
+                            OptionValue =4
+                            Name ="optDbmsConnectionMode4"
+                            Caption ="custom"
+                            Tag ="LANG:"
+
+                        End
+                    End
+                End
+                Begin Label
+                    OverlapFlags =215
+                    Left =3405
+                    Top =56
+                    Width =735
+                    Height =315
+                    FontSize =11
+                    Name ="labDbmsCaption"
+                    Caption ="DBMS:"
+                    OnMouseDown ="[Event Procedure]"
+                End
+                Begin ComboBox
+                    LimitToList = NotDefault
+                    Visible = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =223
+                    IMESentenceMode =3
+                    Left =4195
+                    Top =56
+                    Width =1972
+                    Height =315
+                    FontSize =11
+                    FontWeight =700
+                    TabIndex =22
+                    BackColor =-2147483633
+                    BorderColor =8421504
+                    Name ="cbxDBMS"
+                    ControlSource ="DBMS"
+                    RowSourceType ="Table/Query"
+                    StatusBarText ="DBMS-Kennung"
+                    AfterUpdate ="[Event Procedure]"
+                    OnEnter ="[Event Procedure]"
+                    OnMouseDown ="[Event Procedure]"
+
+                End
+                Begin TextBox
+                    Locked = NotDefault
+                    TabStop = NotDefault
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =247
+                    IMESentenceMode =3
+                    Left =4195
+                    Top =56
+                    Width =1986
+                    Height =315
+                    FontSize =11
+                    FontWeight =700
+                    TabIndex =2
+                    BackColor =-2147483633
+                    Name ="txtDBMS"
+                    ControlSource ="DBMS"
+                    OnMouseDown ="[Event Procedure]"
+                    OnGotFocus ="[Event Procedure]"
+
+                End
+                Begin CommandButton
+                    Enabled = NotDefault
+                    OverlapFlags =85
+                    Left =6349
+                    Top =566
+                    Width =2100
+                    Height =397
+                    FontSize =9
+                    TabIndex =23
+                    Name ="cmdLinkTables"
+                    Caption ="Link tables"
+                    OnClick ="[Event Procedure]"
+                    Tag ="LANG:"
+
+                End
+                Begin CommandButton
+                    Enabled = NotDefault
+                    OverlapFlags =85
+                    Left =8787
+                    Top =566
+                    Width =2160
+                    Height =397
+                    FontSize =9
+                    TabIndex =24
+                    Name ="cmdTestSQL"
+                    Caption ="Test SQL statement"
+                    OnClick ="[Event Procedure]"
+                    Tag ="LANG:"
+
+                End
+                Begin Label
+                    OverlapFlags =85
+                    Left =6585
+                    Top =1545
+                    Width =4286
+                    Height =255
+                    FontSize =9
+                    Name ="labCaptionCopyModulDbConnectionInfo"
+                    Caption ="DbConnectionInfo"
+                End
+                Begin Label
+                    OverlapFlags =85
+                    Left =6585
+                    Top =1905
+                    Width =4286
+                    Height =255
+                    FontSize =9
+                    Name ="labCaptionCopyModulDbConnectionHandler"
+                    Caption ="DbConnectionHandler + DAO/ADO/ODBC-Handler"
+                End
+                Begin Label
+                    OverlapFlags =85
+                    Left =6585
+                    Top =2265
+                    Width =4286
+                    Height =255
+                    FontSize =9
+                    Name ="labCaptionCopyModulAccUtil"
+                    Caption ="DbConnectionManager + modDbConnection"
+                End
+                Begin CommandButton
+                    Transparent = NotDefault
+                    OverlapFlags =215
+                    Left =10935
+                    Top =1875
+                    Width =295
+                    Height =295
+                    TabIndex =25
+                    Name ="cmdCopyModulDbConnectionHandler"
+                    Caption ="Befehl69"
+                    OnClick ="[Event Procedure]"
+
+                    Overlaps =1
+                End
+                Begin CommandButton
+                    Transparent = NotDefault
+                    OverlapFlags =215
+                    Left =10935
+                    Top =1515
+                    Width =295
+                    Height =295
+                    TabIndex =26
+                    Name ="cmdCopyModulDbConnectionInfo"
+                    Caption ="Befehl69"
+                    OnClick ="[Event Procedure]"
+
+                    Overlaps =1
+                End
+                Begin CommandButton
+                    Transparent = NotDefault
+                    OverlapFlags =215
+                    Left =10935
+                    Top =2235
+                    Width =295
+                    Height =295
+                    TabIndex =27
+                    Name ="cmdCopyModulAccUtil"
+                    Caption ="Befehl69"
+                    OnClick ="[Event Procedure]"
+
+                    Overlaps =1
+                End
+                Begin CommandButton
+                    Transparent = NotDefault
+                    OverlapFlags =215
+                    Left =10935
+                    Top =1170
+                    Width =295
+                    Height =295
+                    TabIndex =28
+                    Name ="cmdCopyModules"
+                    Caption ="Befehl69"
+                    OnClick ="[Event Procedure]"
+
+                    Overlaps =1
+                End
+                Begin CommandButton
+                    Visible = NotDefault
+                    OverlapFlags =85
+                    Left =11168
+                    Top =566
+                    Width =330
+                    Height =397
+                    TabIndex =29
+                    Name ="cmdHelp"
+                    Caption ="Befehl86"
+                    OnClick ="[Event Procedure]"
+                    PictureData = Begin
+                        0x2800000010000000100000000100040000000000800000000000000000000000 ,
+                        0x0000000000000000000000000000800000800000008080008000000080008000 ,
+                        0x8080000080808000c0c0c0000000ff00c0c0c00000ffff00ff000000c0c0c000 ,
+                        0xffff0000ffffff00dadadadadadadadaadadadadadadadaddadadad000dadada ,
+                        0xadadad0bb00dadaddadada0bb00adadaadadada00dadadaddadada0b00dadada ,
+                        0xadadad0b00adadaddadada0b00dadadaadadad0bb00dadaddada00d0bb00dada ,
+                        0xada0b00d0bb00daddad0b00ad0b00adaada0bb000bb00daddada0bbbbb00dada ,
+                        0xadada000000dadad000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000
+                    End
+                    ObjectPalette = Begin
+                        0x000301000000000000000000
+                    End
+
+                End
+                Begin ComboBox
+                    OldBorderStyle =0
+                    OverlapFlags =87
+                    IMESentenceMode =3
+                    Left =1254
+                    Top =3480
+                    Width =4876
+                    Height =255
+                    ColumnWidth =2010
+                    FontSize =9
+                    TabIndex =16
+                    ForeColor =8421504
+                    ConditionalFormat = Begin
+                        0x0100000068000000010000000000000004000000000000000300000001000000 ,
+                        0x00000000ffffff00000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x2200220000000000
+                    End
+                    Name ="txtDbmsOleDbProvider"
+                    ControlSource ="dbmsOleDbProvider"
+                    RowSourceType ="Table/Query"
+                    StatusBarText ="Select OLEDB Provider"
+                    OnEnter ="[Event Procedure]"
+                    OnExit ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+                    Tag ="LANG:"
+                    Format ="@;;"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =93
+                            Left =120
+                            Top =3480
+                            Width =1140
+                            Height =255
+                            FontSize =9
+                            Name ="Bezeichnungsfeld45"
+                            Caption ="OLEDB:"
+                        End
+                    End
+                End
+                Begin ComboBox
+                    OldBorderStyle =0
+                    OverlapFlags =215
+                    IMESentenceMode =3
+                    Left =1254
+                    Top =3820
+                    Width =4876
+                    Height =255
+                    ColumnWidth =1995
+                    FontSize =9
+                    TabIndex =17
+                    ForeColor =8421504
+                    ConditionalFormat = Begin
+                        0x0100000068000000010000000000000004000000000000000300000001000000 ,
+                        0x00000000ffffff00000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x2200220000000000
+                    End
+                    Name ="txtDbmsOdbcDriver"
+                    ControlSource ="dbmsOdbcDriver"
+                    RowSourceType ="Table/Query"
+                    StatusBarText ="Select ODBC Driver"
+                    OnEnter ="[Event Procedure]"
+                    OnExit ="[Event Procedure]"
+                    Tag ="LANG:"
+                    Format ="@;;"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =93
+                            Left =132
+                            Top =3820
+                            Width =1140
+                            Height =255
+                            FontSize =9
+                            Name ="Bezeichnungsfeld46"
+                            Caption ="ODBC:"
+                        End
+                    End
+                End
+                Begin Label
+                    FontUnderline = NotDefault
+                    OverlapFlags =85
+                    Left =6349
+                    Top =1132
+                    Width =3000
+                    Height =255
+                    FontSize =9
+                    FontWeight =700
+                    ForeColor =16737792
+                    Name ="labCopyCaption"
+                    Caption ="Install modules and classes:"
+                    OnMouseDown ="[Event Procedure]"
+                    OnMouseMove ="[Event Procedure]"
+                    Tag ="LANG:"
+                    VerticalAnchor =1
+                End
+            End
+        End
+    End
+End
+CodeBehindForm
+' See "frmConfig_DBMS_SF_Data.cls"
