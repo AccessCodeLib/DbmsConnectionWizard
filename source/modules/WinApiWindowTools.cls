@@ -28,6 +28,7 @@ Attribute VB_Exposed = False
 '<codelib>
 '  <file>api/winapi/WinApiWindowTools.cls</file>
 '  <license>_codelib/license.bas</license>
+'  <description>Gets window handles of the Access MDI client, form sections (header, detail, footer) and controls; class version of modWinAPI_Handles.bas</description>
 '</codelib>
 '---------------------------------------------------------------------------------------
 '
@@ -140,7 +141,7 @@ End Function
 '     FormRef     - Form reference
 '     Hwnd        - Handle of the area on which the control is located (Header, Detail, Footer)
 '     ClassName   - Name of the window class of the control
-'     ControlName - Name des Controls
+'     ControlName - Name of the control
 '
 ' Returns:
 '     LongPtr

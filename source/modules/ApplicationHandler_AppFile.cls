@@ -9,7 +9,7 @@ Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 Attribute VB_Description = "Erweiterung für ApplicationHandler-Klasse: Anwendungsspezifische Dateien verwalten"
 '---------------------------------------------------------------------------------------
-' Class: base.ApplicationHandler_File
+' Class: base.ApplicationHandler_AppFile
 '---------------------------------------------------------------------------------------
 '
 ' Extension for ApplicationHandler class: manage application-specific files
@@ -19,7 +19,10 @@ Attribute VB_Description = "Erweiterung für ApplicationHandler-Klasse: Anwendun
 '
 ' Remarks:
 '     Activation in the _config_Application module:
-'     <code>ExtensionsCollectionReferenz.Add New ApplicationHandler_AppFile</code>
+'
+'     (start code)
+'     ExtensionsCollectionReferenz.Add New ApplicationHandler_AppFile
+'     (end)
 '
 '---------------------------------------------------------------------------------------
 
@@ -30,6 +33,7 @@ Attribute VB_Description = "Erweiterung für ApplicationHandler-Klasse: Anwendun
 '  <use>base/ApplicationHandler.cls</use>
 '  <use>api/winapi/WinApiFileInfo.cls</use>
 '  <ref><name>DAO</name><major>5</major><minor>0</minor><guid>{00025E01-0000-0000-C000-000000000046}</guid></ref>
+'  <description>ApplicationHandler extension: stores application files (e.g. icons, templates) in the table usys_AppFiles and extracts them to the file system</description>
 '</codelib>
 '---------------------------------------------------------------------------------------
 '
@@ -127,20 +131,29 @@ End Property
 ' Extract file from usys_AppFiles
 '
 ' Parameters:
-'     FileID   - Record identifier
-'     FileName - File name to be created
+'     FileID             - Record identifier
+'     FileName           - File name to be created
+'     ExtFilterFieldName - (optional) additional filter: field name
+'     ExtFilterValue     - (optional) additional filter: value
 '
 ' Returns:
 '     Boolean
 '
 '---------------------------------------------------------------------------------------
-Public Function CreateAppFile(ByVal FileID As String, ByVal FileName As String) As Boolean
+Public Function CreateAppFile(ByVal FileID As String, ByVal FileName As String, _
+                     Optional ByVal ExtFilterFieldName As String, Optional ExtFilterValue As Variant) As Boolean
 
    Dim Binfile() As Byte
    Dim FieldSize As Long
    Dim fld As DAO.Field
+   Dim SelectSql As String
 
-   With CodeDb.OpenRecordset("select " & TABLE_FIELD_FILE & " from " & TABLE_APPFILES & " where " & TABLE_FIELD_ID & "='" & Replace(FileID, "'", "''") & "'")
+   SelectSql = "select " & TABLE_FIELD_FILE & " from " & TABLE_APPFILES & " where " & TABLE_FIELD_ID & "='" & Replace(FileID, "'", "''") & "'"
+   If Len(ExtFilterFieldName) > 0 Then
+      SelectSql = SelectSql & " and " & ExtFilterFieldName & " = '" & Replace(ExtFilterValue, "'", "''") & "'"
+   End If
+
+   With CodeDb.OpenRecordset(SelectSql)
       If Not .EOF Then
 
          Set fld = .Fields(0)
@@ -176,14 +189,16 @@ End Sub
 ' Function: SaveAppFile
 '---------------------------------------------------------------------------------------
 '
-' Datei in usys_AppFiles speichern
+' Save file in usys_AppFiles
 '
 ' Parameters:
-'     FileID         - Identifier in table
-'     FileName       - File name to be created
-'     SaveVersion    - (optional) Read version from file (e. g. from dll file)
-'     ExtFieldName   - (optional) append additional data to data field: Field name
-'     ExtFieldValue  - (optional) append additional data to data field: Value
+'     FileID             - Identifier in table
+'     FileName           - File name to be created
+'     SaveVersion        - (optional) Read version from file (e. g. from dll file)
+'     ExtFieldName       - (optional) append additional data to data field: Field name
+'     ExtFieldValue      - (optional) append additional data to data field: Value
+'     ExtFilterFieldName - (optional) additional filter: field name (also stored in the record)
+'     ExtFilterValue     - (optional) additional filter: value
 '
 ' Returns:
 '     Boolean  - True: File was saved in table

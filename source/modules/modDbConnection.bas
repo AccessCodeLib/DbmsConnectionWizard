@@ -18,6 +18,7 @@
 '  <file>data/modDbConnection.bas</file>
 '  <license>_codelib/license.bas</license>
 '  <use>data/DbConnectionManager.cls</use>
+'  <description>Global access to DbConnectionManager (DbCon) and helper procedures for the current backend connection</description>
 '</codelib>
 '---------------------------------------------------------------------------------------
 '
@@ -102,9 +103,9 @@ End Property
 ' Function: CheckConnectionStatus
 '---------------------------------------------------------------------------------------
 '
-' Verbindung prüfen (call <data.DbConnectionManager.CheckConnectionStatus>)
+' Check connection (call <data.DbConnectionManager.CheckConnectionStatus>)
 '
-' Return:
+' Returns:
 '     Boolean - True if success
 '
 '---------------------------------------------------------------------------------------

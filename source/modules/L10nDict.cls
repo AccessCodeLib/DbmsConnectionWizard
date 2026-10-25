@@ -26,6 +26,7 @@ Attribute VB_Exposed = False
 '  <file>localization/L10nDict.cls</file>
 '  <license>_codelib/license.bas</license>
 '  <use>data/SqlTools.cls</use>
+'  <description>Localization dictionary: translates texts, form controls, MsgBox and InputBox by language code</description>
 '</codelib>
 '---------------------------------------------------------------------------------------
 '
@@ -241,7 +242,7 @@ Private Sub TranslateControl(ByVal CtlRef As Control)
    Dim ControlTextKeys() As String
    Dim TagText As String
    Dim TagTextPrefix As String
-   Dim Pos As Long
+   Dim pos As Long
 
    Dim TextKeySeparatorString As String
    TextKeySeparatorString = Chr(1)
@@ -252,10 +253,10 @@ Private Sub TranslateControl(ByVal CtlRef As Control)
       Exit Sub
    End If
 
-   Pos = InStr(1, TagText, LangSeparatorChar & "LANG:")
-   If Pos > 0 Then
-      TagTextPrefix = Left(TagText, Pos)
-      TagText = Mid(TagText, Pos + Len(LangSeparatorChar))
+   pos = InStr(1, TagText, LangSeparatorChar & "LANG:")
+   If pos > 0 Then
+      TagTextPrefix = Left(TagText, pos)
+      TagText = Mid(TagText, pos + Len(LangSeparatorChar))
    End If
 
    If Left(TagText, 5) <> "LANG:" Then

@@ -24,6 +24,8 @@ Attribute VB_Exposed = False
 '  <license>_codelib/license.bas</license>
 '  <ref><name>DAO</name><major>5</major><minor>0</minor><guid>{00025E01-0000-0000-C000-000000000046}</guid></ref>
 '  <test>_test/data/dao/DaoHandlerTests.cls</test>
+'  <description>DAO data access: execute SQL and parameter queries, open recordsets, lookups and aggregates</description>
+'  <example>_examples/data/dao/DaoHandler_Beispiele.bas</example>
 '</codelib>
 '---------------------------------------------------------------------------------------
 '
@@ -174,7 +176,7 @@ End Property
 ' Execute SQL statement
 '
 ' Parameters:
-'     CommandText - SQL statement (String)
+'     Query       - SQL statement (String)
 '     Options     - DAO.RecordsetOptionEnum
 '
 ' Returns:
@@ -369,7 +371,7 @@ End Function
 ' Function: ParamQueryDefSql
 '---------------------------------------------------------------------------------------
 '
-' Temporäres QueryDef-Objekt ink. übergebenen Parameterwerten öffnen
+' Open temporary QueryDef object incl. passed parameter values
 '
 ' Parameters:
 '     ParamSqlText   - SQL statement for the temporary QueryDef object
@@ -403,9 +405,9 @@ End Function
 '
 ' Parameters:
 '     Source            - SQL statement or table or query name
-'     RecordsetType     - DAO.RecordsetTypeEnum (Standard: dbOpenDynaset)
-'     RecordsetOptions  - DAO.RecordsetOptionEnum (Standard: dbSeeChanges)
-'     LockEdit          - DAO.LockTypeEnum (Standard: dbOptimistic)
+'     RecordsetType     - DAO.RecordsetTypeEnum (Default: dbOpenDynaset)
+'     RecordsetOptions  - DAO.RecordsetOptionEnum (Default: dbSeeChanges)
+'     LockEdit          - DAO.LockTypeEnum (Default: dbOptimistic)
 '
 ' Returns:
 '     DAO.Recordset
@@ -428,11 +430,11 @@ Public Function OpenRecordset(ByVal Source As String, _
 
 End Function
 
-Private Function Replace0WithIsMissing(ByVal CheckValue As Long) As Variant
-   If CheckValue = 0 Then
+Private Function Replace0WithIsMissing(ByVal checkValue As Long) As Variant
+   If checkValue = 0 Then
       Replace0WithIsMissing = GetIsMissing()
    Else
-      Replace0WithIsMissing = CheckValue
+      Replace0WithIsMissing = checkValue
    End If
 End Function
 
@@ -448,9 +450,9 @@ End Function
 '
 ' Parameters:
 '     ParamSqlText      - SQL statement with parameters (parameter declaration)
-'     RecordsetType     - DAO.RecordsetTypeEnum (Standard: dbOpenDynaset)
-'     RecordsetOptions  - DAO.RecordsetOptionEnum (Standard: dbSeeChanges)
-'     LockEdit          - DAO.LockTypeEnum (Standard: dbOptimistic)
+'     RecordsetType     - DAO.RecordsetTypeEnum (Default: dbOpenDynaset)
+'     Options           - DAO.RecordsetOptionEnum (Default: dbSeeChanges)
+'     LockEdit          - DAO.LockTypeEnum (Default: dbOptimistic)
 '     QueryParams       - Values in suitable order as ParamArray or as array
 '                         or 2-dimensional parameter array (Array(n,1) ... x(n,0) = parameter name, x(n,1) = parameter value) ... generateable with GetParamDefArray or GetNamedParamDefArray
 '
@@ -639,7 +641,7 @@ End Function
 ' Creates 2-dimensional parameter array (e.g. for OpenRecordsetQueryDef)
 '
 ' Parameters:
-'     ParamValues - Parameter pairs: alternating parameter index and parameter value
+'     ParamIndexAndValues - Parameter pairs: alternating parameter index and parameter value
 '
 ' Returns:
 '     Variant (Array)
@@ -684,10 +686,10 @@ End Function
 ' Parameters:
 '     QueryName         - Name of the saved query
 '     QueryParams       - Values in suitable order as ParamArray or as array
-'                         or 2-dimensional parameter array (Array(n,1) ... x(n,0) = parameter name, x(n,1) = parameter value) ... generateable with GetParamDefArray or GetNamedParamDefArray'
-'     RecordsetType     - DAO.RecordsetTypeEnum (Standard: dbOpenDynaset)
-'     RecordsetOptions  - DAO.RecordsetOptionEnum (Standard: dbSeeChanges)
-'     LockEdit          - DAO.LockTypeEnum (Standard: dbOptimistic)
+'                         or 2-dimensional parameter array (Array(n,1) ... x(n,0) = parameter name, x(n,1) = parameter value) ... generateable with GetParamDefArray or GetNamedParamDefArray
+'     RecordsetType     - DAO.RecordsetTypeEnum (Default: dbOpenDynaset)
+'     Options           - DAO.RecordsetOptionEnum (Default: dbSeeChanges)
+'     LockEdit          - DAO.LockTypeEnum (Default: dbOptimistic)
 '
 ' Returns:
 '     DAO.Recordset
@@ -727,15 +729,15 @@ End Function
 ' Function: OpenRecordsetQueryDef
 '---------------------------------------------------------------------------------------
 '
-' Recordset von gespeicherter Abfrage (optional mit Parametern) öffnen
+' Open recordset from saved query (optionally with parameters)
 '
 ' Parameters:
 '     QdfRef            - QueryDef reference
 '     QueryParams       - Values in suitable order as ParamArray or as array
-'                         or 2-dimensional parameter array (Array(n,1) ... x(n,0) = parameter name, x(n,1) = parameter value) ... generateable with GetParamDefArray or GetNamedParamDefArray'
-'     RecordsetType     - DAO.RecordsetTypeEnum (Standard: dbOpenDynaset)
-'     RecordsetOptions  - DAO.RecordsetOptionEnum (Standard: dbSeeChanges)
-'     LockEdit          - DAO.LockTypeEnum (Standard: dbOptimistic)
+'                         or 2-dimensional parameter array (Array(n,1) ... x(n,0) = parameter name, x(n,1) = parameter value) ... generateable with GetParamDefArray or GetNamedParamDefArray
+'     RecordsetType     - DAO.RecordsetTypeEnum (Default: dbOpenDynaset)
+'     RecordsetOptions  - DAO.RecordsetOptionEnum (Default: dbSeeChanges)
+'     LockEdit          - DAO.LockTypeEnum (Default: dbOptimistic)
 '
 ' Returns:
 '     DAO.Recordset
@@ -780,20 +782,20 @@ Public Function LookupSql(ByVal SqlText As String, _
                  Optional ByVal Index As Variant = 0&, _
                  Optional ByVal ValueIfNull As Variant = Null) As Variant
 
-    Dim rst As DAO.Recordset
+   Dim rst As DAO.Recordset
 
 On Error GoTo HandleErr
 
-    Set rst = Me.OpenRecordset(SqlText, dbOpenForwardOnly, dbSeeChanges, dbReadOnly)
-    With rst
-        If .EOF Then
-            LookupSql = ValueIfNull
-        Else
-            LookupSql = Nz(.Fields(Index), ValueIfNull)
-        End If
-        .Close
-    End With
-    Set rst = Nothing
+   Set rst = Me.OpenRecordset(SqlText, dbOpenForwardOnly, dbSeeChanges, dbReadOnly)
+   With rst
+      If .EOF Then
+         LookupSql = ValueIfNull
+      Else
+         LookupSql = Nz(.Fields(Index), ValueIfNull)
+      End If
+      .Close
+   End With
+   Set rst = Nothing
 
 ExitHere:
    Exit Function
@@ -828,15 +830,30 @@ Public Function Lookup(ByVal Expr As String, ByVal Domain As String, _
               Optional ByVal Criteria As Variant, _
               Optional ByVal ValueIfNull As Variant = Null) As Variant
 
-    Dim SelectSql As String
+   Dim SelectSql As String
 
-    SelectSql = "SELECT " & Expr & " FROM (" & Domain & ")"
-    If Not (VarType(Criteria) = vbError) Then
-        If Len(Criteria) > 0 Then
-            SelectSql = SelectSql & " WHERE " & Criteria
-        End If
-    End If
-    Lookup = LookupSql(SelectSql, , ValueIfNull)
+   SelectSql = BuildSelectSql(Expr, Domain, Criteria, False)
+   Lookup = LookupSql(SelectSql, , ValueIfNull)
+
+End Function
+
+Private Function BuildSelectSql(ByVal Expr As String, ByVal Domain As String, Optional ByVal Criteria As Variant, _
+                       Optional ByVal Distinct As Boolean = False)
+
+   Dim SelectSql As String
+
+   SelectSql = "SELECT "
+   If Distinct Then
+      SelectSql = SelectSql & "Distinct "
+   End If
+   SelectSql = SelectSql & Expr & " FROM (" & Domain & ")"
+   If Not (VarType(Criteria) = vbError) Then
+      If Len(Criteria) > 0 Then
+         SelectSql = SelectSql & " WHERE " & Criteria
+      End If
+   End If
+
+   BuildSelectSql = SelectSql
 
 End Function
 
@@ -850,13 +867,24 @@ End Function
 '     Expr        - Field name or calculated expression (select part)
 '     Domain      - Table, query or SQL expression for sub-query (FROM part)
 '     Criteria    - (optional) Criteria string (WHERE part)
+'     Distinct    - (optional) True: count distinct values of Expr
 '
 ' Returns:
 '     Long
 '
 '---------------------------------------------------------------------------------------
-Public Function Count(ByVal Expr As String, ByVal Domain As String, Optional ByVal Criteria As Variant) As Long
-    Count = Nz(Me.Lookup("Count(" & Expr & ")", Domain, Criteria), 0)
+Public Function Count(ByVal Expr As String, ByVal Domain As String, Optional ByVal Criteria As Variant, _
+             Optional ByVal Distinct As Boolean = False) As Long
+
+   If Distinct Then
+      If Expr <> "*" Then
+         Domain = "(" & BuildSelectSql(Expr, Domain, Criteria, True) & ")"
+         Criteria = vbNullString
+      End If
+   End If
+
+   Count = Nz(Me.Lookup("Count(" & Expr & ")", Domain, Criteria), 0)
+
 End Function
 
 '---------------------------------------------------------------------------------------
@@ -959,7 +987,7 @@ End Function
 '     Works for Jet only from Jet 4.0 (Access 2000), IdentityTable is only applicable for MSSQL, under MySQL the IDENT_CURRENT function does not exist.
 '     (<data.adodb.AdodbHandler::InsertIdentityReturn> is more suitable regarding use for active DBMS.)
 '---------------------------------------------------------------------------------------
-Public Function InsertIdentityReturn(ByVal InsertSql As String) As Variant
+Public Function InsertIdentityReturn(ByVal InsertSQL As String) As Variant
 
     Dim db As DAO.Database
     Dim rst As DAO.Recordset
@@ -968,7 +996,7 @@ Public Function InsertIdentityReturn(ByVal InsertSql As String) As Variant
 On Error GoTo HandleErr
 
     Set db = Me.CurrentDb
-    db.Execute InsertSql
+    db.Execute InsertSQL
     RecordsAffected = db.RecordsAffected
 
     If RecordsAffected = 0 Then
@@ -1025,11 +1053,11 @@ End Function
 ' Function: InsertValuesReturnFieldValue
 '---------------------------------------------------------------------------------------
 '
-' Ropen ecordset and append values, returns value of a defined data field
+' Open recordset and append values, returns value of a defined data field
 '
 ' Parameters:
 '     Source                  - Insert data source
-'     ReturnFieldNameOrIndex  - Datenfeld für Wertrückgabe</param>
+'     ReturnFieldNameOrIndex  - Data field (name or index) for the return value
 '     FieldsAndValues         - ParamArray: "Field1", Value1, "Field2", Value2, ....
 '
 ' Returns:
@@ -1332,7 +1360,7 @@ End Function
 ' Function: CopyRecords
 '---------------------------------------------------------------------------------------
 '
-' Recordset öffnen und Werte eines Datensatzes anfügen
+' Open recordset and append values of a record
 '
 ' Parameters:
 '     Source            - Data source (table name or SQL statement)
@@ -1369,9 +1397,8 @@ End Function
 '---------------------------------------------------------------------------------------
 ' Function: CopyRecordsReturnFieldValue
 '---------------------------------------------------------------------------------------
-'/**
-' <summary>
-' Datensätze kopieren und Werte ändern
+'
+' Copy records and change values
 '
 ' Parameters:
 '     Source            - Data source (table name or SQL statement)

@@ -22,8 +22,10 @@ Attribute VB_Description = "Hauptsteuerung der Anwendung"
 '---------------------------------------------------------------------------------------
 '<codelib>
 '  <file>base/ApplicationHandler.cls</file>
+'  <use>base/modApplication.bas</use>
 '  <license>_codelib/license.bas</license>
 '  <ref><name>DAO</name><major>5</major><minor>0</minor><guid>{00025E01-0000-0000-C000-000000000046}</guid></ref>
+'  <description>Core of the ApplicationHandler framework: application start and shutdown, application name/version, logging, extension mechanism via events (extensions: ApplicationHandler_*)</description>
 '</codelib>
 '---------------------------------------------------------------------------------------
 '
@@ -112,7 +114,7 @@ Private m_AppDb As DAO.Database              ' Replacement for CurrentDb or Code
 
 Private m_ApplicationName As String          ' Application name cache (short)
 Private m_ApplicationFullName As String      ' Application name cache (long)
-Private m_APPLICATIONVERSION As String       ' Version number to be displayed
+Private m_ApplicationVersion As String       ' Version number to be displayed
 
 Private m_TransferValue As Variant
 Private m_PublicPath As String               ' Default directory for file explorer
@@ -213,6 +215,9 @@ End Sub
 '---------------------------------------------------------------------------------------
 '
 ' Application start
+'
+' Parameters:
+'     ResumeMessage - (ByRef) message returned by the extensions handling the start
 '
 ' Returns:
 '     Boolean     - true = success
@@ -343,7 +348,7 @@ Public Property Let ApplicationFullName(ByVal AppName As String)
 End Property
 
 '---------------------------------------------------------------------------------------
-' Property: ApplicationVersion
+' Property: Version
 '---------------------------------------------------------------------------------------
 '
 ' Application version
@@ -351,23 +356,23 @@ End Property
 '---------------------------------------------------------------------------------------
 Public Property Get Version() As String
 
-   If Len(m_APPLICATIONVERSION) = 0 Then ' ... aus Properties lesen?
+   If Len(m_ApplicationVersion) = 0 Then ' ... aus Properties lesen?
 '/**
 ' @todo Versionskennung aus DB-Eigenschaften bzw. aus den Dateieigenschaften lesen
 '**/
-      m_APPLICATIONVERSION = ""
+      m_ApplicationVersion = ""
    End If
 
-   Version = m_APPLICATIONVERSION
+   Version = m_ApplicationVersion
 
 End Property
 
 Public Property Let Version(ByVal AppVersion As String)
-    m_APPLICATIONVERSION = AppVersion
+    m_ApplicationVersion = AppVersion
 End Property
 
 '---------------------------------------------------------------------------------------
-' Property: ApplicationStartForm
+' Property: ApplicationStartFormName
 '---------------------------------------------------------------------------------------
 '
 ' Form opened in the method <Start>
@@ -484,6 +489,7 @@ Private Sub SetAppDbProperty(ByVal PropName As String, ByVal PropType As Long, B
 
    Set db = AppDb
    Set PropCol = db.Properties
+   PropCol.Refresh
    If DbPropertyExists(PropCol, PropName) Then
       If Len(PropValue) = 0 Or IsNull(PropValue) Then
          db.Properties.Delete PropName

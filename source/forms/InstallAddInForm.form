@@ -17,7 +17,7 @@ Begin Form
     PictureAlignment =2
     DatasheetGridlinesBehavior =3
     GridY =10
-    Width =7380
+    Width =7440
     DatasheetFontHeight =11
     ItemSuffix =335
     Left =1000
@@ -140,7 +140,7 @@ Begin Form
             GridlineShade =65.0
         End
         Begin Section
-            Height =7260
+            Height =7380
             Name ="Detailbereich"
             AlternateBackThemeColorIndex =1
             AlternateBackShade =95.0

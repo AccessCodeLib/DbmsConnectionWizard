@@ -230,7 +230,7 @@ Private Function GetComponentTypeFromFile(ByVal FilePath As String) As vbext_Com
 
    Const SEARCHSTRING_ATTRIBUTNAME_BEGIN As String = "Attribute VB_Name = """
 
-   Dim Pos As Long
+   Dim pos As Long
    Dim CheckString As String
    Dim FileNumber As Long
    Dim CmType As vbext_ComponentType
@@ -242,12 +242,12 @@ Private Function GetComponentTypeFromFile(ByVal FilePath As String) As vbext_Com
    Close FileNumber
 
    'Pos von VB_Name ermitteln (= Kennzeichen für Standardmodul oder Klasse)
-   Pos = InStr(1, CheckString, SEARCHSTRING_ATTRIBUTNAME_BEGIN)
+   pos = InStr(1, CheckString, SEARCHSTRING_ATTRIBUTNAME_BEGIN)
 
    'Typ bestimmen
-   If Pos > 0 Then
+   If pos > 0 Then
       CmType = vbext_ComponentType.vbext_ct_StdModule
-      If InStr(1, Left$(CheckString, Pos - 1), "CLASS", vbBinaryCompare) Then
+      If InStr(1, Left$(CheckString, pos - 1), "CLASS", vbBinaryCompare) Then
          CmType = vbext_ComponentType.vbext_ct_ClassModule
       End If
    Else

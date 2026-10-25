@@ -18,16 +18,17 @@ Attribute VB_Exposed = False
 '
 ' Remarks:
 '     Use in the _config_Application module:
-' <code>
-'   Set m_Extensions = New ApplicationHandler_ExtensionCollection
-'   With m_Extensions
-'      Set .ApplicationHandler = oCurrentAppHandler
 '
-'      ' Load extensions (e.g. ApplicationHandler_DbConnection):
-'      .Add New ApplicationHandler_DbConnection
+'     (start code)
+'     Set m_Extensions = New ApplicationHandler_ExtensionCollection
+'     With m_Extensions
+'        Set .ApplicationHandler = oCurrentAppHandler
 '
-'   End With
-' </code>
+'        ' Load extensions (e.g. ApplicationHandler_DbConnection):
+'        .Add New ApplicationHandler_DbConnection
+'
+'     End With
+'     (end)
 '
 '---------------------------------------------------------------------------------------
 
@@ -36,6 +37,7 @@ Attribute VB_Exposed = False
 '  <file>base/ApplicationHandler_ExtensionCollection.cls</file>
 '  <license>_codelib/license.bas</license>
 '  <use>base/ApplicationHandler.cls</use>
+'  <description>Collection that holds and initializes the ApplicationHandler extensions (Add, Dispose)</description>
 '</codelib>
 '---------------------------------------------------------------------------------------
 '
