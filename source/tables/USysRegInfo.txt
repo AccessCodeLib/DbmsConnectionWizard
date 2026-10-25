@@ -5,30 +5,30 @@ HKEY_CURRENT_ACCESS_PROFILE\\Menu Add-Ins\\DBMS-Connection-Wizard	1	Library	|ACC
 HKEY_CURRENT_ACCESS_PROFILE\\Menu Add-Ins\\DBMS-Connection-Wizard	4	BitmapID	339
 HKEY_CURRENT_ACCESS_PROFILE\\Menu Add-Ins\\DBMS-Connection-Wizard	4	Version	1
 HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Property Wizards\\ODBCConnectStr\\DBMS Connectionstring	0		
-HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Property Wizards\\ODBCConnectStr\\DBMS Connectionstring	1	Description	ODBC-Verbindungszeichenfolge mittels DBMS-Connection-Wizard einfügen
+HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Property Wizards\\ODBCConnectStr\\DBMS Connectionstring	1	Description	Insert ODBC connection string using DBMS-Connection-Wizard
 HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Property Wizards\\ODBCConnectStr\\DBMS Connectionstring	1	Feature	DeveloperWizards
 HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Property Wizards\\ODBCConnectStr\\DBMS Connectionstring	1	Function	InsertOdbcConnectionString
 HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Property Wizards\\ODBCConnectStr\\DBMS Connectionstring	1	Library	|ACCDIR\\DbmsConnectionWizard.accda
 HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Property Wizards\\ODBCConnectStr\\DBMS Connectionstring	4	Can Edit	1
 HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Property Wizards\\ODBCConnectStr\\DBMS Connectionstring	4	Version	1
-HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\DBMS-Tabellen verknüpfen	0		
-HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\DBMS-Tabellen verknüpfen	1	Description	Tabellen mittels DBMS-Connection-Wizard verknüpfen
-HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\DBMS-Tabellen verknüpfen	1	Feature	DeveloperWizards
-HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\DBMS-Tabellen verknüpfen	1	Function	StartDbmsConnectionLinkTableWizard
-HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\DBMS-Tabellen verknüpfen	1	Library	|ACCDIR\\DbmsConnectionWizard.accda
-HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\DBMS-Tabellen verknüpfen	4	BitmapID	339
-HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\DBMS-Tabellen verknüpfen	4	Version	1
-HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\Pass-Through-Abfrage erstellen	0		
-HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\Pass-Through-Abfrage erstellen	1	Description	Pass-Through-Abfrage mittels DBMS-Connection-Wizard erstellen
-HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\Pass-Through-Abfrage erstellen	1	Feature	DeveloperWizards
-HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\Pass-Through-Abfrage erstellen	1	Function	CreatePassThroughQuery
-HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\Pass-Through-Abfrage erstellen	1	Library	|ACCDIR\\DbmsConnectionWizard.accda
-HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\Pass-Through-Abfrage erstellen	4	BitmapID	325
-HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\Pass-Through-Abfrage erstellen	4	Version	1
-HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Table Wizards\\DBMS-Tabellen verknüpfen	0		
-HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Table Wizards\\DBMS-Tabellen verknüpfen	1	Description	Tabellen mittels DBMS-Connection-Wizard verknüpfen
-HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Table Wizards\\DBMS-Tabellen verknüpfen	1	Feature	DeveloperWizards
-HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Table Wizards\\DBMS-Tabellen verknüpfen	1	Function	StartDbmsConnectionLinkTableWizard
-HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Table Wizards\\DBMS-Tabellen verknüpfen	1	Library	|ACCDIR\\DbmsConnectionWizard.accda
-HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Table Wizards\\DBMS-Tabellen verknüpfen	4	BitmapID	339
-HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Table Wizards\\DBMS-Tabellen verknüpfen	4	Version	1
+HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\Link DBMS tables	0		
+HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\Link DBMS tables	1	Description	Link tables using DBMS-Connection-Wizard
+HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\Link DBMS tables	1	Feature	DeveloperWizards
+HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\Link DBMS tables	1	Function	StartDbmsConnectionLinkTableWizard
+HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\Link DBMS tables	1	Library	|ACCDIR\\DbmsConnectionWizard.accda
+HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\Link DBMS tables	4	BitmapID	339
+HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\Link DBMS tables	4	Version	1
+HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\Create pass-through query	0		
+HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\Create pass-through query	1	Description	Create pass-through query using DBMS-Connection-Wizard
+HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\Create pass-through query	1	Feature	DeveloperWizards
+HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\Create pass-through query	1	Function	CreatePassThroughQuery
+HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\Create pass-through query	1	Library	|ACCDIR\\DbmsConnectionWizard.accda
+HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\Create pass-through query	4	BitmapID	325
+HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Query Wizards\\Create pass-through query	4	Version	1
+HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Table Wizards\\Link DBMS tables	0		
+HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Table Wizards\\Link DBMS tables	1	Description	Link tables using DBMS-Connection-Wizard
+HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Table Wizards\\Link DBMS tables	1	Feature	DeveloperWizards
+HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Table Wizards\\Link DBMS tables	1	Function	StartDbmsConnectionLinkTableWizard
+HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Table Wizards\\Link DBMS tables	1	Library	|ACCDIR\\DbmsConnectionWizard.accda
+HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Table Wizards\\Link DBMS tables	4	BitmapID	339
+HKEY_CURRENT_ACCESS_PROFILE\\Wizards\\Table Wizards\\Link DBMS tables	4	Version	1
