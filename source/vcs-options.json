@@ -8,7 +8,7 @@
     "UseFastSave": true,
     "SplitLayoutFromVBA": true,
     "ExportFormatVersion": "5.1.0",
-    "RunBeforeExport": "",
+    "RunBeforeExport": "VcsRunBeforeExport",
     "RunAfterExport": "",
     "SanitizeLevel": 2,
     "SanitizeColors": 1,
