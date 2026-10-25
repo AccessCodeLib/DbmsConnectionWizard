@@ -12,11 +12,11 @@
         },
         "Comments": {
           "Type": 10,
-          "Value": "Tabellen aus MSSQL, MySQL, Oracle oder allg. mit ODBC bzw. Jet/ACE verknüpfen"
+          "Value": "Link tables via MSSQL, MySQL, Oracle, generic ODBC, or Jet/ACE"
         },
         "Company": {
           "Type": 10,
-          "Value": "http://access.joposol.com"
+          "Value": "access-codelib.net"
         },
         "Title": {
           "Type": 10,
