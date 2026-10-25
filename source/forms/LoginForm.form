@@ -76,6 +76,7 @@ Begin Form
                     BackColor =-2147483643
                     ForeColor =-2147483640
                     Name ="txtUID"
+
                     Begin
                         Begin Label
                             OverlapFlags =85
@@ -105,6 +106,7 @@ Begin Form
                     ForeColor =-2147483640
                     Name ="txtPwd"
                     InputMask ="Password"
+
                     Begin
                         Begin Label
                             OverlapFlags =85
@@ -132,6 +134,7 @@ Begin Form
                     Caption ="&OK"
                     OnClick ="[Event Procedure]"
                     UnicodeAccessKey =79
+
                 End
                 Begin CommandButton
                     Cancel = NotDefault
@@ -146,6 +149,7 @@ Begin Form
                     Caption ="&Abbrechen"
                     OnClick ="[Event Procedure]"
                     UnicodeAccessKey =65
+
                 End
             End
         End

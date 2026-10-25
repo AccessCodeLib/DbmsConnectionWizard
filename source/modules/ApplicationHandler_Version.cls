@@ -18,7 +18,10 @@ Attribute VB_Exposed = False
 '
 ' Remarks:
 '     Activation in the _config_Application module:
-' <code>ExtensionsCollectionReferenz.Add New ApplicationHandler_AppFile</code>
+'
+'     (start code)
+'     ExtensionsCollectionReferenz.Add New ApplicationHandler_Version
+'     (end)
 '
 '---------------------------------------------------------------------------------------
 
@@ -27,6 +30,7 @@ Attribute VB_Exposed = False
 '  <file>base/ApplicationHandler_Version.cls</file>
 '  <license>_codelib/license.bas</license>
 '  <use>base/ApplicationHandler.cls</use>
+'  <description>ApplicationHandler extension: checks for a new application version using an XML version file</description>
 '</codelib>
 '---------------------------------------------------------------------------------------
 '

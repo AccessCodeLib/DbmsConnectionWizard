@@ -24,6 +24,7 @@ Attribute VB_Exposed = False
 '  <license>_codelib/license.bas</license>
 '  <ref><name>DAO</name><major>5</major><minor>0</minor><guid>{00025E01-0000-0000-C000-000000000046}</guid></ref>
 '  <test>_test/data/odbc/OdbcHandlerHookTests.cls</test>
+'  <description>ODBC data access via DAO: pass-through queries, execute, lookups and aggregates, linking tables</description>
 '</codelib>
 '---------------------------------------------------------------------------------------
 '
@@ -109,20 +110,20 @@ Public Event DbObjectDeleted(ByVal LastDbObjectName As String, ByVal Counter As 
 ' Event: HookInsertIdentityReturn
 '---------------------------------------------------------------------------------------
 '
-' Event for missing OLEDB connection string
+' Hook event for determining the identity value after an insert statement
 '
 ' Parameters:
 '     InsertSql            - SQL text of insert statement
 '     ActiveDb             - ADODB Connection to use
 '     IdentitySelectString - Input string to use
-'     HookResponseMode     - resume action after event call: 0 ... code resume after event, 1 exit function after event
-'     HookResponseMessage  - return value of function (e.g. InsertIdentityReturn) when HookResponseMode <> 0
+'     ResponseMode         - resume action after event call: 0 ... code resume after event, 1 exit function after event
+'     HookResponseMessage  - return value of function (e.g. InsertIdentityReturn) when ResponseMode <> 0
 '
 ' Remarks:
 '     New values can be passed on via the ByRef parameters.
 '
 '---------------------------------------------------------------------------------------
-Public Event HookInsertIdentityReturn(ByRef InsertSql As String, _
+Public Event HookInsertIdentityReturn(ByRef InsertSQL As String, _
                                       ByRef ActiveDb As DAO.Database, _
                                       ByRef IdentitySelectString As String, _
                                       ByRef ResponseMode As Long, ByRef HookResponseMessage As Variant)
@@ -181,7 +182,7 @@ End Property
 ' Property: CurrentDb
 '---------------------------------------------------------------------------------------
 '
-' DAO.Database-Instanz des Frontends bzw. jener Jet-DB in der die Pass-Through-Abfragen erstellt werden sollen
+' DAO.Database instance of the frontend or of the Jet database in which the pass-through queries are to be created
 '
 '---------------------------------------------------------------------------------------
 Public Property Get CurrentDb() As DAO.Database
@@ -200,10 +201,10 @@ End Property
 ' Property: CurrentDbBE
 '---------------------------------------------------------------------------------------
 '
-' Database-Referenz zum Backend
+' Database reference to the backend
 '
-' Remarks
-'     DAO.Database wird über DBEngine.OpenDatabase("", dbDriverComplete, False, <ConnectionString>) geöffnet.
+' Remarks:
+'     DAO.Database is opened via DBEngine.OpenDatabase("", dbDriverComplete, False, <ConnectionString>).
 '
 '---------------------------------------------------------------------------------------
 Public Property Get CurrentDbBE() As DAO.Database
@@ -266,9 +267,9 @@ End Property
 '
 ' Parameters:
 '     Source            - SQL statement or table or query name
-'     RecordsetType     - DAO.RecordsetTypeEnum (Standard: dbOpenDynaset)
-'     RecordsetOptions  - DAO.RecordsetOptionEnum (Standard: dbSeeChanges)
-'     LockEdit          - DAO.LockTypeEnum (Standard: dbOptimistic)
+'     RecordsetType     - DAO.RecordsetTypeEnum (Default: dbOpenDynaset)
+'     RecordsetOptions  - DAO.RecordsetOptionEnum (Default: dbSeeChanges)
+'     LockEdit          - DAO.LockTypeEnum (Default: dbOptimistic)
 '
 ' Returns:
 '     DAO.Recordset
@@ -296,9 +297,9 @@ End Function
 '
 ' Parameters:
 '     Source            - SQL statement or table or query name
-'     RecordsetType     - DAO.RecordsetTypeEnum (Standard: dbOpenDynaset)
-'     RecordsetOptions  - DAO.RecordsetOptionEnum (Standard: dbSeeChanges+dbSQLPassThrough)
-'     LockEdit          - DAO.LockTypeEnum (Standard: dbOptimistic)
+'     RecordsetType     - DAO.RecordsetTypeEnum (Default: dbOpenDynaset)
+'     RecordsetOptions  - DAO.RecordsetOptionEnum (Default: dbSeeChanges+dbSQLPassThrough)
+'     LockEdit          - DAO.LockTypeEnum (Default: dbOptimistic)
 '
 ' Returns:
 '     DAO.Recordset
@@ -526,15 +527,30 @@ Public Function Lookup(ByVal Expr As String, ByVal Domain As String, _
               Optional ByVal Criteria As Variant, _
               Optional ByVal ValueIfNull As Variant = Null) As Variant
 
-   Dim SqlText As String
+   Dim SelectSql As String
 
-   SqlText = "SELECT " & Expr & " FROM " & Domain
+   SelectSql = BuildSelectSql(Expr, Domain, Criteria, False)
+   Lookup = LookupSql(SelectSql, , ValueIfNull)
+
+End Function
+
+Private Function BuildSelectSql(ByVal Expr As String, ByVal Domain As String, Optional ByVal Criteria As Variant, _
+                       Optional ByVal Distinct As Boolean = False)
+
+   Dim SelectSql As String
+
+   SelectSql = "SELECT "
+   If Distinct Then
+      SelectSql = SelectSql & "Distinct "
+   End If
+   SelectSql = SelectSql & Expr & " FROM (" & Domain & ")"
    If Not (VarType(Criteria) = vbError) Then
       If Len(Criteria) > 0 Then
-         SqlText = SqlText & " WHERE " & Criteria
+         SelectSql = SelectSql & " WHERE " & Criteria
       End If
    End If
-   Lookup = Me.LookupSql(SqlText, , ValueIfNull)
+
+   BuildSelectSql = SelectSql
 
 End Function
 
@@ -548,13 +564,24 @@ End Function
 '     Expr        - Field name or calculated expression (select part)
 '     Domain      - Table, query or SQL expression for sub-query (FROM part)
 '     Criteria    - (optional) Criteria string (WHERE part)
+'     Distinct    - (optional) True: count distinct values of Expr
 '
 ' Returns:
 '     Long
 '
 '---------------------------------------------------------------------------------------
-Public Function Count(ByVal Expr As String, ByVal Domain As String, Optional ByVal Criteria As Variant) As Variant
+Public Function Count(ByVal Expr As String, ByVal Domain As String, Optional ByVal Criteria As Variant, _
+             Optional ByVal Distinct As Boolean = False) As Long
+
+   If Distinct Then
+      If Expr <> "*" Then
+         Domain = "(" & BuildSelectSql(Expr, Domain, Criteria, True) & ")"
+         Criteria = vbNullString
+      End If
+   End If
+
    Count = Nz(Me.Lookup("Count(" & Expr & ")", Domain, Criteria), 0)
+
 End Function
 
 '---------------------------------------------------------------------------------------
@@ -630,7 +657,7 @@ End Function
 '     Works for Jet only from Jet 4.0 (Access 2000), IdentityTable is only applicable for MSSQL, under MySQL the IDENT_CURRENT function does not exist.
 '     If HooksEnabled: event HookInsertIdentityReturn will be raised
 '---------------------------------------------------------------------------------------
-Public Function InsertIdentityReturn(ByVal InsertSql As String) As Variant
+Public Function InsertIdentityReturn(ByVal InsertSQL As String) As Variant
 
    Dim db As DAO.Database
    Dim rst As DAO.Recordset
@@ -642,7 +669,7 @@ Public Function InsertIdentityReturn(ByVal InsertSql As String) As Variant
    Set db = Me.CurrentDbBE
 
    If m_HooksEnabled Then
-      RaiseEvent HookInsertIdentityReturn(InsertSql, db, IdentitySql, HookResponseMode, HookResponseMessage)
+      RaiseEvent HookInsertIdentityReturn(InsertSQL, db, IdentitySql, HookResponseMode, HookResponseMessage)
       If HookResponseMode <> 0 Then 'Hook ermittelte bereits das Ergebnis
          InsertIdentityReturn = HookResponseMessage
          Exit Function
@@ -651,7 +678,7 @@ Public Function InsertIdentityReturn(ByVal InsertSql As String) As Variant
 
 On Error GoTo HandleErr
 
-   db.Execute InsertSql, dbFailOnError
+   db.Execute InsertSQL, dbFailOnError
    RecordsAffected = db.RecordsAffected
 
    If RecordsAffected = 0 Then
@@ -714,7 +741,7 @@ Public Sub LinkTable(ByVal SourceTableName As String, _
 
    Dim dbs As DAO.Database
    Dim tdf As DAO.TableDef
-   Dim Pos As Long
+   Dim pos As Long
    Dim NewConnectionString As String
 
    NewConnectionString = Me.ConnectionString
@@ -726,9 +753,9 @@ Public Sub LinkTable(ByVal SourceTableName As String, _
    If Len(LinkedTableName) = 0 Then
       LinkedTableName = SourceTableName
       If RemoveSchemaName Then
-         Pos = InStr(1, LinkedTableName, ".")
-         If Pos > 0 Then
-            LinkedTableName = Mid$(LinkedTableName, Pos + 1) ' use only text after point
+         pos = InStr(1, LinkedTableName, ".")
+         If pos > 0 Then
+            LinkedTableName = Mid$(LinkedTableName, pos + 1) ' use only text after point
          End If
       End If
       LinkedTableName = Replace(LinkedTableName, ".", "_")
@@ -906,7 +933,7 @@ End Function
 ' Function: RelinkPassThroughQueries
 '---------------------------------------------------------------------------------------
 '
-' Alle Pass-Through-Abfragen neu verknüpfen
+' Relink all pass-through queries
 '
 ' Parameters:
 '     SavePWD     - Save ODBC password in linked table

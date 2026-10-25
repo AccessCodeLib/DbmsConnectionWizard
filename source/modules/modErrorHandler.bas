@@ -15,6 +15,7 @@ Attribute VB_Description = "Prozeduren für die Fehlerbehandlung"
 '<codelib>
 '  <file>base/modErrorHandler.bas</file>
 '  <license>_codelib/license.bas</license>
+'  <description>Error handling procedures (HandleError): raise to caller, show in MsgBox, ignore, optionally write to a log file</description>
 '</codelib>
 '---------------------------------------------------------------------------------------
 '
@@ -88,7 +89,7 @@ Private m_ErrorHandlerLogFile As String
 ' Property: DefaultErrorHandlerMode
 '---------------------------------------------------------------------------------------
 '
-' Default behaviour of error handling
+' Default behavior of error handling
 '
 '---------------------------------------------------------------------------------------
 Public Property Get DefaultErrorHandlerMode() As ACLibErrorHandlerMode
@@ -125,39 +126,38 @@ End Property
 ' Standard procedure for error handling
 '
 ' Parameters:
-'     ErrNumber"></param>
-'     ErrSource"></param>
-'     ErrDescription"></param>
-'     ErrHandlerMode"></param>
+'     ErrNumber      - Error number
+'     ErrSource      - Error source (e.g. procedure name)
+'     ErrDescription - (optional) Error description
+'     ErrHandlerMode - (optional) Error handler mode (ACLibErrorHandlerMode)
 '
 ' Returns:
 '     ACLibErrorResumeMode
 '
-' Remarks:
-'Example:
-'<code>
-'Private Sub ExampleProc()
+' Example:
+'     (start code)
+'     Private Sub ExampleProc()
 '
-'On Error GoTo HandleErr
+'     On Error GoTo HandleErr
 '
-'[...]
+'     [...]
 '
-'ExitHere:
-'On Error Resume Next
-'   Exit Sub
+'     ExitHere:
+'     On Error Resume Next
+'        Exit Sub
 '
-'HandleErr:
-'   Select Case HandleError(Err.Number, "ExampleProc", Err.Description)
-'   Case ACLibErrorResumeMode.aclibErrResume
-'      Resume
-'   Case ACLibErrorResumeMode.aclibErrResumeNext
-'      Resume Next
-'   Case Else
-'      Resume ExitHere
-'   End Select
+'     HandleErr:
+'        Select Case HandleError(Err.Number, "ExampleProc", Err.Description)
+'        Case ACLibErrorResumeMode.aclibErrResume
+'           Resume
+'        Case ACLibErrorResumeMode.aclibErrResumeNext
+'           Resume Next
+'        Case Else
+'           Resume ExitHere
+'        End Select
 '
-'End Sub
-'<code>
+'     End Sub
+'     (end)
 '
 '---------------------------------------------------------------------------------------
 Public Function HandleError(ByVal ErrNumber As Long, ByVal ErrSource As String, _
@@ -227,27 +227,27 @@ End Function
 Public Sub ShowErrorMessage(ByVal ErrNumber As Long, ByRef ErrSource As String, ByRef ErrDescription As String)
 
    Dim ErrMsgBoxTitle As String
-   Dim Pos As Long
+   Dim pos As Long
    Dim TempString As String
 
 On Error Resume Next
 
    Const LineBreakPos As Long = 50
 
-   Pos = InStr(1, ErrSource, ERRORSOURCE_DELIMITERSYMBOL, vbBinaryCompare)
-   If Pos > 1 Then
-      ErrMsgBoxTitle = Left$(ErrSource, Pos - 1)
+   pos = InStr(1, ErrSource, ERRORSOURCE_DELIMITERSYMBOL, vbBinaryCompare)
+   If pos > 1 Then
+      ErrMsgBoxTitle = Left$(ErrSource, pos - 1)
    Else
       ErrMsgBoxTitle = ErrSource
    End If
 
    If Len(ErrSource) > LineBreakPos Then
-      Pos = InStr(LineBreakPos, ErrSource, ERRORSOURCE_DELIMITERSYMBOL)
-      If Pos > 0 Then
-         Do While Pos > 0
-            TempString = TempString & Left$(ErrSource, Pos - 1) & vbNewLine
-            ErrSource = Mid$(ErrSource, Pos)
-            Pos = InStr(LineBreakPos, ErrSource, ERRORSOURCE_DELIMITERSYMBOL)
+      pos = InStr(LineBreakPos, ErrSource, ERRORSOURCE_DELIMITERSYMBOL)
+      If pos > 0 Then
+         Do While pos > 0
+            TempString = TempString & Left$(ErrSource, pos - 1) & vbNewLine
+            ErrSource = Mid$(ErrSource, pos)
+            pos = InStr(LineBreakPos, ErrSource, ERRORSOURCE_DELIMITERSYMBOL)
          Loop
          ErrSource = TempString & ErrSource
       End If

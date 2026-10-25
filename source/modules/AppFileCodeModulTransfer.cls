@@ -223,7 +223,7 @@ Private Sub ConvertToSaveAsTextFile(ByVal FilePath As String)
 
    Const SEARCHSTRING_ATTRIBUTNAME_BEGIN As String = "Attribute VB_Name = """
 
-   Dim Pos As Long
+   Dim pos As Long
    Dim CheckString As String
    Dim NewFile As String
    Dim FileNumber As Long
@@ -234,12 +234,12 @@ Private Sub ConvertToSaveAsTextFile(ByVal FilePath As String)
    Get FileNumber, , CheckString
    Close FileNumber
 
-   Pos = InStr(1, CheckString, SEARCHSTRING_ATTRIBUTNAME_BEGIN)
-   If Pos <= 1 Then
+   pos = InStr(1, CheckString, SEARCHSTRING_ATTRIBUTNAME_BEGIN)
+   If pos <= 1 Then
       Exit Sub
    End If
 
-   CheckString = Mid(CheckString, Pos)
+   CheckString = Mid(CheckString, pos)
 
    NewFile = FilePath & "_SaT"
    FileNumber = FreeFile

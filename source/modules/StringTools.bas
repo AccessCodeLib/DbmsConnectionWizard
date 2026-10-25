@@ -9,6 +9,10 @@ Attribute VB_Description = "String-Hilfsfunktionen"
 ' Author:
 '     Josef Poetzl, Sten Schmidt
 '
+' Remarks:
+'     Use DisableReplaceVbaStringFunctions = 1 in conditional compilation arguments (in vbe project properties)
+'     to disable replacement of VBA.Format function
+'
 '---------------------------------------------------------------------------------------
 
 '---------------------------------------------------------------------------------------
@@ -16,6 +20,7 @@ Attribute VB_Description = "String-Hilfsfunktionen"
 '  <file>text/StringTools.bas</file>
 '  <license>_codelib/license.bas</license>
 '  <test>_test/text/StringToolsTests.cls</test>
+'  <description>Text functions as standard module; use only to override VBA functions such as Format project-wide (calls without prefix), otherwise prefer text/StringTools.cls</description>
 '</codelib>
 '---------------------------------------------------------------------------------------
 '
@@ -124,7 +129,15 @@ End Function
 '     String
 '
 '---------------------------------------------------------------------------------------
+#If DisableReplaceVbaStringFunctions = 0 Then
 Public Function Format(ByVal Expression As Variant, Optional ByVal FormatString As Variant, _
+              Optional ByVal FirstDayOfWeek As VbDayOfWeek = vbSunday, _
+              Optional ByVal FirstWeekOfYear As VbFirstWeekOfYear = vbFirstJan1) As String
+   Format = FormatX(Expression, FormatString, FirstDayOfWeek, FirstWeekOfYear)
+End Function
+#End If
+
+Public Function FormatX(ByVal Expression As Variant, Optional ByVal FormatString As Variant, _
               Optional ByVal FirstDayOfWeek As VbDayOfWeek = vbSunday, _
               Optional ByVal FirstWeekOfYear As VbFirstWeekOfYear = vbFirstJan1) As String
 
@@ -151,7 +164,7 @@ Public Function Format(ByVal Expression As Variant, Optional ByVal FormatString 
       End If
    End If
 
-   Format = VBA.Format$(Expression, FormatString, FirstDayOfWeek, FirstWeekOfYear)
+   FormatX = VBA.Format$(Expression, FormatString, FirstDayOfWeek, FirstWeekOfYear)
 
 End Function
 
@@ -216,8 +229,8 @@ End Function
 '     Returns True if SearchValue is contained in CheckValue or SearchValue has the value vbNullString
 '
 '---------------------------------------------------------------------------------------
-Public Function Contains(ByVal CheckValue As String, ByVal SearchValue As String) As Boolean
-    Contains = VBA.InStr(1, CheckValue, SearchValue, vbTextCompare) > 0
+Public Function Contains(ByVal checkValue As String, ByVal searchValue As String) As Boolean
+    Contains = VBA.InStr(1, checkValue, searchValue, vbTextCompare) > 0
 End Function
 
 '---------------------------------------------------------------------------------------
@@ -234,8 +247,8 @@ End Function
 '     Boolean
 '
 '---------------------------------------------------------------------------------------
-Public Function EndsWith(ByVal CheckValue As String, ByVal SearchValue As String) As Boolean
-    EndsWith = VBA.Right$(CheckValue, VBA.Len(SearchValue)) = SearchValue
+Public Function EndsWith(ByVal checkValue As String, ByVal searchValue As String) As Boolean
+    EndsWith = VBA.Right$(checkValue, VBA.Len(searchValue)) = searchValue
 End Function
 
 '---------------------------------------------------------------------------------------
@@ -252,8 +265,8 @@ End Function
 '     Boolean
 '
 '---------------------------------------------------------------------------------------
-Public Function StartsWith(ByVal CheckValue As String, ByVal SearchValue As String) As Boolean
-    StartsWith = VBA.Left$(CheckValue, VBA.Len(SearchValue)) = SearchValue
+Public Function StartsWith(ByVal checkValue As String, ByVal searchValue As String) As Boolean
+    StartsWith = VBA.Left$(checkValue, VBA.Len(searchValue)) = searchValue
 End Function
 
 '---------------------------------------------------------------------------------------
@@ -266,7 +279,7 @@ End Function
 '     Value - String to be checked
 '
 ' Returns:
-'     Long - Anzahl Zeichen von Value
+'     Long - Number of characters of Value
 '
 '---------------------------------------------------------------------------------------
 Public Function Length(ByVal Value As String) As Long
@@ -353,7 +366,7 @@ End Function
 ' Function: InsertAt
 '---------------------------------------------------------------------------------------
 '
-' Setzt die Zeichenfolge InsertValue an der Position Pos ein
+' Inserts the string InsertValue at position Pos
 '
 ' Parameters:
 '     Value       - String
@@ -364,8 +377,8 @@ End Function
 '     String
 '
 '---------------------------------------------------------------------------------------
-Public Function InsertAt(ByVal Value As String, ByVal InsertValue As String, ByVal Pos As Long) As String
-    InsertAt = VBA.Mid$(Value, 1, Pos) & InsertValue & StringTools.SubString(Value, Pos)
+Public Function InsertAt(ByVal Value As String, ByVal InsertValue As String, ByVal pos As Long) As String
+    InsertAt = VBA.Mid$(Value, 1, pos) & InsertValue & StringTools.SubString(Value, pos)
 End Function
 
 '---------------------------------------------------------------------------------------

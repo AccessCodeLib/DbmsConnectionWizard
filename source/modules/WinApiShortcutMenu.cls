@@ -13,15 +13,16 @@ Attribute VB_Exposed = False
 '
 ' ShortcutMenu via Win API
 '
+' Remarks:
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+'| Adapted variant from API example by Jörg Ostendorp of AEK10
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+'
 ' Author:
 '     Josef Poetzl
 '
-' @todo Clean up code and create doc
-'
 ' Remarks:
-'+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-' | Adapted variant from API example by Jörg Ostendorp of AEK10
-'+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+'     TODO: Clean up code and create doc
 '
 '---------------------------------------------------------------------------------------
 
@@ -31,6 +32,7 @@ Attribute VB_Exposed = False
 '  <license>_codelib/license.bas</license>
 '  <use>api/winapi/WinApiLayoutTools.cls</use>
 '  <use>api/winapi/WinApiWindowTools.cls</use>
+'  <description>Shortcut (context) menu for Access forms and controls built with the WinAPI: add menu items, open the menu and return the selected item</description>
 '</codelib>
 '---------------------------------------------------------------------------------------
 '
@@ -42,7 +44,7 @@ Private Type POINTAPI
    Y As Long
 End Type
 
-Private Type RECT
+Private Type Rect
    Left As Long
    Top As Long
    Right As Long
@@ -130,7 +132,7 @@ Private Declare PtrSafe Function TranslateMessage _
 Private Declare PtrSafe Function GetWindowRect _
       Lib "user32.dll" ( _
          ByVal Hwnd As LongPtr, _
-         ByRef lpRect As RECT _
+         ByRef lpRect As Rect _
       ) As LongPtr
 
 Private Declare PtrSafe Function SetMenuDefaultItem _
@@ -384,6 +386,7 @@ End Property
 '     ItemText       - Menu item text
 '     ItemType       - Menu item type
 '     SubMenu        - Number of the assigned submenu
+'     DefaultItem    - (optional) True: menu item is the default item
 '
 '---------------------------------------------------------------------------------------
 Public Sub AddMenuItem(ByVal MenuItemNumber As Long, ByVal ItemText As String, _
@@ -408,11 +411,11 @@ End Sub
 ' Function: OpenMenu
 '---------------------------------------------------------------------------------------
 '
-' Öffnet das Popup-Menü
+' Opens the popup menu
 '
 ' Parameters:
 '     X - desired X position ... can be omitted if Control was specified
-'     X - desired Y-position ... can be omitted if Control was specified
+'     Y - desired Y position ... can be omitted if Control was specified
 '
 ' Returns:
 '     Long - Number of the selected menu item
@@ -431,14 +434,14 @@ Public Function OpenMenu(Optional ByVal X As Single = 0, Optional ByVal Y As Sin
 #End If
 
    Dim Message As APIMSG
-   Dim RcHelper As RECT
+   Dim RcHelper As Rect
    Dim ButtonLeft As Long
    Dim ButtonTop As Long
    Dim XPos As Long
    Dim YPos As Long
 
    Dim ParentObj As Object
-   Dim AccFormRect As RECT
+   Dim AccFormRect As Rect
 
    'Otherwise, nothing is displayed when ENTER is pressed:
    DoEvents

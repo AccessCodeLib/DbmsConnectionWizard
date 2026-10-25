@@ -26,6 +26,7 @@ Attribute VB_Exposed = False
 '  <license>_codelib/license.bas</license>
 '  <ref><name>DAO</name><major>5</major><minor>0</minor><guid>{00025E01-0000-0000-C000-000000000046}</guid></ref>
 '  <use>data/defDbConnection.bas</use>
+'  <description>Connection parameters for a backend (DBMS, server, database, login), incl. login handling and connection check</description>
 '</codelib>
 '---------------------------------------------------------------------------------------
 '
@@ -162,10 +163,14 @@ Public Event DbmsConnectionInfoCleared()
 Public Event DbmsInfoMessage(ByVal Source As String, ByVal Msg As String, ByVal MsgStyle As VbMsgBoxStyle)
 
 '---------------------------------------------------------------------------------------
-'Event: LoginDataRequired
+' Event: LoginDataRequired
 '---------------------------------------------------------------------------------------
 '
 ' Event raised when username and password required
+'
+' Parameters:
+'     UserName - (ByRef) user name to be set
+'     Password - (ByRef) password to be set
 '
 ' Remarks:
 '     The event is useful to set a password by code
@@ -268,7 +273,7 @@ End Property
 
 
 '---------------------------------------------------------------------------------------
-'Property: DbmsName
+' Property: DbmsName
 '---------------------------------------------------------------------------------------
 '
 ' Name of DBMS (MSJET, MSSQL, MySQL, ORACLE, ODBC)
@@ -389,7 +394,7 @@ Private Sub m_LoginForm_Logon(ByVal LoginName As String, ByVal Password As Strin
    End If
 
    If Len(m_DBUSER) > 0 Then
-      CurrentDb.Execute "UPDATE (select * from usys_DbmsConnection WHERE DBMS='" & m_DBMSNAME & "') SET dbmsUser = '" & m_DBUSER & "'" ' thanks to MSFT (https://support.office.com/en-us/article/access-error-query-is-corrupt-fad205a5-9fd4-49f1-be83-f21636caedec)
+      CurrentDb.Execute "UPDATE (select * from usys_DbmsConnection WHERE DBMS='" & Replace(m_DBMSNAME, "'", "''") & "') SET dbmsUser = '" & Replace(m_DBUSER, "'", "''") & "'" ' thanks to MSFT (https://support.office.com/en-us/article/access-error-query-is-corrupt-fad205a5-9fd4-49f1-be83-f21636caedec)
       SaveUserNameToConfigFile m_DBUSER
    End If
 
@@ -438,7 +443,7 @@ End Sub
 ' Property: DbUser
 '---------------------------------------------------------------------------------------
 '
-' Name des Datenbankbenutzers
+' Name of the database user
 '
 ' Parameters:
 '     WithoutServerCheck   -  True = Do not check whether connection data has already been read in.
@@ -612,16 +617,16 @@ End Property
 '---------------------------------------------------------------------------------------
 Public Function CheckConnection(Optional ByRef ErrMsg As String = vbNullString) As Boolean
 
-   Dim checkOk As Boolean
+   Dim CheckOk As Boolean
 
-   checkOk = CheckAdoConnection(OledbConnectionString, ErrMsg)
-   If checkOk Then ' test ODBC testen (if ADO connection don't failed)
+   CheckOk = CheckAdoConnection(OledbConnectionString, ErrMsg)
+   If CheckOk Then ' test ODBC testen (if ADO connection don't failed)
       If m_DBMSNAME <> "MSJET" Then
-         checkOk = checkOk And CheckOdbcConnection(OdbcConnectionString, ErrMsg)
+         CheckOk = CheckOk And CheckOdbcConnection(OdbcConnectionString, ErrMsg)
       End If
    End If
 
-   CheckConnection = checkOk
+   CheckConnection = CheckOk
 
 End Function
 
@@ -667,7 +672,7 @@ End Function
 Private Function CheckOdbcConnection(ByVal sOdbcConnectionstring As String, ByRef Msg As String) As Boolean
 
    Dim db As DAO.Database
-   Dim checkOk As Boolean
+   Dim CheckOk As Boolean
    Dim i As Long
 
    If Len(sOdbcConnectionstring) = 0 Then
@@ -684,14 +689,14 @@ On Error Resume Next
          Msg = Msg & vbNewLine & DBEngine.Errors(i).Description
       Next
       Err.Clear
-      checkOk = False
+      CheckOk = False
    Else
-      checkOk = True
+      CheckOk = True
       db.Close
    End If
    Set db = Nothing
 
-   CheckOdbcConnection = checkOk
+   CheckOdbcConnection = CheckOk
 
 End Function
 
@@ -741,11 +746,11 @@ End Sub
 ' Function: ChangeDbUserPassword
 '---------------------------------------------------------------------------------------
 '
-' Datenbankpasswort des Benutzers ändern
+' Change the user's database password
 '
 ' Parameters:
-'     NewPassword - New passwort
-'     OldPassword - old passwort
+'     NewPassword - New password
+'     OldPassword - Old password
 '     LoginName   - Login name (If no login name is passed, the current login name is used).
 '     Msg         - ByRef parameter to return an error message if the password could not be changed
 '

@@ -18,6 +18,7 @@
 '  <file>localization/L10nTools.bas</file>
 '  <use>localization/L10nDict.cls</use>
 '  <license>_codelib/license.bas</license>
+'  <description>Global access to the localization (L10n) and localized MsgBox/InputBox</description>
 '</codelib>
 '---------------------------------------------------------------------------------------
 '

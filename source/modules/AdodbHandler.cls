@@ -24,6 +24,8 @@ Attribute VB_Exposed = False
 '  <license>_codelib/license.bas</license>
 '  <ref><name>ADODB</name><major>2</major><minor>1</minor><guid>{00000201-0000-0010-8000-00AA006D2EA4}</guid></ref>
 '  <test>_test/data/ado/AdodbHandlerTests.cls</test>
+'  <description>ADODB data access: execute SQL and commands, open recordsets, lookups and aggregates on a connection</description>
+'  <example>_examples/data/ado/AdodbHandler_Beispiel.bas</example>
 '</codelib>
 '---------------------------------------------------------------------------------------
 '
@@ -59,7 +61,7 @@ Private m_AdoConnectionString As String
 Public Event ErrorMissingCurrentConnection(ByVal Msg As String, ByRef NewCurrentConnection As ADODB.Connection)
 
 '---------------------------------------------------------------------------------------
-' Event: ErrorEmptyOledbConnectionString
+' Event: ErrorEmptyConnectionString
 '---------------------------------------------------------------------------------------
 '
 ' Event for missing OLEDB connection string
@@ -92,7 +94,7 @@ Public Event ErrorEmptyConnectionString(ByVal Msg As String, ByRef NewConnection
 '     New values can be passed on via the ByRef parameters.
 '
 '---------------------------------------------------------------------------------------
-Public Event HookInsertIdentityReturn(ByRef InsertSql As String, ByRef IdentityTable As String, _
+Public Event HookInsertIdentityReturn(ByRef InsertSQL As String, ByRef IdentityTable As String, _
                                       ByRef ActiveConnection As ADODB.Connection, ByRef IdentitySelectString As String, _
                                       ByRef HookResponseMode As Long, ByRef HookResponseMessage As Variant)
 
@@ -473,15 +475,30 @@ Public Function Lookup(ByVal Expr As String, ByVal Domain As String, _
               Optional ByVal Criteria As Variant, _
               Optional ByVal ValueIfNull As Variant = Null) As Variant
 
-   Dim SelectSqlText As String
+   Dim SelectSql As String
 
-   SelectSqlText = "SELECT " & Expr & " FROM " & Domain
+   SelectSql = BuildSelectSql(Expr, Domain, Criteria, False)
+   Lookup = Me.LookupSql(SelectSql, , ValueIfNull)
+
+End Function
+
+Private Function BuildSelectSql(ByVal Expr As String, ByVal Domain As String, Optional ByVal Criteria As Variant, _
+                       Optional ByVal Distinct As Boolean = False)
+
+   Dim SelectSql As String
+
+   SelectSql = "SELECT "
+   If Distinct Then
+      SelectSql = SelectSql & "Distinct "
+   End If
+   SelectSql = SelectSql & Expr & " FROM (" & Domain & ")"
    If Not (VarType(Criteria) = vbError) Then
       If Len(Criteria) > 0 Then
-         SelectSqlText = SelectSqlText & " WHERE " & Criteria
+         SelectSql = SelectSql & " WHERE " & Criteria
       End If
    End If
-   Lookup = Me.LookupSql(SelectSqlText, , ValueIfNull)
+
+   BuildSelectSql = SelectSql
 
 End Function
 
@@ -495,13 +512,24 @@ End Function
 '     Expr        - Field name or calculated expression (select part)
 '     Domain      - Table, query or SQL expression for sub-query (FROM part)
 '     Criteria    - (Optional) Criteria string (WHERE part)
+'     Distinct    - (Optional) True: count distinct values of Expr
 '
 ' Returns:
 '     Long
 '
 '---------------------------------------------------------------------------------------
-Public Function Count(ByVal Expr As String, ByVal Domain As String, Optional ByVal Criteria As Variant) As Long
+Public Function Count(ByVal Expr As String, ByVal Domain As String, Optional ByVal Criteria As Variant, _
+             Optional ByVal Distinct As Boolean = False) As Long
+
+   If Distinct Then
+      If Expr <> "*" Then
+         Domain = "(" & BuildSelectSql(Expr, Domain, Criteria, True) & ")"
+         Criteria = vbNullString
+      End If
+   End If
+
    Count = Nz(Me.Lookup("Count(" & Expr & ")", Domain, Criteria), 0)
+
 End Function
 
 '---------------------------------------------------------------------------------------
@@ -595,7 +623,8 @@ End Function
 ' Execute insert SQL statement and return last identity value (auto value)
 '
 ' Parameters:
-'     InsertSQL   - Insert SQL statement
+'     InsertSQL       - Insert SQL statement
+'     IdentityTable   - (Optional) Table name for IDENT_CURRENT (MSSQL only)
 '
 ' Returns:
 '     Identity value or NULL if no record was appended
@@ -604,7 +633,7 @@ End Function
 '     Works for Jet only from Jet 4.0 (Access 2000), IdentityTable is only applicable for MSSQL, under MySQL the IDENT_CURRENT function does not exist.
 '
 '---------------------------------------------------------------------------------------
-Public Function InsertIdentityReturn(ByVal InsertSql As String, Optional ByVal IdentityTable As String = vbNullString) As Variant
+Public Function InsertIdentityReturn(ByVal InsertSQL As String, Optional ByVal IdentityTable As String = vbNullString) As Variant
 
    Dim cnn As ADODB.Connection
    Dim rst As ADODB.Recordset
@@ -617,14 +646,14 @@ Public Function InsertIdentityReturn(ByVal InsertSql As String, Optional ByVal I
    Set cnn = Me.CurrentConnection
 
    If m_HooksEnabled Then
-      RaiseEvent HookInsertIdentityReturn(InsertSql, IdentityTable, cnn, IdentitySql, CurrentHookResumeMode, CurrentHookResumeMessage)
+      RaiseEvent HookInsertIdentityReturn(InsertSQL, IdentityTable, cnn, IdentitySql, CurrentHookResumeMode, CurrentHookResumeMessage)
       If CurrentHookResumeMode <> 0 Then 'Hook ermittelte bereits das Ergebnis
          InsertIdentityReturn = CurrentHookResumeMessage
          Exit Function
       End If
    End If
 
-   cnn.Execute InsertSql, RecordsAffected
+   cnn.Execute InsertSQL, RecordsAffected
 
    If RecordsAffected = 0 Then
       InsertIdentityReturn = Null 'es wurde kein neuer DS angefügt

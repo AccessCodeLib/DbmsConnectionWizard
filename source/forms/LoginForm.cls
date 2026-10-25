@@ -5,13 +5,16 @@ Attribute VB_Exposed = False
 '---------------------------------------------------------------------------------------
 ' Form: LoginForm
 '---------------------------------------------------------------------------------------
-'/**
+'
 ' User login form
-'**/
+'
+'---------------------------------------------------------------------------------------
+
 '---------------------------------------------------------------------------------------
 '<codelib>
 '  <file>user/login/LoginForm.frm</file>
 '  <license>_codelib/license.bas</license>
+'  <description>Login form (user name, password) used by LoginFormBridge</description>
 '</codelib>
 '
 Option Compare Database
