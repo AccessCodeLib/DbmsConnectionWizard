@@ -1,0 +1,333 @@
+﻿Version =20
+VersionRequired =20
+Begin Form
+    RecordSelectors = NotDefault
+    ShortcutMenu = NotDefault
+    AutoCenter = NotDefault
+    NavigationButtons = NotDefault
+    DividingLines = NotDefault
+    DefaultView =0
+    ScrollBars =0
+    TabularFamily =119
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    GridY =10
+    Width =10318
+    DatasheetFontHeight =10
+    ItemSuffix =50
+    Left =1000
+    Top =1000
+    Right =50000
+    Bottom =50000
+    OnUnload ="[Event Procedure]"
+    RecSrcDt = Begin
+        0xdc0c5e0e39c2e240
+    End
+    Caption ="SQL testen"
+    OnOpen ="[Event Procedure]"
+    OnClose ="[Event Procedure]"
+    DatasheetFontName ="Arial"
+    OnResize ="[Event Procedure]"
+    OnLoad ="[Event Procedure]"
+    FilterOnLoad =0
+    ShowPageMargins =0
+    AllowLayoutView =0
+    DatasheetGridlinesColor12 =12632256
+    Begin
+        Begin Label
+            BackStyle =0
+            FontName ="Tahoma"
+        End
+        Begin CommandButton
+            Width =1701
+            Height =283
+            FontSize =8
+            FontWeight =400
+            ForeColor =-2147483630
+            FontName ="Tahoma"
+            BorderLineStyle =0
+        End
+        Begin OptionButton
+            SpecialEffect =2
+            BorderLineStyle =0
+            LabelX =230
+            LabelY =-30
+        End
+        Begin OptionGroup
+            SpecialEffect =3
+            BorderLineStyle =0
+            Width =1701
+            Height =1701
+        End
+        Begin TextBox
+            FELineBreak = NotDefault
+            SpecialEffect =2
+            OldBorderStyle =0
+            BorderLineStyle =0
+            Width =1701
+            LabelX =-1701
+            FontName ="Tahoma"
+            AsianLineBreak =255
+        End
+        Begin ListBox
+            SpecialEffect =2
+            BorderLineStyle =0
+            Width =1701
+            Height =1417
+            LabelX =-1701
+            FontName ="Tahoma"
+        End
+        Begin ComboBox
+            SpecialEffect =2
+            BorderLineStyle =0
+            Width =1701
+            LabelX =-1701
+            FontName ="Tahoma"
+        End
+        Begin Subform
+            SpecialEffect =2
+            BorderLineStyle =0
+            Width =1701
+            Height =1701
+        End
+        Begin ToggleButton
+            Width =283
+            Height =283
+            FontSize =8
+            FontWeight =400
+            ForeColor =-2147483630
+            FontName ="Tahoma"
+            BorderLineStyle =0
+        End
+        Begin Section
+            CanGrow = NotDefault
+            Height =9540
+            BackColor =-2147483633
+            Name ="Detailbereich"
+            Begin
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Width =0
+                    Height =0
+                    Name ="sysFirst"
+
+                End
+                Begin TextBox
+                    EnterKeyBehavior = NotDefault
+                    AllowAutoCorrect = NotDefault
+                    ScrollBars =2
+                    OldBorderStyle =1
+                    OverlapFlags =85
+                    TextAlign =1
+                    IMESentenceMode =3
+                    Left =1920
+                    Top =477
+                    Width =8276
+                    Height =8241
+                    FontSize =9
+                    TabIndex =1
+                    LineSpacing =57
+                    Name ="txtSQL"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            Left =1927
+                            Top =113
+                            Width =1650
+                            Height =255
+                            FontSize =9
+                            FontWeight =700
+                            Name ="Bezeichnungsfeld22"
+                            Caption ="SQL-Anweisung:"
+                        End
+                    End
+                End
+                Begin CommandButton
+                    OverlapFlags =85
+                    Left =120
+                    Top =2490
+                    Width =1635
+                    Height =585
+                    FontWeight =700
+                    TabIndex =3
+                    Name ="cmdExecuteSQL"
+                    Caption ="SQL-Anweisung ausführen"
+                    OnClick ="[Event Procedure]"
+
+                End
+                Begin Label
+                    BackStyle =1
+                    OverlapFlags =85
+                    TextAlign =2
+                    Left =1884
+                    Top =8790
+                    Width =8306
+                    Height =645
+                    FontSize =9
+                    FontWeight =700
+                    BackColor =15132390
+                    ForeColor =10040115
+                    Name ="labMsg"
+                End
+                Begin OptionGroup
+                    SpecialEffect =0
+                    OldBorderStyle =0
+                    OverlapFlags =85
+                    Left =300
+                    Top =1080
+                    Width =1251
+                    Height =1062
+                    TabIndex =2
+                    Name ="optRS"
+                    DefaultValue ="1"
+
+                    Begin
+                        Begin OptionButton
+                            OverlapFlags =87
+                            Left =420
+                            Top =1187
+                            OptionValue =1
+                            Name ="Option34"
+                            ControlTipText ="ADODB/OLEDB-Zugriff"
+
+                            Begin
+                                Begin Label
+                                    OverlapFlags =247
+                                    Left =641
+                                    Top =1125
+                                    Width =855
+                                    Height =285
+                                    FontSize =10
+                                    FontWeight =700
+                                    Name ="Bezeichnungsfeld35"
+                                    Caption ="ADODB"
+                                End
+                            End
+                        End
+                        Begin OptionButton
+                            OverlapFlags =87
+                            Left =420
+                            Top =1528
+                            OptionValue =2
+                            Name ="Option36"
+                            ControlTipText ="DAO/ODBC-Zugriff über DAO.Database"
+
+                            Begin
+                                Begin Label
+                                    OverlapFlags =247
+                                    Left =641
+                                    Top =1470
+                                    Width =855
+                                    Height =285
+                                    FontSize =10
+                                    FontWeight =700
+                                    Name ="Bezeichnungsfeld37"
+                                    Caption ="DAO BE"
+                                End
+                            End
+                        End
+                        Begin OptionButton
+                            OverlapFlags =87
+                            Left =420
+                            Top =1872
+                            OptionValue =3
+                            Name ="optDAPPT"
+                            ControlTipText ="DAO/ODBC-Zugriff mittels PT-Abfrage"
+
+                            Begin
+                                Begin Label
+                                    OverlapFlags =247
+                                    Left =650
+                                    Top =1815
+                                    Width =840
+                                    Height =285
+                                    FontSize =10
+                                    FontWeight =700
+                                    Name ="Bezeichnungsfeld48"
+                                    Caption ="DAO PT"
+                                End
+                            End
+                        End
+                    End
+                End
+                Begin Label
+                    OverlapFlags =85
+                    Left =57
+                    Top =750
+                    Width =1800
+                    Height =285
+                    FontSize =10
+                    FontWeight =700
+                    Name ="Bezeichnungsfeld38"
+                    Caption ="Zugriffsvarianten"
+                End
+                Begin Label
+                    BackStyle =1
+                    OverlapFlags =93
+                    TextAlign =2
+                    Left =113
+                    Top =9117
+                    Width =1641
+                    Height =300
+                    FontSize =9
+                    FontWeight =700
+                    BackColor =15132390
+                    ForeColor =10040115
+                    Name ="labTime"
+                    Caption ="- - -"
+                End
+                Begin Label
+                    BackStyle =1
+                    OverlapFlags =215
+                    TextAlign =2
+                    Left =113
+                    Top =8787
+                    Width =1641
+                    Height =345
+                    FontSize =9
+                    TopMargin =29
+                    BackColor =15132390
+                    ForeColor =10040115
+                    Name ="labTimeL"
+                    Caption ="Ausführungszeit"
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    OverlapFlags =85
+                    TextAlign =2
+                    Left =56
+                    Top =56
+                    Width =1755
+                    Height =675
+                    FontSize =12
+                    FontWeight =700
+                    TopMargin =29
+                    BackColor =15132390
+                    Name ="labDbmsName"
+                    Caption ="DBMS-Verbindung"
+                End
+                Begin CommandButton
+                    OverlapFlags =85
+                    Left =113
+                    Top =3401
+                    Width =1635
+                    Height =615
+                    FontSize =7
+                    TabIndex =4
+                    Name ="cmdSavePT"
+                    Caption ="SQL-Anweisung als\015\012Pass-Through Abfrage speichern"
+                    OnClick ="[Event Procedure]"
+
+                End
+            End
+        End
+    End
+End
+CodeBehindForm
+' See "frmTest_SQL.cls"

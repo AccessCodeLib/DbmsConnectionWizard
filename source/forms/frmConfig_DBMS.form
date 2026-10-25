@@ -1,0 +1,204 @@
+﻿Version =20
+VersionRequired =20
+Begin Form
+    AllowFilters = NotDefault
+    RecordSelectors = NotDefault
+    ShortcutMenu = NotDefault
+    AutoCenter = NotDefault
+    NavigationButtons = NotDefault
+    AllowDeletions = NotDefault
+    DividingLines = NotDefault
+    AllowAdditions = NotDefault
+    KeyPreview = NotDefault
+    DefaultView =0
+    ScrollBars =0
+    TabularFamily =119
+    BorderStyle =3
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    Cycle =1
+    GridY =10
+    Width =13606
+    DatasheetFontHeight =10
+    ItemSuffix =25
+    Left =1000
+    Top =1000
+    Right =50000
+    Bottom =50000
+    OnUnload ="[Event Procedure]"
+    RecSrcDt = Begin
+        0xdc0c5e0e39c2e240
+    End
+    Caption ="DBMS-Connection-Wizard: DBMS-Verbindung konfigurieren"
+    OnCurrent ="[Event Procedure]"
+    OnOpen ="[Event Procedure]"
+    DatasheetFontName ="Arial"
+    OnKeyDown ="[Event Procedure]"
+    OnDeactivate ="[Event Procedure]"
+    OnLoad ="[Event Procedure]"
+    FilterOnLoad =0
+    ShowPageMargins =0
+    AllowLayoutView =0
+    DatasheetGridlinesColor12 =12632256
+    Begin
+        Begin Label
+            BackStyle =0
+            FontName ="Tahoma"
+        End
+        Begin CommandButton
+            Width =1701
+            Height =283
+            FontSize =8
+            FontWeight =400
+            ForeColor =-2147483630
+            FontName ="Tahoma"
+            BorderLineStyle =0
+        End
+        Begin TextBox
+            FELineBreak = NotDefault
+            SpecialEffect =2
+            OldBorderStyle =0
+            BorderLineStyle =0
+            Width =1701
+            LabelX =-1701
+            FontName ="Tahoma"
+            AsianLineBreak =255
+        End
+        Begin ListBox
+            SpecialEffect =2
+            BorderLineStyle =0
+            Width =1701
+            Height =1417
+            LabelX =-1701
+            FontName ="Tahoma"
+        End
+        Begin ComboBox
+            AddColon = NotDefault
+            BorderLineStyle =0
+            Width =1701
+            LabelX =-1701
+            FontSize =11
+            FontName ="Calibri"
+            AllowValueListEdits =1
+            InheritValueList =1
+            ThemeFontIndex =1
+            BackThemeColorIndex =1
+            BorderThemeColorIndex =1
+            BorderShade =65.0
+            ForeThemeColorIndex =2
+            ForeShade =50.0
+            GridlineThemeColorIndex =1
+            GridlineShade =65.0
+        End
+        Begin Subform
+            SpecialEffect =2
+            BorderLineStyle =0
+            Width =1701
+            Height =1701
+        End
+        Begin Section
+            CanGrow = NotDefault
+            Height =8078
+            BackColor =-2147483633
+            Name ="Detailbereich"
+            Begin
+                Begin ListBox
+                    RowSourceTypeInt =1
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =113
+                    Top =338
+                    Width =1581
+                    Height =7261
+                    FontSize =10
+                    FontWeight =700
+                    BackColor =-2147483633
+                    Name ="lstCID"
+                    RowSourceType ="Value List"
+                    ColumnWidths ="1560"
+                    AfterUpdate ="[Event Procedure]"
+                    OnKeyDown ="[Event Procedure]"
+                    OnMouseUp ="[Event Procedure]"
+
+                End
+                Begin Subform
+                    OverlapFlags =85
+                    Left =1870
+                    Top =338
+                    Width =11625
+                    Height =7680
+                    TabIndex =1
+                    Name ="sfrDetailForm"
+                    Tag ="frmConfig_DBMS_SF_Data"
+
+                End
+                Begin CommandButton
+                    OverlapFlags =85
+                    AccessKey =78
+                    Left =120
+                    Top =7675
+                    Width =1582
+                    Height =343
+                    TabIndex =2
+                    Name ="cmdNewCID"
+                    Caption ="&New Connection"
+                    OnClick ="[Event Procedure]"
+                    Tag ="LANG:"
+                    UnicodeAccessKey =78
+
+                End
+                Begin ComboBox
+                    LimitToList = NotDefault
+                    TabStop = NotDefault
+                    RowSourceTypeInt =1
+                    OldBorderStyle =0
+                    OverlapFlags =85
+                    TextAlign =2
+                    IMESentenceMode =3
+                    Left =12923
+                    Top =53
+                    Width =561
+                    Height =228
+                    FontSize =8
+                    TabIndex =3
+                    BackColor =14151142
+                    Name ="cbxLangCode"
+                    RowSourceType ="Value List"
+                    RowSource ="\"EN\";\"DE\""
+                    AfterUpdate ="[Event Procedure]"
+                    FontName ="Tahoma"
+                    HorizontalAnchor =1
+                    AllowValueListEdits =0
+                    InheritValueList =0
+
+                    ThemeFontIndex =-1
+                    BackThemeColorIndex =-1
+                    BorderThemeColorIndex =-1
+                    BorderShade =100.0
+                    ForeThemeColorIndex =-1
+                    ForeShade =100.0
+                    GridlineThemeColorIndex =-1
+                    GridlineShade =100.0
+                End
+                Begin Label
+                    FontUnderline = NotDefault
+                    OverlapFlags =85
+                    TextAlign =3
+                    Left =10317
+                    Top =56
+                    Width =2455
+                    Height =240
+                    ForeColor =16737792
+                    Name ="labCheckVersion"
+                    Caption ="Check wizard version"
+                    OnClick ="[Event Procedure]"
+                    Tag ="unchecked|LANG:"
+                    VerticalAnchor =1
+                End
+            End
+        End
+    End
+End
+CodeBehindForm
+' See "frmConfig_DBMS.cls"

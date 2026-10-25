@@ -1,0 +1,15 @@
+﻿{
+  "Info": {
+    "Class": "clsDbTableDef",
+    "Description": "usys_DbmsConnection_CopyBase Metadata"
+  },
+  "Items": {
+    "Properties": {
+      "Description": {
+        "Type": 10,
+        "Value": "Verbindungseintellungen"
+      }
+    },
+    "Hidden": true
+  }
+}

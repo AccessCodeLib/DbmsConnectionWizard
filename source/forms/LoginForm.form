@@ -1,0 +1,155 @@
+﻿Version =20
+VersionRequired =20
+Begin Form
+    AllowFilters = NotDefault
+    PopUp = NotDefault
+    RecordSelectors = NotDefault
+    ControlBox = NotDefault
+    AutoCenter = NotDefault
+    NavigationButtons = NotDefault
+    DividingLines = NotDefault
+    DefaultView =0
+    ScrollBars =0
+    ViewsAllowed =1
+    TabularFamily =124
+    BorderStyle =3
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    Cycle =1
+    GridY =10
+    Width =3911
+    DatasheetFontHeight =10
+    ItemSuffix =6
+    Left =1000
+    Top =1000
+    Right =50000
+    Bottom =50000
+    OnUnload ="[Event Procedure]"
+    RecSrcDt = Begin
+        0x68568eb19ee2e240
+    End
+    Caption ="Login"
+    DatasheetFontName ="Arial"
+    OnLoad ="[Event Procedure]"
+    FilterOnLoad =0
+    AllowLayoutView =0
+    DatasheetGridlinesColor12 =12632256
+    Begin
+        Begin Label
+            BackStyle =0
+            FontName ="Tahoma"
+        End
+        Begin CommandButton
+            Width =1701
+            Height =283
+            FontSize =8
+            FontWeight =400
+            ForeColor =-2147483630
+            FontName ="Tahoma"
+            BorderLineStyle =0
+        End
+        Begin TextBox
+            FELineBreak = NotDefault
+            SpecialEffect =2
+            OldBorderStyle =0
+            BorderLineStyle =0
+            Width =1701
+            LabelX =-1701
+            FontName ="Tahoma"
+            AsianLineBreak =255
+        End
+        Begin Section
+            Height =1701
+            BackColor =-2147483633
+            Name ="Detailbereich"
+            Begin
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =1583
+                    Top =225
+                    Width =2154
+                    Height =255
+                    FontSize =9
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="txtUID"
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            Left =165
+                            Top =225
+                            Width =1293
+                            Height =255
+                            FontSize =9
+                            Name ="labLoginName"
+                            Caption ="Login name"
+                            Tag ="LANG:"
+                        End
+                    End
+                End
+                Begin TextBox
+                    AllowAutoCorrect = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =1583
+                    Top =621
+                    Width =2154
+                    Height =255
+                    FontSize =9
+                    TabIndex =1
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="txtPwd"
+                    InputMask ="Password"
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            Left =165
+                            Top =621
+                            Width =1293
+                            Height =255
+                            FontSize =9
+                            Name ="labPassword"
+                            Caption ="Password"
+                            Tag ="LANG:"
+                        End
+                    End
+                End
+                Begin CommandButton
+                    Default = NotDefault
+                    OverlapFlags =85
+                    AccessKey =79
+                    Left =170
+                    Top =1133
+                    Width =1418
+                    Height =418
+                    TabIndex =2
+                    Name ="cmdLogin"
+                    Caption ="&OK"
+                    OnClick ="[Event Procedure]"
+                    UnicodeAccessKey =79
+                End
+                Begin CommandButton
+                    Cancel = NotDefault
+                    OverlapFlags =85
+                    AccessKey =65
+                    Left =2324
+                    Top =1133
+                    Width =1418
+                    Height =418
+                    TabIndex =3
+                    Name ="cmdCancel"
+                    Caption ="&Abbrechen"
+                    OnClick ="[Event Procedure]"
+                    UnicodeAccessKey =65
+                End
+            End
+        End
+    End
+End
+CodeBehindForm
+' See "LoginForm.cls"

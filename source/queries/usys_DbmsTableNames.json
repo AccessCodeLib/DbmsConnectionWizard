@@ -1,0 +1,46 @@
+﻿{
+  "Info": {
+    "Class": "clsDbQuery",
+    "Description": "usys_DbmsTableNames"
+  },
+  "Items": {
+    "QueryType": 112,
+    "Connect": "ODBC;",
+    "QueryProperties": {
+      "Description": {
+        "Type": 10,
+        "Value": "Auflistung der TAbellen und Sichten zum aktiven DBMS (wird in frmConfig_LinkTables verwendet)"
+      },
+      "LogMessages": {
+        "Type": 1,
+        "Value": false
+      }
+    },
+    "DesignLayout": {
+      "State": 0,
+      "Window": {
+        "left": 0,
+        "top": 40,
+        "right": 1331,
+        "bottom": 851
+      },
+      "DesignerPane": {
+        "left": -1,
+        "top": -1,
+        "right": 1299,
+        "bottom": 477
+      },
+      "GridLeft": 0,
+      "GridTop": 0,
+      "ColumnsShown": 2058,
+      "Tables": [
+      ]
+    },
+    "Properties": {
+      "Description": {
+        "Type": 10,
+        "Value": "Auflistung der TAbellen und Sichten zum aktiven DBMS (wird in frmConfig_LinkTables verwendet)"
+      }
+    }
+  }
+}

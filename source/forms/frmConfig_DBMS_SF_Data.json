@@ -1,0 +1,190 @@
+﻿{
+  "Info": {
+    "Class": "clsDbForm",
+    "Description": "frmConfig_DBMS_SF_Data Print Settings"
+  },
+  "Items": {
+    "Printer": {
+      "Orientation": "Portrait",
+      "PaperSize": "A4"
+    },
+    "Margins": {
+      "LeftMargin": 1.0097,
+      "TopMargin": 1.0097,
+      "RightMargin": 1.0097,
+      "BotMargin": 1.0097,
+      "DataOnly": false,
+      "Width": 5,
+      "Height": 3,
+      "DefaultSize": true,
+      "Columns": 1,
+      "ColumnSpacing": 0.25,
+      "RowSpacing": 0,
+      "ItemLayout": "Horizontal Columns",
+      "FastPrint": 1,
+      "Datasheet": 1
+    },
+    "ConditionalFormatting": {
+      "txtDbmsServer": {
+        "Rules": [
+          {
+            "Type": "FieldValue",
+            "Enabled": true,
+            "FontBold": false,
+            "FontItalic": false,
+            "FontUnderline": false,
+            "ForeColor": "RGB(0,0,0)",
+            "BackColor": "RGB(255,255,255)",
+            "Operator": "GreaterThan",
+            "Expression1": "\"\"",
+            "Expression2": ""
+          }
+        ]
+      },
+      "txtDbmsUser": {
+        "Rules": [
+          {
+            "Type": "FieldValue",
+            "Enabled": true,
+            "FontBold": false,
+            "FontItalic": false,
+            "FontUnderline": false,
+            "ForeColor": "RGB(0,0,0)",
+            "BackColor": "RGB(255,255,255)",
+            "Operator": "GreaterThan",
+            "Expression1": "\"\"",
+            "Expression2": ""
+          }
+        ]
+      },
+      "txtDbmsPwd": {
+        "Rules": [
+          {
+            "Type": "FieldValue",
+            "Enabled": true,
+            "FontBold": false,
+            "FontItalic": false,
+            "FontUnderline": false,
+            "ForeColor": "RGB(0,0,0)",
+            "BackColor": "RGB(255,255,255)",
+            "Operator": "GreaterThan",
+            "Expression1": "\"\"",
+            "Expression2": ""
+          }
+        ]
+      },
+      "txtDbmsOptionsODBC": {
+        "Rules": [
+          {
+            "Type": "FieldValue",
+            "Enabled": true,
+            "FontBold": false,
+            "FontItalic": false,
+            "FontUnderline": false,
+            "ForeColor": "RGB(0,0,0)",
+            "BackColor": "RGB(255,255,255)",
+            "Operator": "GreaterThan",
+            "Expression1": "\"\"",
+            "Expression2": ""
+          }
+        ]
+      },
+      "txtDbmsOptionsOLEDB": {
+        "Rules": [
+          {
+            "Type": "FieldValue",
+            "Enabled": true,
+            "FontBold": false,
+            "FontItalic": false,
+            "FontUnderline": false,
+            "ForeColor": "RGB(0,0,0)",
+            "BackColor": "RGB(255,255,255)",
+            "Operator": "GreaterThan",
+            "Expression1": "\"\"",
+            "Expression2": ""
+          }
+        ]
+      },
+      "txtDbmsDSN": {
+        "Rules": [
+          {
+            "Type": "FieldValue",
+            "Enabled": true,
+            "FontBold": false,
+            "FontItalic": false,
+            "FontUnderline": false,
+            "ForeColor": "RGB(0,0,0)",
+            "BackColor": "RGB(255,255,255)",
+            "Operator": "GreaterThan",
+            "Expression1": "\"\"",
+            "Expression2": ""
+          }
+        ]
+      },
+      "txtDbmsConStrODBC": {
+        "Rules": [
+          {
+            "Type": "FieldValue",
+            "Enabled": true,
+            "FontBold": false,
+            "FontItalic": false,
+            "FontUnderline": false,
+            "ForeColor": "RGB(0,0,0)",
+            "BackColor": "RGB(255,255,255)",
+            "Operator": "GreaterThan",
+            "Expression1": "\"\"",
+            "Expression2": ""
+          }
+        ]
+      },
+      "txtDbmsConStrOLEDB": {
+        "Rules": [
+          {
+            "Type": "FieldValue",
+            "Enabled": true,
+            "FontBold": false,
+            "FontItalic": false,
+            "FontUnderline": false,
+            "ForeColor": "RGB(0,0,0)",
+            "BackColor": "RGB(255,255,255)",
+            "Operator": "GreaterThan",
+            "Expression1": "\"\"",
+            "Expression2": ""
+          }
+        ]
+      },
+      "txtDbmsOleDbProvider": {
+        "Rules": [
+          {
+            "Type": "FieldValue",
+            "Enabled": true,
+            "FontBold": false,
+            "FontItalic": false,
+            "FontUnderline": false,
+            "ForeColor": "RGB(0,0,0)",
+            "BackColor": "RGB(255,255,255)",
+            "Operator": "GreaterThan",
+            "Expression1": "\"\"",
+            "Expression2": ""
+          }
+        ]
+      },
+      "txtDbmsOdbcDriver": {
+        "Rules": [
+          {
+            "Type": "FieldValue",
+            "Enabled": true,
+            "FontBold": false,
+            "FontItalic": false,
+            "FontUnderline": false,
+            "ForeColor": "RGB(0,0,0)",
+            "BackColor": "RGB(255,255,255)",
+            "Operator": "GreaterThan",
+            "Expression1": "\"\"",
+            "Expression2": ""
+          }
+        ]
+      }
+    }
+  }
+}

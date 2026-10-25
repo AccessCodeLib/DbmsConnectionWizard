@@ -1,0 +1,6 @@
+﻿CREATE TABLE [usys_DbmsConnection_X_Driver] (
+  [id] AUTOINCREMENT CONSTRAINT [PrimaryKey] PRIMARY KEY UNIQUE NOT NULL,
+  [DBMS] VARCHAR (255),
+  [ConMode] VARCHAR (255),
+  [Driver] VARCHAR (255)
+)
