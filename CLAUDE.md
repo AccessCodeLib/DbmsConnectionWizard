@@ -90,6 +90,7 @@ Follow the project's own rule if there is one (e.g. a global handler such as vbW
 - Prefer parameter queries / `QueryDef` parameters over concatenated SQL.
 - Use dynamic SQL only when necessary and always protect it against SQL injection (never concatenate unchecked values or identifiers into SQL).
 - Dates and numbers in SQL strings must be locale independent: `#yyyy-mm-dd#`, decimal point.
+- Boolean values in SQL strings against ODBC-linked SQL Server tables: use `True`/`False` in the `WHERE` clause, never `-1`/`0`; Access then converts them correctly to `1`/`0` for SQL Server. Where possible build the SQL with helper methods that already handle this (e.g. ACLib `SqlTools`, if the project uses ACLib).
 - Data in linked SQL Server tables/views may be read only in approved databases (see the SQL Server rules); local configuration tables are not affected.
 
 ### Working with the database file
