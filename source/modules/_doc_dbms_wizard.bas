@@ -1,182 +1,102 @@
 ﻿Attribute VB_Name = "_doc_dbms_wizard"
-'#######################################################################################
-'
-' Doxygen-Gruppen
-'
-'
 '---------------------------------------------------------------------------------------
-'/**
-' @defgroup grpWizard DBMS-Connection-Wizard
-' Access-Add-In: DBMS-Connection-Wizard
-'**/
+' Section: ACLib DBMS Connection Wizard
+'---------------------------------------------------------------------------------------
+' Access add-in to configure DBMS connections and to import the ACLib DbConnection
+' framework into a database.
+'---------------------------------------------------------------------------------------
 
-'/**
-' \defgroup grpCodeLib Code-Bibliothek
-' Klassen und Module für die Verwendung in den Access-Anwendungen
-'**/
+'---------------------------------------------------------------------------------------
+' Topic: Installation
+'---------------------------------------------------------------------------------------
+' Open DbmsConnectionWizard.accda (zip file from the releases) in Access and click
+' "Install Add-in" in the install form.
+' "Install Add-in as accde" installs a compiled version instead.
+'
+' Administrator rights are not required, because the entries are registered in the
+' user profile (HKCU).
+'---------------------------------------------------------------------------------------
 
+'---------------------------------------------------------------------------------------
+' Topic: Configure connection data
+'---------------------------------------------------------------------------------------
+' After the installation the entry "ACLib DBMS Connection Wizard" is available in the
+' Add-ins menu. It starts the wizard for the connection configuration.
+'
+' If the table usys_DbmsConnection is missing in the frontend, the wizard creates it.
+'
+' A new connection configuration is created with the button "Neue Verbindung".
+' It needs a unique name and has to be assigned to a DBMS.
+' The access parameters are stored for each connection name.
+'---------------------------------------------------------------------------------------
 
-'#######################################################################################
-'
-' Startseite
-'
 '---------------------------------------------------------------------------------------
-'
-'/** \mainpage DBMS-Connection-Wizard
-' \image html pictures/wizardform.png
-' <CENTER>\ref grpWizard &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; \ref grpCodeLib</CENTER>
-'**/
-'
-'
-'#######################################################################################
-'
-' Beschreibungen
-'
+' Topic: Connection type
 '---------------------------------------------------------------------------------------
-'/** \addtogroup grpWizard
-' @{ **/
-'
-'/**
-' \page wizard_install Installation
-'
-' Das Access-Add-In wird über den Add-In-Manger durch hinzufügen der Datei <em>DbmsConnectionWizard.mda</em> installiert.
-' Falls Sie Vista oder Windows 7 verwenden und die Benutzerkontensteuerung (UAC) aktiviert haben,
-' starten Sie zuvor Access als Administrator, da für die Registrierung der Assistenten Admin-Rechte notwendig sind.
-' Sollten es Ihnen nicht möglich sein, Admin-Rechte zu erhalten, so können Sie das Add-In trotzdem verwenden.
-' Es steht Ihnen dann allerdings nur das Menü-Add-In zur Verfügung.
-'
-'
-' \page wizard_connection Verbindungsdaten einstellen
-'
-' Nach der Installation des Access-Add-In steht unter <em>Add-Ins</em> der Eintrag <em>DBMS Connection Wizard</em> zur Verfügung,
-' mit dem der Assistent für die Verbindungskonfiguration gestartet werden kann.
-'
-' \section  sec_wizard_table Tabelle erstellen
-' Falls die Tabelle \a usys_DbmsConnection im Frontend fehlt, wird diese vom Assistenten erstellt.
-'
-' \image html pictures/TabAnlegen.png "Meldung bei fehlender Tabelle"
-'
-' \section sec_wizard_connection Verbindungskonfiguration erstellen
-'
-' Mit der Schaltfläche "Neue Verbindung" kann eine neue Verbindungskonfiguration angelegt werden.
-'
-' \image html pictures/Neue_Verbindung_erstellen.png "Neue Verbindungskonfiguration erstellen"
-'
-' Diese muss einen eindeutigen Namen erhalten und einem DBMS zugeordnet werden.
-'
-' \image html pictures/Neue_Verbindung_erstellen_Eingabe.png "Eingeben der Verbindungskennung"
-'
-' \section  sec_wizard_parameter Zugriffsparameter einstellen
-' Die Zugriffsparameter werden für jede Verbindungskennung gespeichert.
-'
-' \image html pictures/Verbindungsdaten_einstellen.png "Verbindungsdaten einstellen"
-'
-' \page wizard_parameter Beschreibung der Parameter
-' \section sec_wizard_parameter_1 Aufbereitung der Zugriffszeichenfolge
-' \par Verbindungsart
-'     - ohne DSN ("dsn less")
-'     Mit dieser Verbindungsart wird eine Zugriffszeichenfolge inkl. Treiber bzw. Provider verwende, die ohne gespeicherte Datenquellen auskommt.
-'     Es gibt allerdings einige DBMS, bei denen eine DSN erforderlich ist.
-'     - mit DSN
-'     Die Zugriffszeichenfolge verweist auf eine gespeicherte Datenquelle, in der die Verbindungssparameter enthalten sind.
-'     - benutzerdefiniert
-'     Bei dieser Einstellung wird die Zugriffszeichenfolge nicht aus den Verbindugnsparametern zusammengesetzt sondern exakt jener Zeichenfolge verwendet,
-'     die in den Eigenschaften ODBC und OLEDB unter benutzerdefinierter Connectionstring eingetragen werden.
-' \section sec_wizard_parameter_2 Datenbank- u. Servereinstellungen
-'
-' \par Database
-'  Der Datenbankname
-'
-' \par Server
-'  Der Server bzw. die Server Instanz. z. B. (local)\SQLExpress
-'
-' \par Port
-' Der zu verwendene Port. (Kann meist leer bleiben, wenn der Standardport verwendet wird.
-'
-' \par User
-'  Die Benutzerkennung falls eine Serveranmeldung mit Benutzer und Passwort verwendet wird.
-'  Bei Verwendung eines Login-Formulars wird im Frontend in diesem Feld der zuletzt angemeldete Benutzer gespeichert.
-'
-' \par Password
-'  Das Passwort zur Benutzerkennung
-'
-' \par Windows-Autentifizierung
-'  Falls statt einer Serverindentifizierung die Kennung von Windows verwendet werden soll. (Funktioniert nicht mit allen DBMS.)
-'
-' \par Login-Formular verwenden
-'  Bei Benutzeranmeldung kann ein Login-formular verwendet werden, um das Passwort abzufragen. (Empfohlene Einstellung, wenn die Windows-Autentifizierung nicht verwendet wird.)
-'
-' \par DSN
-'  Die DSN-Kennung, falls eine Verbindung über DSN aufgebaut werden soll
-'
-' \section sec_wizard_parameter_3 Provider / Driver
-'
-' \par OLEDB
-' Der OLEDB-Provider. Als Standard wird der gängigste Provider zum jeweiligen DBMS voreingestellt. Diese Einstellung kann in der Tabelle usys_DbmsConnection_X geändert werden.
-' Falls ein alternativer Provider verwendet wird, muss möglicherweise die Erstellung der Verbindugnszeichenfolge optimiert werden, falls dieser Provider spezielle Parameter benötigt.
-'
-' \par ODBC &nbsp;
-' Der ODBC-Treiber für den DOBC-Zugriff analog zum OLDEDB-Provider.
-'
-' \subsection sec_wizard_parameter_4 Weitere Optionen
-'
-' \par OLEDB
-' Zusätzliche OLEDB-Optionen. Dieser werden am Ende der OLEDB-Verbindungszeichenfolge angehängt.
-'
-' \par ODBC &nbsp;
-' Zusätzliche ODBC-Optionen. Dieser werden am Ende der OLEDB-Verbindungszeichenfolge angehängt.
-'
-' \section sec_wizard_parameter_5 Benutzerdefinierter Connectionstring
-' \par OLEDB
-' Die OLEDB-Verbindungszeichenfolge bei benutzerdefinierter Konfiguration
-'
-' \par ODBC &nbsp;
-' Die ODBC-Verbindungszeichenfolge bei benutzerdefinierter Konfiguration
-'
-' \section sec_wizard_parameter_6 Module und Klassen
-' In diesem Abschnitt könnten die im Frontend benötigten Module aus dem Add-In kopiert werden.
-'
-'**/
-'
-' /** @} **/
+' without DSN ("dsn less") - The connection string contains the driver or provider and needs no stored data source. Some DBMS require a DSN.
+' with DSN - The connection string refers to a stored data source that contains the connection parameters.
+' custom - The connection string is not built from the parameters, the string entered in the properties ODBC and OLEDB is used exactly as entered.
+'---------------------------------------------------------------------------------------
 
+'---------------------------------------------------------------------------------------
+' Topic: Database and server settings
+'---------------------------------------------------------------------------------------
+' Database - The database name.
+' Server - The server or server instance, e.g. (local)\SQLExpress.
+' Port - The port to use. Can usually stay empty if the default port is used.
+' User - The user name if the server login uses user and password. If a login form is used, the frontend stores the last logged-in user in this field.
+' Password - The password of the user.
+' Windows authentication - Use the Windows login instead of a server login. Does not work with every DBMS.
+' Use login form - Asks for the password in a login form. Recommended if Windows authentication is not used.
+' DSN - The DSN name if the connection is built via DSN.
+'---------------------------------------------------------------------------------------
 
-'#######################################################################################
-'
-' Code-Lib
-'
 '---------------------------------------------------------------------------------------
-'
+' Topic: Provider and driver
 '---------------------------------------------------------------------------------------
-' Code-Lib: Datenzugriff
+' OLEDB - The OLEDB provider. The most common provider of the DBMS is preset. It can be changed in the table usys_DbmsConnection_X.
+'   If an alternative provider needs special parameters, building the connection string may have to be adjusted.
+' ODBC - The ODBC driver, analogous to the OLEDB provider.
+'
+' Additional options are appended to the end of the connection string.
+' OLEDB options - Additional OLEDB options.
+' ODBC options - Additional ODBC options.
+'
+' Custom connection string:
+' OLEDB - The OLEDB connection string of a custom configuration.
+' ODBC - The ODBC connection string of a custom configuration.
+'
+' Modules and classes - The modules and classes needed in the frontend can be copied from the add-in.
 '---------------------------------------------------------------------------------------
-'/** \addtogroup grpCodeLib
-' @{ **/
+
+'---------------------------------------------------------------------------------------
+' Topic: Data access examples
+'---------------------------------------------------------------------------------------
+' DAO:
 '
-' /**
-' \page codelib_samples Beispiele für den Datenzugriff
+' (start code)
+' DbCon.DAO.OpenRecordset("select ...")
+' DbCon.DAO.Execute "delete from ..."
+' OpenDaoRecordset("select ...")
+' DaoExecute "delete from ..."
+' (end code)
 '
-' \section sec_codelib_samples Beispiele für den Datenzugriff
+' ADODB:
 '
-' \par DAO
-'           \code DbCon.DAO.OpenRecordset("select ...") \endcode
-'           \code DbCon.DAO.Execute "delete from ..." \endcode
-'           \code OpenDaoRecordset("select ...") \endcode
-'           \code DaoExecute "delete from ..." \endcode
+' (start code)
+' DbCon.ADODB.OpenRecordset("select ...")
+' DbCon.ADODB.Execute "delete from ..."
+' OpenAdoRecordset("select ...")
+' AdoExecute "delete from ..."
+' (end code)
 '
-' \par ADODB
-'           \code DbCon.ADODB.OpenRecordset("select ...") \endcode
-'           \code DbCon.ADODB.Execute "delete from ..." \endcode
-'           \code OpenAdoRecordset("select ...") \endcode
-'           \code AdoExecute "delete from ..." \endcode
+' ODBC:
 '
-' \par ODBC
-'           \code DbCon.ODBC.OpenRecordset(....) \endcode
-'           \code DbCon.ODBC.Execute "delete from ..." \endcode
-'           \code OpenRecordsetDaoBE("select ...") \endcode
-'           \code OpenRecordsetPT("select ...") \endcode
-'           \code OdbcExecutePT "delete from ..." \endcode
-'
-' **/
-'
-'/** @} **/
+' (start code)
+' DbCon.ODBC.OpenRecordset(....)
+' DbCon.ODBC.Execute "delete from ..."
+' OpenRecordsetDaoBE("select ...")
+' OpenRecordsetPT("select ...")
+' OdbcExecutePT "delete from ..."
+' (end code)
+'---------------------------------------------------------------------------------------

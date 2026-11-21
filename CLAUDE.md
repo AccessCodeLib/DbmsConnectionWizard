@@ -166,7 +166,7 @@ MS Access project (Microsoft 365, 64-bit). Check the project for whether front e
 - Do not import test or example modules unless the user asks (tests need the AccUnit environment).
 
 ## Project specifics
-- Access add-in "DBMS Connection Wizard": configures a DBMS connection and imports the
+- Access add-in "ACLib DBMS Connection Wizard": configures a DBMS connection and imports the
   ACLib DbConnection framework into the target database.
 - `source\` (msaccess-vcs-addin export) is the single source of truth; binary files
   (`.accdb`, `.accda`) are not edited as source and are not committed.
