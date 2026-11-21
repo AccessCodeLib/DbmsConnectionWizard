@@ -71,7 +71,7 @@
               <od:fieldProperty name="DefaultValue" type="12" value="0"></od:fieldProperty>
               <od:fieldProperty name="DisplayControl" type="3" value="106"></od:fieldProperty>
               <od:fieldProperty name="Format" type="10" value="Yes/No"></od:fieldProperty>
-              <od:fieldProperty name="Required" type="1" value="0"></od:fieldProperty>
+              <od:fieldProperty name="Required" type="1" value="1"></od:fieldProperty>
               <od:fieldProperty name="ResultType" type="2" value="0"></od:fieldProperty>
               <od:fieldProperty name="TextAlign" type="2" value="0"></od:fieldProperty>
             </xsd:appinfo>
