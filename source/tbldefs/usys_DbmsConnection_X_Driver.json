@@ -1,0 +1,9 @@
+﻿{
+  "Info": {
+    "Class": "clsDbTableDef",
+    "Description": "usys_DbmsConnection_X_Driver Metadata"
+  },
+  "Items": {
+    "Hidden": true
+  }
+}

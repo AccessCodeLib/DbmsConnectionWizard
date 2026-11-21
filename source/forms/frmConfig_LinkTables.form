@@ -1,0 +1,590 @@
+﻿Version =20
+VersionRequired =20
+Begin Form
+    RecordSelectors = NotDefault
+    AutoCenter = NotDefault
+    NavigationButtons = NotDefault
+    DividingLines = NotDefault
+    DefaultView =0
+    ScrollBars =0
+    TabularFamily =168
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    GridY =10
+    Width =9300
+    DatasheetFontHeight =10
+    ItemSuffix =47
+    Left =1000
+    Top =1000
+    Right =50000
+    Bottom =50000
+    OnUnload ="[Event Procedure]"
+    RecSrcDt = Begin
+        0x452ec210ff79e340
+    End
+    Caption ="Config Linked Tables"
+    OnOpen ="[Event Procedure]"
+    DatasheetFontName ="Tahoma"
+    OnTimer ="[Event Procedure]"
+    OnLoad ="[Event Procedure]"
+    FilterOnLoad =0
+    ShowPageMargins =0
+    AllowLayoutView =0
+    DatasheetGridlinesColor12 =12632256
+    Begin
+        Begin Label
+            BackStyle =0
+            FontName ="Tahoma"
+        End
+        Begin Line
+            BorderLineStyle =0
+            Width =1701
+        End
+        Begin CommandButton
+            Width =1701
+            Height =283
+            FontSize =8
+            FontWeight =400
+            ForeColor =-2147483630
+            FontName ="Tahoma"
+            BorderLineStyle =0
+        End
+        Begin OptionButton
+            SpecialEffect =2
+            BorderLineStyle =0
+            LabelX =230
+            LabelY =-30
+        End
+        Begin CheckBox
+            SpecialEffect =2
+            BorderLineStyle =0
+            LabelX =230
+            LabelY =-30
+        End
+        Begin OptionGroup
+            SpecialEffect =3
+            BorderLineStyle =0
+            Width =1701
+            Height =1701
+        End
+        Begin TextBox
+            FELineBreak = NotDefault
+            SpecialEffect =2
+            OldBorderStyle =0
+            BorderLineStyle =0
+            Width =1701
+            LabelX =-1701
+            FontName ="Tahoma"
+            AsianLineBreak =255
+        End
+        Begin ListBox
+            SpecialEffect =2
+            BorderLineStyle =0
+            Width =1701
+            Height =1417
+            LabelX =-1701
+            FontName ="Tahoma"
+        End
+        Begin ComboBox
+            BorderLineStyle =0
+            Width =1701
+            LabelX =-1701
+            FontSize =11
+            BorderColor =12632256
+            FontName ="Calibri"
+            AllowValueListEdits =1
+            InheritValueList =1
+        End
+        Begin Subform
+            SpecialEffect =2
+            BorderLineStyle =0
+            Width =1701
+            Height =1701
+        End
+        Begin Tab
+            Width =5100
+            Height =3420
+            FontName ="Tahoma"
+            BorderLineStyle =0
+        End
+        Begin Page
+            Width =1701
+            Height =1701
+        End
+        Begin Section
+            CanGrow = NotDefault
+            Height =6406
+            BackColor =-2147483633
+            Name ="Detailbereich"
+            Begin
+                Begin Tab
+                    OverlapFlags =85
+                    BackStyle =0
+                    Left =60
+                    Top =90
+                    Width =9120
+                    Height =6240
+                    Name ="tabLinkTables"
+                    OnChange ="[Event Procedure]"
+                    HorizontalAnchor =2
+                    VerticalAnchor =2
+
+                    Begin
+                        Begin Page
+                            OverlapFlags =87
+                            AccessKey =85
+                            Left =158
+                            Top =450
+                            Width =8940
+                            Height =5768
+                            Name ="tcpRefresh"
+                            Tag ="LANG:"
+                            Caption ="&Update existing linked tables"
+                            UnicodeAccessKey =85
+                            Begin
+                                Begin CheckBox
+                                    OverlapFlags =215
+                                    Left =5839
+                                    Top =737
+                                    Width =275
+                                    Name ="cbSelectAll"
+                                    AfterUpdate ="[Event Procedure]"
+                                    DefaultValue ="-1"
+                                    HorizontalAnchor =1
+
+                                    Begin
+                                        Begin Label
+                                            OverlapFlags =247
+                                            Left =6075
+                                            Top =705
+                                            Width =2925
+                                            Height =240
+                                            Name ="labSelectAll"
+                                            Caption ="all linked tables/queries"
+                                            Tag ="LANG:"
+                                            HorizontalAnchor =1
+                                        End
+                                    End
+                                End
+                                Begin ComboBox
+                                    LimitToList = NotDefault
+                                    Enabled = NotDefault
+                                    RowSourceTypeInt =1
+                                    OverlapFlags =215
+                                    IMESentenceMode =3
+                                    ColumnCount =2
+                                    ListRows =3
+                                    Left =2271
+                                    Top =572
+                                    Width =1986
+                                    FontSize =8
+                                    TabIndex =1
+                                    Name ="cbxFilterObjectType"
+                                    RowSourceType ="Value List"
+                                    RowSource ="3;\"(alle)\";1;\"Tabellen/Sichten\";2;\"Pass-Thorugh-Abfragen\""
+                                    ColumnWidths ="0;2268"
+                                    DefaultValue ="3"
+                                    FontName ="Tahoma"
+                                    OnKeyDown ="[Event Procedure]"
+
+                                    Begin
+                                        Begin Label
+                                            OverlapFlags =215
+                                            Left =1590
+                                            Top =572
+                                            Width =675
+                                            Height =240
+                                            Name ="Bezeichnungsfeld33"
+                                            Caption ="Type:"
+                                            Tag ="LANG:"
+                                        End
+                                    End
+                                End
+                                Begin TextBox
+                                    Enabled = NotDefault
+                                    OverlapFlags =215
+                                    IMESentenceMode =3
+                                    Left =2271
+                                    Top =855
+                                    Width =1986
+                                    TabIndex =2
+                                    Name ="txtFilterObjectName"
+                                    OnKeyDown ="[Event Procedure]"
+                                    HorizontalAnchor =2
+
+                                    Begin
+                                        Begin Label
+                                            OverlapFlags =223
+                                            Left =1590
+                                            Top =855
+                                            Width =675
+                                            Height =240
+                                            Name ="Bezeichnungsfeld31"
+                                            Caption ="Name:"
+                                        End
+                                    End
+                                End
+                                Begin CommandButton
+                                    Enabled = NotDefault
+                                    OverlapFlags =215
+                                    AccessKey =70
+                                    Left =4365
+                                    Top =585
+                                    Width =1200
+                                    Height =525
+                                    TabIndex =3
+                                    Name ="cmdUseFilter"
+                                    Caption ="Apply &Filter"
+                                    OnClick ="[Event Procedure]"
+                                    Tag ="LANG:"
+                                    UnicodeAccessKey =70
+                                    HorizontalAnchor =1
+
+                                End
+                                Begin CommandButton
+                                    OverlapFlags =215
+                                    Left =5725
+                                    Top =1190
+                                    Width =3285
+                                    Height =405
+                                    TabIndex =4
+                                    Name ="cmdReconnect"
+                                    Caption ="Update linked tables"
+                                    OnClick ="[Event Procedure]"
+                                    Tag ="LANG:"
+                                    HorizontalAnchor =1
+
+                                End
+                                Begin ListBox
+                                    ColumnHeads = NotDefault
+                                    Enabled = NotDefault
+                                    OverlapFlags =247
+                                    MultiSelect =2
+                                    IMESentenceMode =3
+                                    ColumnCount =3
+                                    Left =225
+                                    Top =1200
+                                    Width =5325
+                                    Height =4987
+                                    TabIndex =5
+                                    BoundColumn =1
+                                    Name ="lstLinkedTabNames"
+                                    RowSourceType ="Table/Query"
+                                    ColumnWidths ="226;2608;2268"
+                                    HorizontalAnchor =2
+                                    VerticalAnchor =2
+
+                                End
+                                Begin Label
+                                    OverlapFlags =215
+                                    Left =210
+                                    Top =540
+                                    Width =1305
+                                    Height =285
+                                    FontSize =10
+                                    FontWeight =700
+                                    ForeColor =14602694
+                                    Name ="labFilter"
+                                    Caption ="Filter list"
+                                    Tag ="LANG:"
+                                End
+                                Begin CommandButton
+                                    OverlapFlags =215
+                                    AccessKey =82
+                                    Left =5725
+                                    Top =1814
+                                    Width =3285
+                                    Height =405
+                                    TabIndex =6
+                                    Name ="cmdDeleteLinkedTables"
+                                    Caption ="&Remove linked tables"
+                                    OnClick ="[Event Procedure]"
+                                    Tag ="LANG:"
+                                    UnicodeAccessKey =82
+                                    HorizontalAnchor =1
+
+                                End
+                                Begin TextBox
+                                    SpecialEffect =0
+                                    OldBorderStyle =1
+                                    OverlapFlags =215
+                                    TextAlign =2
+                                    BackStyle =0
+                                    IMESentenceMode =3
+                                    Left =5727
+                                    Top =2437
+                                    Width =516
+                                    TabIndex =7
+                                    BackColor =-2147483633
+                                    BorderColor =8421504
+                                    Name ="txtObjectCounter"
+                                    HorizontalAnchor =1
+
+                                    Begin
+                                        Begin Label
+                                            OverlapFlags =215
+                                            TextAlign =1
+                                            Left =6299
+                                            Top =2437
+                                            Width =2700
+                                            Height =240
+                                            Name ="labObjectCounter"
+                                            Caption ="Tables/queries were linked"
+                                            Tag ="LANG:"
+                                            HorizontalAnchor =1
+                                        End
+                                    End
+                                End
+                                Begin TextBox
+                                    SpecialEffect =0
+                                    OverlapFlags =215
+                                    TextAlign =1
+                                    BackStyle =0
+                                    IMESentenceMode =3
+                                    Left =5725
+                                    Top =3004
+                                    Width =3276
+                                    Height =435
+                                    TabIndex =8
+                                    BackColor =-2147483633
+                                    BorderColor =8421504
+                                    Name ="txtLastObjectName"
+                                    HorizontalAnchor =1
+
+                                    Begin
+                                        Begin Label
+                                            OverlapFlags =223
+                                            TextAlign =1
+                                            Left =5725
+                                            Top =2777
+                                            Width =1365
+                                            Height =240
+                                            Name ="labLastObjectName"
+                                            Caption ="last linked:"
+                                            Tag ="LANG:"
+                                            HorizontalAnchor =1
+                                        End
+                                    End
+                                End
+                                Begin Label
+                                    Visible = NotDefault
+                                    BackStyle =1
+                                    OverlapFlags =215
+                                    TextAlign =2
+                                    Left =5784
+                                    Top =3685
+                                    Width =3210
+                                    Height =907
+                                    FontSize =12
+                                    TopMargin =170
+                                    BackColor =10092543
+                                    ForeColor =10027008
+                                    Name ="labCompletionInfo"
+                                    Caption ="Linking completed"
+                                    FontName ="Verdana"
+                                    Tag ="LANG:"
+                                    HorizontalAnchor =1
+                                End
+                            End
+                        End
+                        Begin Page
+                            OverlapFlags =247
+                            AccessKey =78
+                            Left =158
+                            Top =450
+                            Width =8940
+                            Height =5768
+                            Name ="tcpNew"
+                            Tag ="LANG:"
+                            Caption ="Create &new linked tables"
+                            UnicodeAccessKey =110
+                            Begin
+                                Begin OptionGroup
+                                    OverlapFlags =247
+                                    Left =275
+                                    Top =580
+                                    Width =3479
+                                    Height =906
+                                    Name ="ogLinkMode"
+                                    AfterUpdate ="[Event Procedure]"
+                                    DefaultValue ="0"
+
+                                    Begin
+                                        Begin OptionButton
+                                            OverlapFlags =247
+                                            AccessKey =77
+                                            Left =445
+                                            Top =750
+                                            OptionValue =1
+                                            Name ="ogLinkModeOpt1"
+                                            UnicodeAccessKey =109
+
+                                            Begin
+                                                Begin Label
+                                                    OverlapFlags =247
+                                                    Left =675
+                                                    Top =720
+                                                    Width =2850
+                                                    Height =240
+                                                    Name ="Bezeichnungsfeld8"
+                                                    Caption ="Select table/view &manually"
+                                                    Tag ="LANG:"
+                                                End
+                                            End
+                                        End
+                                        Begin OptionButton
+                                            OverlapFlags =247
+                                            AccessKey =68
+                                            Left =453
+                                            Top =1110
+                                            TabIndex =1
+                                            OptionValue =2
+                                            Name ="ogLinkModeOpt2"
+                                            UnicodeAccessKey =100
+
+                                            Begin
+                                                Begin Label
+                                                    OverlapFlags =247
+                                                    Left =690
+                                                    Top =1080
+                                                    Width =2835
+                                                    Height =240
+                                                    Name ="Bezeichnungsfeld4"
+                                                    Caption ="Show tables from &database"
+                                                    Tag ="LANG:"
+                                                End
+                                            End
+                                        End
+                                    End
+                                End
+                                Begin CommandButton
+                                    OverlapFlags =247
+                                    AccessKey =76
+                                    Left =7086
+                                    Top =1587
+                                    Width =1920
+                                    Height =405
+                                    TabIndex =1
+                                    Name ="cmdLinkTables"
+                                    Caption ="&Link table(s)"
+                                    OnClick ="[Event Procedure]"
+                                    Tag ="LANG:"
+                                    UnicodeAccessKey =76
+                                    HorizontalAnchor =1
+
+                                End
+                                Begin TextBox
+                                    Enabled = NotDefault
+                                    OverlapFlags =247
+                                    IMESentenceMode =3
+                                    Left =3855
+                                    Top =1190
+                                    Width =3081
+                                    Height =255
+                                    TabIndex =2
+                                    Name ="txtTabName"
+                                    HorizontalAnchor =2
+
+                                    Begin
+                                        Begin Label
+                                            OverlapFlags =247
+                                            Left =3855
+                                            Top =907
+                                            Width =1125
+                                            Height =240
+                                            Name ="Bezeichnungsfeld25"
+                                            Caption ="Name:"
+                                        End
+                                    End
+                                End
+                                Begin ListBox
+                                    ColumnHeads = NotDefault
+                                    Enabled = NotDefault
+                                    OverlapFlags =247
+                                    MultiSelect =2
+                                    IMESentenceMode =3
+                                    ColumnCount =3
+                                    Left =283
+                                    Top =1590
+                                    Width =6645
+                                    Height =4597
+                                    TabIndex =3
+                                    Name ="lstTabNames"
+                                    RowSourceType ="Table/Query"
+                                    RowSource ="SELECT NULL AS TABLE_NAME, NULL AS TABLE_SCHEMA FROM tab1DS WHERE 1=0; "
+                                    ColumnWidths ="0;1419;3629"
+                                    HorizontalAnchor =2
+                                    VerticalAnchor =2
+
+                                End
+                                Begin TextBox
+                                    OverlapFlags =247
+                                    IMESentenceMode =3
+                                    Left =7095
+                                    Top =2938
+                                    Width =1926
+                                    Height =255
+                                    TabIndex =4
+                                    Name ="txtFiltSchema"
+                                    AfterUpdate ="[Event Procedure]"
+                                    HorizontalAnchor =1
+
+                                    Begin
+                                        Begin Label
+                                            OverlapFlags =247
+                                            Left =7095
+                                            Top =2655
+                                            Width =1920
+                                            Height =240
+                                            Name ="labFiltSchema"
+                                            Caption ="Schema:"
+                                            HorizontalAnchor =1
+                                        End
+                                    End
+                                End
+                                Begin TextBox
+                                    OverlapFlags =247
+                                    IMESentenceMode =3
+                                    Left =7086
+                                    Top =3571
+                                    Width =1926
+                                    Height =255
+                                    TabIndex =5
+                                    Name ="txtFiltTabname"
+                                    AfterUpdate ="[Event Procedure]"
+                                    HorizontalAnchor =1
+
+                                    Begin
+                                        Begin Label
+                                            OverlapFlags =247
+                                            Left =7086
+                                            Top =3288
+                                            Width =1920
+                                            Height =240
+                                            Name ="labFiltTabname"
+                                            Caption ="Name:"
+                                            HorizontalAnchor =1
+                                        End
+                                    End
+                                End
+                                Begin Label
+                                    OverlapFlags =247
+                                    Left =7080
+                                    Top =2325
+                                    Width =675
+                                    Height =285
+                                    FontSize =10
+                                    FontWeight =700
+                                    Name ="labDbmsTabFilter"
+                                    Caption ="Filter:"
+                                End
+                            End
+                        End
+                    End
+                End
+            End
+        End
+    End
+End
+CodeBehindForm
+' See "frmConfig_LinkTables.cls"
