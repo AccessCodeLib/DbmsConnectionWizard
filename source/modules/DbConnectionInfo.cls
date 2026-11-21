@@ -16,7 +16,7 @@ Attribute VB_Exposed = False
 '     Josef Poetzl
 '
 ' Remarks:
-'     Uses table usys_DbmsConnection (create table with DBMS Connection Wizard)
+'     Uses table usys_DbmsConnection (create table with ACLib DBMS Connection Wizard)
 '
 '---------------------------------------------------------------------------------------
 

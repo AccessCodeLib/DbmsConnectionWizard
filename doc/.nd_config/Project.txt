@@ -84,7 +84,7 @@ Encoding: iso-8859-1
 # Source Code
 # ------------------------------------------------------------------------
 
-Source Folder: ..\..\source\codelib\data
+Source Folder: ..\..\source\modules
 
 
 # This is where you tell Natural Docs which folders it should scan for source

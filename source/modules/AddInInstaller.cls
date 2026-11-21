@@ -30,6 +30,9 @@ Attribute VB_Exposed = False
 Option Compare Database
 Option Explicit
 
+Private Const ObsoleteMenuAddInSubKey As String = "Menu Add-Ins\DBMS-Connection-Wizard"
+Private Const RegistryKeyNotFoundError As Long = &H80070002
+
 Private m_ConfigData As AddInConfiguration
 
 Public Function InstallAddIn(ByVal AddInConfigData As AddInConfiguration, _
@@ -58,6 +61,7 @@ Public Function InstallAddIn(ByVal AddInConfigData As AddInConfiguration, _
    End If
 
    If AddInFileInstalled = True Then
+      RemoveObsoleteMenuAddInRegistration
       RegisterAddIn GetDestFileFullName()
    End If
 
@@ -181,6 +185,27 @@ Private Function RegisterAddIn(AddInFile)
    AddInDb.Close
 
 End Function
+
+' Menu entry used before the wizard was renamed to ACLib DBMS Connection Wizard.
+' It is removed on install, otherwise updated installations would show two entries.
+Private Sub RemoveObsoleteMenuAddInRegistration()
+
+    Dim RegKeyPath As String
+
+    ' trailing backslash: RegDelete removes the key (not a value)
+    RegKeyPath = HkeyCurrentAccessProfileRegistryPath() & "\" & ObsoleteMenuAddInSubKey & "\"
+
+    On Error GoTo HandleError
+    CreateObject("WScript.Shell").RegDelete RegKeyPath
+    Exit Sub
+
+HandleError:
+    ' key does not exist (e.g. first installation): nothing to remove
+    If Err.Number <> RegistryKeyNotFoundError Then
+        Err.Raise Err.Number, Err.Source, Err.Description
+    End If
+
+End Sub
 
 Private Function RegisterMenuAddInItem(wsh, ByVal SubKey, ByVal ItemValName, ByVal RegType, ByVal ItemValue)
     Dim RegName

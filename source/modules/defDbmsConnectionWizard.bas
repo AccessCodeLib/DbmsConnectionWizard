@@ -14,7 +14,7 @@ Option Explicit
 Option Private Module
 
 Public Const DCW_AppName As String = "DbmsConnectionWizard"
-Public Const DCW_AppFullName As String = "DBMS Connection Wizard"
+Public Const DCW_AppFullName As String = "ACLib DBMS Connection Wizard"
 Public Const DCW_Version As String = "1.5.0"
 Public Const DCW_VersionDate As String = "2026-11-21"
 

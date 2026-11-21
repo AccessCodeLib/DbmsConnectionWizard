@@ -132,7 +132,7 @@ Trotzdem neu einlesen?</LngText>
   <L10n_Dict>
     <LangCode>DE</LangCode>
     <KeyText>DBMS Connection Wizard: Configure DBMS Connection</KeyText>
-    <LngText>DBMS-Connection-Wizard: DBMS-Verbindung konfigurieren</LngText>
+    <LngText>ACLib-DBMS-Connection-Wizard: DBMS-Verbindung konfigurieren</LngText>
   </L10n_Dict>
   <L10n_Dict>
     <LangCode>DE</LangCode>
@@ -540,7 +540,7 @@ Trotzdem neu einlesen?</LngText>
   <L10n_Dict>
     <LangCode>EN</LangCode>
     <KeyText>DBMS Connection Wizard: Configure DBMS Connection</KeyText>
-    <LngText>DBMS Connection Wizard: Configure DBMS Connection</LngText>
+    <LngText>ACLib DBMS Connection Wizard: Configure DBMS Connection</LngText>
   </L10n_Dict>
   <L10n_Dict>
     <LangCode>EN</LangCode>

@@ -20,7 +20,7 @@
         },
         "Title": {
           "Type": 10,
-          "Value": "DBMS Connection Wizard"
+          "Value": "ACLib DBMS Connection Wizard"
         }
       },
       "UserDefined": {
