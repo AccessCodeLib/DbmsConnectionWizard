@@ -1,0 +1,21 @@
+﻿CREATE TABLE [usys_DbmsConnection] (
+  [CID] VARCHAR (20) CONSTRAINT [PK_usys_DbmsConnection] PRIMARY KEY UNIQUE NOT NULL,
+  [ActiveConnection] BIT,
+  [DBMS] VARCHAR (20),
+  [dbmsConnectionMode] BYTE,
+  [dbmsOleDbProvider] VARCHAR (255),
+  [dbmsOdbcDriver] VARCHAR (255),
+  [dbmsServer] VARCHAR (255),
+  [dbmsPort] VARCHAR (20),
+  [dbmsDatabase] VARCHAR (255),
+  [dbmsUseTrustedConnection] BIT,
+  [dbmsUseLoginForm] BIT,
+  [dbmsUser] VARCHAR (255),
+  [dbmsPwd] VARCHAR (255),
+  [dbmsOptionsODBC] VARCHAR (255),
+  [dbmsOptionsOLEDB] VARCHAR (255),
+  [dbmsDSN] VARCHAR (255),
+  [dbmsConStrODBC] VARCHAR (255),
+  [dbmsConStrOLEDB] VARCHAR (255),
+  [Remarks] LONGTEXT
+)

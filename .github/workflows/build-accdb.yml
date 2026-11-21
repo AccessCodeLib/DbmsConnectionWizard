@@ -1,0 +1,53 @@
+name: Build-accdb (on push, pull)
+
+on:
+  push:
+    branches:
+      - main
+      - feature/**
+      - bugfix/**
+    paths:
+      - 'source/**'
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  id-token: write
+  attestations: write
+
+jobs:
+  build:
+    runs-on: [self-hosted, Windows, Office]
+
+    steps:
+    - name: "Checkout code for release tag"
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event.release.tag_name }}
+
+    - name: "Build Access file (accdb/accde)"
+      id: build_access_file
+      uses: AccessCodeLib/msaccess-vcs-build@main
+      with:
+        vcs-url: ""
+        source-dir: "source"
+        target-dir: "access-add-in"
+        file-name: "DbmsConnectionWizard.accda"
+        app-config: "deployment/AddIn-Config.json"
+      timeout-minutes: 10
+
+    - name: "Upload Build Artifact"
+      uses: actions/upload-artifact@v4
+      id: "upload"
+      with:
+        name: "Install files"
+        path: "./access-add-in/*"
+        if-no-files-found: warn
+    - name: "Attestation"
+      uses: actions/attest-build-provenance@v2
+      with:
+        subject-name: "BInstall files"
+        subject-digest: sha256:${{ steps.upload.outputs.artifact-digest }}
