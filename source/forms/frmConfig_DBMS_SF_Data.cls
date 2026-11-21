@@ -917,7 +917,11 @@ Private Sub RefreshCodeModulesFromSccRepo(ByVal UseDraft As Boolean)
 
    With New ACLibGitHubImporter
 
-      .UseDraftBranch = UseDraft
+      If UseDraft Then
+         .BranchName = "draft"
+      Else
+         .BranchName = "master"
+      End If
 
       If .LastCommit(True) = SccRevMin Then
          If MsgBox("All modules are already up to date." & vbNewLine & _
@@ -952,27 +956,27 @@ End Sub
 
 Private Sub CheckModules()
 
-   Dim checkOk As Boolean
+   Dim CheckOk As Boolean
 
 On Error Resume Next
 
    m_OpenModules = 0
 
    With CodeModulImporter
-      checkOk = .CheckCodeModules("SqlTools", "defDbConnection", "DbConnectionInfo")
-      m_OpenModules = m_OpenModules + 1 + checkOk
-      SetModulCopyControls "CopyModulDbConnectionInfo", checkOk
+      CheckOk = .CheckCodeModules("SqlTools", "defDbConnection", "DbConnectionInfo")
+      m_OpenModules = m_OpenModules + 1 + CheckOk
+      SetModulCopyControls "CopyModulDbConnectionInfo", CheckOk
 
-      checkOk = .CheckCodeModules("AdodbHandler", "DaoHandler", "OdbcHandler", "DbConnectionHandler")
-      m_OpenModules = m_OpenModules + 1 + checkOk
-      SetModulCopyControls "CopyModulDbConnectionHandler", checkOk
+      CheckOk = .CheckCodeModules("AdodbHandler", "DaoHandler", "OdbcHandler", "DbConnectionHandler")
+      m_OpenModules = m_OpenModules + 1 + CheckOk
+      SetModulCopyControls "CopyModulDbConnectionHandler", CheckOk
 
-      checkOk = .CheckCodeModules("DbConnectionSettings", "DbConnectionManager", "modDbConnection")
-      m_OpenModules = m_OpenModules + 1 + checkOk
-      SetModulCopyControls "CopyModulAccUtil", checkOk
+      CheckOk = .CheckCodeModules("DbConnectionSettings", "DbConnectionManager", "modDbConnection")
+      m_OpenModules = m_OpenModules + 1 + CheckOk
+      SetModulCopyControls "CopyModulAccUtil", CheckOk
 
-      checkOk = (m_OpenModules = 0)
-      SetModulCopyControls "CopyModules", checkOk
+      CheckOk = (m_OpenModules = 0)
+      SetModulCopyControls "CopyModules", CheckOk
    End With
 
 End Sub

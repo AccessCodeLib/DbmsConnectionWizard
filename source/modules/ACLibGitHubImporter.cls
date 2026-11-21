@@ -329,13 +329,18 @@ End Function
 
 Sub NormalizeDownloadFile(ByVal InputFile As String)
 
-   Dim TextStreamIn As Scripting.TextStream, TextStreamOut As Scripting.TextStream
+   Dim TextStreamIn As Object 'Scripting.TextStream
+   Dim TextStreamOut As Object 'Scripting.TextStream
    Dim TempFile As String
    Dim TextLine As String
 
+   Const ForReading As Long = 1 ' see lib Scripting
+   Const ForWriting As Long = 2
+   Const TristateUseDefault As Long = -2
+
    TempFile = InputFile & ".temp"
 
-   With New Scripting.FileSystemObject
+   With CreateObject("Scripting.FileSystemObject")
 
       Set TextStreamIn = .OpenTextFile(InputFile, ForReading, False)
       Set TextStreamOut = .OpenTextFile(TempFile, ForWriting, True, TristateUseDefault)
