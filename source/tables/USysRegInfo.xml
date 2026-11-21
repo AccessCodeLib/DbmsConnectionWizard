@@ -1,0 +1,191 @@
+﻿<?xml version="1.0"?>
+<dataroot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Menu Add-Ins\ACLib DBMS Connection Wizard</Subkey>
+    <Type>0</Type>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Menu Add-Ins\ACLib DBMS Connection Wizard</Subkey>
+    <Type>1</Type>
+    <ValName>Expression</ValName>
+    <Value>=StartDbmsConnectionWizard()</Value>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Menu Add-Ins\ACLib DBMS Connection Wizard</Subkey>
+    <Type>1</Type>
+    <ValName>Library</ValName>
+    <Value>|ACCDIR\DbmsConnectionWizard.accda</Value>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Menu Add-Ins\ACLib DBMS Connection Wizard</Subkey>
+    <Type>4</Type>
+    <ValName>BitmapID</ValName>
+    <Value>339</Value>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Menu Add-Ins\ACLib DBMS Connection Wizard</Subkey>
+    <Type>4</Type>
+    <ValName>Version</ValName>
+    <Value>1</Value>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Property Wizards\ODBCConnectStr\DBMS Connectionstring</Subkey>
+    <Type>0</Type>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Property Wizards\ODBCConnectStr\DBMS Connectionstring</Subkey>
+    <Type>1</Type>
+    <ValName>Description</ValName>
+    <Value>Insert ODBC connection string using ACLib DBMS Connection Wizard</Value>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Property Wizards\ODBCConnectStr\DBMS Connectionstring</Subkey>
+    <Type>1</Type>
+    <ValName>Feature</ValName>
+    <Value>DeveloperWizards</Value>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Property Wizards\ODBCConnectStr\DBMS Connectionstring</Subkey>
+    <Type>1</Type>
+    <ValName>Function</ValName>
+    <Value>InsertOdbcConnectionString</Value>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Property Wizards\ODBCConnectStr\DBMS Connectionstring</Subkey>
+    <Type>1</Type>
+    <ValName>Library</ValName>
+    <Value>|ACCDIR\DbmsConnectionWizard.accda</Value>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Property Wizards\ODBCConnectStr\DBMS Connectionstring</Subkey>
+    <Type>4</Type>
+    <ValName>Can Edit</ValName>
+    <Value>1</Value>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Property Wizards\ODBCConnectStr\DBMS Connectionstring</Subkey>
+    <Type>4</Type>
+    <ValName>Version</ValName>
+    <Value>1</Value>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Query Wizards\Create pass-through query</Subkey>
+    <Type>0</Type>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Query Wizards\Create pass-through query</Subkey>
+    <Type>1</Type>
+    <ValName>Description</ValName>
+    <Value>Create pass-through query using ACLib DBMS Connection Wizard</Value>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Query Wizards\Create pass-through query</Subkey>
+    <Type>1</Type>
+    <ValName>Feature</ValName>
+    <Value>DeveloperWizards</Value>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Query Wizards\Create pass-through query</Subkey>
+    <Type>1</Type>
+    <ValName>Function</ValName>
+    <Value>CreatePassThroughQuery</Value>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Query Wizards\Create pass-through query</Subkey>
+    <Type>1</Type>
+    <ValName>Library</ValName>
+    <Value>|ACCDIR\DbmsConnectionWizard.accda</Value>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Query Wizards\Create pass-through query</Subkey>
+    <Type>4</Type>
+    <ValName>BitmapID</ValName>
+    <Value>325</Value>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Query Wizards\Create pass-through query</Subkey>
+    <Type>4</Type>
+    <ValName>Version</ValName>
+    <Value>1</Value>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Query Wizards\Link DBMS tables</Subkey>
+    <Type>0</Type>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Query Wizards\Link DBMS tables</Subkey>
+    <Type>1</Type>
+    <ValName>Description</ValName>
+    <Value>Link tables using ACLib DBMS Connection Wizard</Value>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Query Wizards\Link DBMS tables</Subkey>
+    <Type>1</Type>
+    <ValName>Feature</ValName>
+    <Value>DeveloperWizards</Value>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Query Wizards\Link DBMS tables</Subkey>
+    <Type>1</Type>
+    <ValName>Function</ValName>
+    <Value>StartDbmsConnectionLinkTableWizard</Value>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Query Wizards\Link DBMS tables</Subkey>
+    <Type>1</Type>
+    <ValName>Library</ValName>
+    <Value>|ACCDIR\DbmsConnectionWizard.accda</Value>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Query Wizards\Link DBMS tables</Subkey>
+    <Type>4</Type>
+    <ValName>BitmapID</ValName>
+    <Value>339</Value>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Query Wizards\Link DBMS tables</Subkey>
+    <Type>4</Type>
+    <ValName>Version</ValName>
+    <Value>1</Value>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Table Wizards\Link DBMS tables</Subkey>
+    <Type>0</Type>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Table Wizards\Link DBMS tables</Subkey>
+    <Type>1</Type>
+    <ValName>Description</ValName>
+    <Value>Link tables using ACLib DBMS Connection Wizard</Value>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Table Wizards\Link DBMS tables</Subkey>
+    <Type>1</Type>
+    <ValName>Feature</ValName>
+    <Value>DeveloperWizards</Value>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Table Wizards\Link DBMS tables</Subkey>
+    <Type>1</Type>
+    <ValName>Function</ValName>
+    <Value>StartDbmsConnectionLinkTableWizard</Value>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Table Wizards\Link DBMS tables</Subkey>
+    <Type>1</Type>
+    <ValName>Library</ValName>
+    <Value>|ACCDIR\DbmsConnectionWizard.accda</Value>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Table Wizards\Link DBMS tables</Subkey>
+    <Type>4</Type>
+    <ValName>BitmapID</ValName>
+    <Value>339</Value>
+  </USysRegInfo>
+  <USysRegInfo>
+    <Subkey>HKEY_CURRENT_ACCESS_PROFILE\Wizards\Table Wizards\Link DBMS tables</Subkey>
+    <Type>4</Type>
+    <ValName>Version</ValName>
+    <Value>1</Value>
+  </USysRegInfo>
+</dataroot>
