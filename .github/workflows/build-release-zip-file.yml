@@ -33,7 +33,7 @@ jobs:
     - name: "Create versioned ZIP file"
       run: |
         $zipName = "DbmsConnectionWizard_${{ github.event.release.tag_name }}.zip"
-        Compress-Archive -Path .\access-add-in\* -DestinationPath $zipName
+        Compress-Archive -Path .\access-add-in\DbmsConnectionWizard.accda -DestinationPath $zipName
         echo "ZIP_NAME=$zipName" | Out-File -FilePath $env:GITHUB_ENV -Append
 
     - name: "Upload ZIP to GitHub Release"
