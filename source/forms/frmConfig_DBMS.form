@@ -29,7 +29,7 @@ Begin Form
     RecSrcDt = Begin
         0xdc0c5e0e39c2e240
     End
-    Caption ="DBMS-Connection-Wizard: DBMS-Verbindung konfigurieren"
+    Caption ="ACLib-DBMS-Connection-Wizard: DBMS-Verbindung konfigurieren"
     OnCurrent ="[Event Procedure]"
     OnOpen ="[Event Procedure]"
     DatasheetFontName ="Arial"

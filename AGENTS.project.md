@@ -1,5 +1,5 @@
 ## Project specifics
-- Access add-in "DBMS Connection Wizard": configures a DBMS connection and imports the
+- Access add-in "ACLib DBMS Connection Wizard": configures a DBMS connection and imports the
   ACLib DbConnection framework into the target database.
 - `source\` (msaccess-vcs-addin export) is the single source of truth; binary files
   (`.accdb`, `.accda`) are not edited as source and are not committed.

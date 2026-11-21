@@ -221,7 +221,7 @@ Applies to standard modules (`.bas`), class modules and code-behind (`.cls`), an
 - Do not restructure existing code unasked. In code you touch for another reason, apply these rules to the new and changed parts; report further findings instead of fixing them.
 
 ## Project specifics
-- Access add-in "DBMS Connection Wizard": configures a DBMS connection and imports the
+- Access add-in "ACLib DBMS Connection Wizard": configures a DBMS connection and imports the
   ACLib DbConnection framework into the target database.
 - `source\` (msaccess-vcs-addin export) is the single source of truth; binary files
   (`.accdb`, `.accda`) are not edited as source and are not committed.
