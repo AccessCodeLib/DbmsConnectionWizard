@@ -258,7 +258,7 @@
               <od:fieldProperty name="Description" type="10" value="Windowsanmeldung verwenden (z.B. bei SQL-Server)"></od:fieldProperty>
               <od:fieldProperty name="DisplayControl" type="3" value="106"></od:fieldProperty>
               <od:fieldProperty name="Format" type="10" value="Yes/No"></od:fieldProperty>
-              <od:fieldProperty name="Required" type="1" value="0"></od:fieldProperty>
+              <od:fieldProperty name="Required" type="1" value="1"></od:fieldProperty>
               <od:fieldProperty name="ResultType" type="2" value="0"></od:fieldProperty>
               <od:fieldProperty name="TextAlign" type="2" value="0"></od:fieldProperty>
             </xsd:appinfo>
@@ -276,7 +276,7 @@
               <od:fieldProperty name="Description" type="10" value="Statt fixen Usereintrag die Anmeldedaten beim Verbindungsaufbau abfragen"></od:fieldProperty>
               <od:fieldProperty name="DisplayControl" type="3" value="106"></od:fieldProperty>
               <od:fieldProperty name="Format" type="10" value="Yes/No"></od:fieldProperty>
-              <od:fieldProperty name="Required" type="1" value="0"></od:fieldProperty>
+              <od:fieldProperty name="Required" type="1" value="1"></od:fieldProperty>
               <od:fieldProperty name="ResultType" type="2" value="0"></od:fieldProperty>
               <od:fieldProperty name="TextAlign" type="2" value="0"></od:fieldProperty>
             </xsd:appinfo>
