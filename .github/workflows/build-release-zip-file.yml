@@ -23,7 +23,7 @@ jobs:
       id: build_access_file
       uses: AccessCodeLib/msaccess-vcs-build@main
       with:
-        vcs-url: ""
+        vcs-url: "https://api.github.com/repos/joyfullservice/msaccess-vcs-addin/releases/latest"
         source-dir: "source"
         target-dir: "access-add-in"
         file-name: "DbmsConnectionWizard.accda"
